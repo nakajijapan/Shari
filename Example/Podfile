@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'Shari_Example', :exclusive => true do
+  pod "Shari", :path => "../"
+end
+
+target 'Shari_Tests', :exclusive => true do
+  pod "Shari", :path => "../"
+
+  pod 'FBSnapshotTestCase'
+end

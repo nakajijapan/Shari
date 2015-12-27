@@ -17,7 +17,22 @@
 		9FCA244273F89132706F36F1 /* Pods_Shari_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CD75A2CBCF2221DD697290 /* Pods_Shari_Tests.framework */; };
 		DC08157A1C28E4E100E8EA3B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0815781C28E4E100E8EA3B /* DetailViewController.swift */; };
 		DC08157B1C28E4E100E8EA3B /* ModalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0815791C28E4E100E8EA3B /* ModalTableViewController.swift */; };
+		DC9E67C41C2FDC020095C3AB /* Shari.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9E67C31C2FDC020095C3AB /* Shari.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC9E67C81C2FDC020095C3AB /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E67C11C2FDC020095C3AB /* Shari.framework */; };
+		DC9E67C91C2FDC020095C3AB /* Shari.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E67C11C2FDC020095C3AB /* Shari.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		DC9E67CE1C2FDC2B0095C3AB /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.xcode.tools.swift.compiler;
+			fileType = sourcecode.swift;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# $(SWIFT_EXEC)\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
@@ -27,7 +42,28 @@
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
 			remoteInfo = Shari;
 		};
+		DC9E67C61C2FDC020095C3AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC9E67C01C2FDC020095C3AB;
+			remoteInfo = Shari;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DC9E67CD1C2FDC020095C3AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DC9E67C91C2FDC020095C3AB /* Shari.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		101B629587F84C60DC425238 /* Pods-Shari_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shari_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shari_Example/Pods-Shari_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +84,9 @@
 		B9E213911562F43B2D59FF42 /* Pods-Shari_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shari_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shari_Tests/Pods-Shari_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC0815781C28E4E100E8EA3B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DC0815791C28E4E100E8EA3B /* ModalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
+		DC9E67C11C2FDC020095C3AB /* Shari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC9E67C31C2FDC020095C3AB /* Shari.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shari.h; sourceTree = "<group>"; };
+		DC9E67C51C2FDC020095C3AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1F6B53A8303C8E5E5359034 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EE058F9D640F7C2690A7FB9A /* Pods_Shari_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shari_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7CD75A2CBCF2221DD697290 /* Pods_Shari_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shari_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC9E67C81C2FDC020095C3AB /* Shari.framework in Frameworks */,
 				3BE5AC3CE0A7A6FE60654B5A /* Pods_Shari_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +107,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FCA244273F89132706F36F1 /* Pods_Shari_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9E67BD1C2FDC020095C3AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +137,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Shari */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				DC9E67C21C2FDC020095C3AB /* Shari */,
 				607FACD11AFB9204008FA782 /* Products */,
 				04F79DCB3DAF1E196961D026 /* Pods */,
 				B2D4559431AA1B9D3CCFF5BF /* Frameworks */,
@@ -101,6 +149,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* Shari_Example.app */,
 				607FACE51AFB9204008FA782 /* Shari_Tests.xctest */,
+				DC9E67C11C2FDC020095C3AB /* Shari.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,7 +214,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC9E67C21C2FDC020095C3AB /* Shari */ = {
+			isa = PBXGroup;
+			children = (
+				DC9E67C31C2FDC020095C3AB /* Shari.h */,
+				DC9E67C51C2FDC020095C3AB /* Info.plist */,
+			);
+			path = Shari;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DC9E67BE1C2FDC020095C3AB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC9E67C41C2FDC020095C3AB /* Shari.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		607FACCF1AFB9204008FA782 /* Shari_Example */ = {
@@ -178,10 +247,12 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				B37EA4CD52FA38AD87C24EB8 /* Embed Pods Frameworks */,
 				80407F78B83E30950C63EF2A /* Copy Pods Resources */,
+				DC9E67CD1C2FDC020095C3AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DC9E67C71C2FDC020095C3AB /* PBXTargetDependency */,
 			);
 			name = Shari_Example;
 			productName = Shari;
@@ -209,6 +280,25 @@
 			productReference = 607FACE51AFB9204008FA782 /* Shari_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DC9E67C01C2FDC020095C3AB /* Shari */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC9E67CC1C2FDC020095C3AB /* Build configuration list for PBXNativeTarget "Shari" */;
+			buildPhases = (
+				DC9E67BC1C2FDC020095C3AB /* Sources */,
+				DC9E67BD1C2FDC020095C3AB /* Frameworks */,
+				DC9E67BE1C2FDC020095C3AB /* Headers */,
+				DC9E67BF1C2FDC020095C3AB /* Resources */,
+			);
+			buildRules = (
+				DC9E67CE1C2FDC2B0095C3AB /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = Shari;
+			productName = Shari;
+			productReference = DC9E67C11C2FDC020095C3AB /* Shari.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -225,6 +315,9 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					DC9E67C01C2FDC020095C3AB = {
+						CreatedOnToolsVersion = 7.2;
 					};
 				};
 			};
@@ -243,6 +336,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* Shari_Example */,
 				607FACE41AFB9204008FA782 /* Shari_Tests */,
+				DC9E67C01C2FDC020095C3AB /* Shari */,
 			);
 		};
 /* End PBXProject section */
@@ -259,6 +353,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9E67BF1C2FDC020095C3AB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -380,6 +481,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC9E67BC1C2FDC020095C3AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -387,6 +495,11 @@
 			isa = PBXTargetDependency;
 			target = 607FACCF1AFB9204008FA782 /* Shari_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+		DC9E67C71C2FDC020095C3AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC9E67C01C2FDC020095C3AB /* Shari */;
+			targetProxy = DC9E67C61C2FDC020095C3AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -556,6 +669,49 @@
 			};
 			name = Release;
 		};
+		DC9E67CA1C2FDC020095C3AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Shari/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.nakajijapan.Shari;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DC9E67CB1C2FDC020095C3AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Shari/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.nakajijapan.Shari;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,6 +741,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		DC9E67CC1C2FDC020095C3AB /* Build configuration list for PBXNativeTarget "Shari" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC9E67CA1C2FDC020095C3AB /* Debug */,
+				DC9E67CB1C2FDC020095C3AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

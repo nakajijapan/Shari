@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Shari-Demo.xcodeproj">
+      location = "group:Shari.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Shari.xcodeproj">
+      location = "group:Shari-Demo.xcodeproj">
    </FileRef>
 </Workspace>

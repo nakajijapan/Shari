@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7AC4894140808874F03FA00C'
+               BlueprintIdentifier = '25607873228A1C1F30FCE437'
                BlueprintName = 'Shari'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Shari.framework'>

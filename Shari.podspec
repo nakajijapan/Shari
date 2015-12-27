@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Shari"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "Shari is the alternative to the library of drum roll in Swift. Inspired Etsy."
 
   s.homepage         = "https://github.com/nakajijapan/Shari"

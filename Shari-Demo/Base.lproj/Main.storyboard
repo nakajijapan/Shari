@@ -9,7 +9,7 @@
         <!--Root View Controller-->
         <scene sceneID="Dm8-Wh-N10">
             <objects>
-                <tableViewController id="W4w-Bx-9xf" customClass="ViewController" customModule="Shari_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="W4w-Bx-9xf" customClass="ViewController" customModule="Shari_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9ET-qR-Wu5">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
         <!--Detail View Controller-->
         <scene sceneID="Z6T-hL-iNp">
             <objects>
-                <viewController id="Ol8-ai-05K" customClass="DetailViewController" customModule="Shari_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ol8-ai-05K" customClass="DetailViewController" customModule="Shari_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jdt-A6-hKk"/>
                         <viewControllerLayoutGuide type="bottom" id="ZEw-5e-Vkb"/>
@@ -82,7 +82,7 @@
         <!--modal-->
         <scene sceneID="kuQ-pM-A7g">
             <objects>
-                <tableViewController storyboardIdentifier="ModalTableViewController" id="6iZ-sq-J3f" customClass="ModalTableViewController" customModule="Shari_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ModalTableViewController" id="6iZ-sq-J3f" customClass="ModalTableViewController" customModule="Shari_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zf3-V6-stU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

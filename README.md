@@ -33,8 +33,7 @@ Then, run the following code:
 $ pod install
 ```
 
-
-### Carthage
+## Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager for Cocoa application. 
 

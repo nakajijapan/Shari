@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		DC9E68391C30084C0095C3AB /* Shari.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9E68381C30084C0095C3AB /* Shari.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC9E68541C300B870095C3AB /* ModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E682E1C30081E0095C3AB /* ModalAnimator.swift */; };
-		DC9E68551C300B870095C3AB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E682F1C30081E0095C3AB /* NavigationController.swift */; };
-		DC9E68561C300B870095C3AB /* Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68301C30081E0095C3AB /* Shari.swift */; };
-		DC9E68571C300B870095C3AB /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68311C30081E0095C3AB /* UINavigationController.swift */; };
+		DC9E68661C300D260095C3AB /* ModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68601C300D260095C3AB /* ModalAnimator.swift */; };
+		DC9E68671C300D260095C3AB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68611C300D260095C3AB /* NavigationController.swift */; };
+		DC9E68681C300D260095C3AB /* Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68621C300D260095C3AB /* Shari.swift */; };
+		DC9E68691C300D260095C3AB /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68631C300D260095C3AB /* UINavigationController.swift */; };
+		DC9E68701C300DE50095C3AB /* ModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68601C300D260095C3AB /* ModalAnimator.swift */; };
+		DC9E68711C300DE50095C3AB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68611C300D260095C3AB /* NavigationController.swift */; };
+		DC9E68721C300DE50095C3AB /* Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68621C300D260095C3AB /* Shari.swift */; };
+		DC9E68731C300DE50095C3AB /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68631C300D260095C3AB /* UINavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -36,11 +40,11 @@
 		DC9E68231C3006EE0095C3AB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DC9E68241C3006EE0095C3AB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DC9E68251C3006EE0095C3AB /* Shari.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Shari.podspec; sourceTree = "<group>"; };
-		DC9E682E1C30081E0095C3AB /* ModalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalAnimator.swift; sourceTree = "<group>"; };
-		DC9E682F1C30081E0095C3AB /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		DC9E68301C30081E0095C3AB /* Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shari.swift; sourceTree = "<group>"; };
-		DC9E68311C30081E0095C3AB /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		DC9E68381C30084C0095C3AB /* Shari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shari.h; sourceTree = "<group>"; };
+		DC9E68601C300D260095C3AB /* ModalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalAnimator.swift; sourceTree = "<group>"; };
+		DC9E68611C300D260095C3AB /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		DC9E68621C300D260095C3AB /* Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shari.swift; sourceTree = "<group>"; };
+		DC9E68631C300D260095C3AB /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +68,8 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				DC9E685B1C300D260095C3AB /* Sources */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				DC9E68291C30081E0095C3AB /* Pod */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -118,29 +122,29 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		DC9E68291C30081E0095C3AB /* Pod */ = {
+		DC9E685B1C300D260095C3AB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DC9E682A1C30081E0095C3AB /* Assets */,
-				DC9E682C1C30081E0095C3AB /* Classes */,
+				DC9E685C1C300D260095C3AB /* Assets */,
+				DC9E685E1C300D260095C3AB /* Classes */,
 			);
-			path = Pod;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		DC9E682A1C30081E0095C3AB /* Assets */ = {
+		DC9E685C1C300D260095C3AB /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		DC9E682C1C30081E0095C3AB /* Classes */ = {
+		DC9E685E1C300D260095C3AB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DC9E682E1C30081E0095C3AB /* ModalAnimator.swift */,
-				DC9E682F1C30081E0095C3AB /* NavigationController.swift */,
-				DC9E68301C30081E0095C3AB /* Shari.swift */,
-				DC9E68311C30081E0095C3AB /* UINavigationController.swift */,
+				DC9E68601C300D260095C3AB /* ModalAnimator.swift */,
+				DC9E68611C300D260095C3AB /* NavigationController.swift */,
+				DC9E68621C300D260095C3AB /* Shari.swift */,
+				DC9E68631C300D260095C3AB /* UINavigationController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -306,6 +310,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC9E68661C300D260095C3AB /* ModalAnimator.swift in Sources */,
+				DC9E68691C300D260095C3AB /* UINavigationController.swift in Sources */,
+				DC9E68681C300D260095C3AB /* Shari.swift in Sources */,
+				DC9E68671C300D260095C3AB /* NavigationController.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,10 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC9E68541C300B870095C3AB /* ModalAnimator.swift in Sources */,
-				DC9E68551C300B870095C3AB /* NavigationController.swift in Sources */,
-				DC9E68561C300B870095C3AB /* Shari.swift in Sources */,
-				DC9E68571C300B870095C3AB /* UINavigationController.swift in Sources */,
+				DC9E68701C300DE50095C3AB /* ModalAnimator.swift in Sources */,
+				DC9E68711C300DE50095C3AB /* NavigationController.swift in Sources */,
+				DC9E68721C300DE50095C3AB /* Shari.swift in Sources */,
+				DC9E68731C300DE50095C3AB /* UINavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

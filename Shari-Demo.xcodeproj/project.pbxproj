@@ -13,9 +13,9 @@
 		DC9E68051C3005070095C3AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9E68041C3005070095C3AB /* Assets.xcassets */; };
 		DC9E683C1C30088F0095C3AB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E683A1C30088F0095C3AB /* DetailViewController.swift */; };
 		DC9E683D1C30088F0095C3AB /* ModalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */; };
-		DC9E684F1C3009F50095C3AB /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; };
-		DC9E68501C3009F50095C3AB /* Shari.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC9E68591C300C2E0095C3AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */; };
+		DC9E686B1C300DAF0095C3AB /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; };
+		DC9E686C1C300DAF0095C3AB /* Shari.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +33,7 @@
 			remoteGlobalIDString = DC9E67C11C2FDC020095C3AB;
 			remoteInfo = Shari;
 		};
-		DC9E68511C3009F50095C3AB /* PBXContainerItemProxy */ = {
+		DC9E686D1C300DAF0095C3AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC9E68171C3006C50095C3AB /* Shari.xcodeproj */;
 			proxyType = 1;
@@ -43,13 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DC9E68531C3009F50095C3AB /* Embed Frameworks */ = {
+		DC9E686F1C300DAF0095C3AB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC9E68501C3009F50095C3AB /* Shari.framework in Embed Frameworks */,
+				DC9E686C1C300DAF0095C3AB /* Shari.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC9E684F1C3009F50095C3AB /* Shari.framework in Frameworks */,
+				DC9E686B1C300DAF0095C3AB /* Shari.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,12 +132,12 @@
 				DC9E67F61C3005070095C3AB /* Sources */,
 				DC9E67F71C3005070095C3AB /* Frameworks */,
 				DC9E67F81C3005070095C3AB /* Resources */,
-				DC9E68531C3009F50095C3AB /* Embed Frameworks */,
+				DC9E686F1C300DAF0095C3AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DC9E68521C3009F50095C3AB /* PBXTargetDependency */,
+				DC9E686E1C300DAF0095C3AB /* PBXTargetDependency */,
 			);
 			name = "Shari-Demo";
 			productName = "Shari-Demo";
@@ -228,10 +228,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DC9E68521C3009F50095C3AB /* PBXTargetDependency */ = {
+		DC9E686E1C300DAF0095C3AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Shari;
-			targetProxy = DC9E68511C3009F50095C3AB /* PBXContainerItemProxy */;
+			targetProxy = DC9E686D1C300DAF0095C3AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

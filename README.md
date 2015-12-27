@@ -27,6 +27,35 @@ it, simply add the following line to your Podfile:
 pod "Shari"
 ```
 
+Then, run the following code:
+
+```ruby
+$ pod install
+```
+
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager for Cocoa application. 
+
+``` bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate Kingfisher into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+``` ogdl
+github "nakajijapan/Shari"
+```
+
+Then, run the following command to build the Kingfisher framework:
+
+``` bash
+$ carthage update
+```
+
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

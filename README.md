@@ -1,9 +1,9 @@
 # Shari for Swift
 
+[![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Shari.svg?style=flat)](http://cocoapods.org/pods/Shari)
 [![License](https://img.shields.io/cocoapods/l/Shari.svg?style=flat)](http://cocoapods.org/pods/Shari)
 [![Platform](https://img.shields.io/cocoapods/p/Shari.svg?style=flat)](http://cocoapods.org/pods/Shari)
-
 
 Shari is the alternative to the library of drum roll in Swift.
 Inspired Etsy.

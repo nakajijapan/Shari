@@ -1,6 +1,0 @@
-framework module Shari {
-  umbrella header "Shari-umbrella.h"
-
-  export *
-  module * { export * }
-}

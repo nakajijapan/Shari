@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/Shari.svg?style=flat)](http://cocoapods.org/pods/Shari)
 [![Platform](https://img.shields.io/cocoapods/p/Shari.svg?style=flat)](http://cocoapods.org/pods/Shari)
 
-Shari is the alternative to the library of drum roll in Swift.
-Inspired Etsy.
+Shari is the alternative to the library of UIPickerView(drum roll) in Swift. You can select a item using UITableView.
+Is inspired to [Etsy](https://www.etsy.com/)'s view controller transition.
 
 ![Shari](./demo.gif)
 

@@ -19,13 +19,13 @@ class DetailViewController: UIViewController {
 
     @IBAction func buttonDidTap(sender: AnyObject) {
 
-        let modalNavigationVC = self.storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
+        let modalNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
 
         //Shari.BackgroundColorOfOverlayView = UIColor.redColor()
-        modalNavigationVC.parentNavigationController = self.navigationController
+        modalNavigationController.parentNavigationController = self.navigationController
         
-        self.navigationController!.addChildViewController(modalNavigationVC)
-        self.navigationController?.si_presentViewController(modalNavigationVC)
+        self.navigationController!.addChildViewController(modalNavigationController)
+        self.navigationController?.si_presentViewController(modalNavigationController)
 
     }
 }

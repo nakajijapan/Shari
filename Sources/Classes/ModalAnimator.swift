@@ -61,7 +61,7 @@ public class ModalAnimator {
         let overlayView = ModalAnimator.overlayView(fromView)
         overlayView?.alpha = 1.0
         
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
             
             modalView?.frame = CGRectMake(
                 (targetView.bounds.size.width - modalView!.frame.size.width) / 2.0,

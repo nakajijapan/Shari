@@ -51,7 +51,6 @@ public class NavigationController: UINavigationController {
             
             if (self.view.frame.minY < originalLocation.y) {
                 
-                gestureRecognizer.enabled = false
                 UIView.animateWithDuration(
                     0.2,
                     animations: { () -> Void in
@@ -75,6 +74,7 @@ public class NavigationController: UINavigationController {
                             },
                             completion: { (result) -> Void in
                                 
+                                gestureRecognizer.enabled = false
                                 self.si_delegate?.navigationControllerDidSpreadToEntire?(self)
                                 
                             }
@@ -103,12 +103,12 @@ public class NavigationController: UINavigationController {
 
                     completion: { (result) -> Void in
 
+                        gestureRecognizer.enabled = true
+
                 })
                 
             }
 
-            
-            gestureRecognizer.enabled = true
             break
 
         default:

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC54326D1C62214300612AE3 /* Shari_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54326C1C62214300612AE3 /* Shari_DemoUITests.swift */; };
 		DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E67FD1C3005070095C3AB /* AppDelegate.swift */; };
 		DC9E68001C3005070095C3AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E67FF1C3005070095C3AB /* ViewController.swift */; };
 		DC9E68031C3005070095C3AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9E68011C3005070095C3AB /* Main.storyboard */; };
@@ -19,6 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DC54326F1C62214300612AE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC9E67F21C3005070095C3AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC9E67F91C3005070095C3AB;
+			remoteInfo = "Shari-Demo";
+		};
 		DC9E681F1C3006C50095C3AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC9E68171C3006C50095C3AB /* Shari.xcodeproj */;
@@ -57,6 +65,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC54326A1C62214300612AE3 /* Shari-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shari-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC54326C1C62214300612AE3 /* Shari_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shari_DemoUITests.swift; sourceTree = "<group>"; };
+		DC54326E1C62214300612AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC9E67FA1C3005070095C3AB /* Shari-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shari-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9E67FD1C3005070095C3AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC9E67FF1C3005070095C3AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +81,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DC5432671C62214300612AE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC9E67F71C3005070095C3AB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,10 +99,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC54326B1C62214300612AE3 /* Shari-DemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DC54326C1C62214300612AE3 /* Shari_DemoUITests.swift */,
+				DC54326E1C62214300612AE3 /* Info.plist */,
+			);
+			path = "Shari-DemoUITests";
+			sourceTree = "<group>";
+		};
 		DC9E67F11C3005070095C3AB = {
 			isa = PBXGroup;
 			children = (
 				DC9E67FC1C3005070095C3AB /* Shari-Demo */,
+				DC54326B1C62214300612AE3 /* Shari-DemoUITests */,
 				DC9E67FB1C3005070095C3AB /* Products */,
 				DC9E68171C3006C50095C3AB /* Shari.xcodeproj */,
 			);
@@ -94,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				DC9E67FA1C3005070095C3AB /* Shari-Demo.app */,
+				DC54326A1C62214300612AE3 /* Shari-DemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +154,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DC5432691C62214300612AE3 /* Shari-DemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC5432741C62214300612AE3 /* Build configuration list for PBXNativeTarget "Shari-DemoUITests" */;
+			buildPhases = (
+				DC5432661C62214300612AE3 /* Sources */,
+				DC5432671C62214300612AE3 /* Frameworks */,
+				DC5432681C62214300612AE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC5432701C62214300612AE3 /* PBXTargetDependency */,
+			);
+			name = "Shari-DemoUITests";
+			productName = "Shari-DemoUITests";
+			productReference = DC54326A1C62214300612AE3 /* Shari-DemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		DC9E67F91C3005070095C3AB /* Shari-Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC9E680C1C3005070095C3AB /* Build configuration list for PBXNativeTarget "Shari-Demo" */;
@@ -154,6 +201,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = nakajijapan;
 				TargetAttributes = {
+					DC5432691C62214300612AE3 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = DC9E67F91C3005070095C3AB;
+					};
 					DC9E67F91C3005070095C3AB = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -179,6 +230,7 @@
 			projectRoot = "";
 			targets = (
 				DC9E67F91C3005070095C3AB /* Shari-Demo */,
+				DC5432691C62214300612AE3 /* Shari-DemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -201,6 +253,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DC5432681C62214300612AE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC9E67F81C3005070095C3AB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -214,6 +273,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DC5432661C62214300612AE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC54326D1C62214300612AE3 /* Shari_DemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC9E67F61C3005070095C3AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,6 +295,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DC5432701C62214300612AE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC9E67F91C3005070095C3AB /* Shari-Demo */;
+			targetProxy = DC54326F1C62214300612AE3 /* PBXContainerItemProxy */;
+		};
 		DC9E686E1C300DAF0095C3AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Shari;
@@ -247,6 +319,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DC5432711C62214300612AE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Shari-DemoUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.Shari-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Shari-Demo";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		DC5432721C62214300612AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Shari-DemoUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.Shari-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Shari-Demo";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		DC9E680A1C3005070095C3AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -353,6 +449,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DC5432741C62214300612AE3 /* Build configuration list for PBXNativeTarget "Shari-DemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC5432711C62214300612AE3 /* Debug */,
+				DC5432721C62214300612AE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		DC9E67F51C3005070095C3AB /* Build configuration list for PBXProject "Shari-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -14,7 +14,6 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         (self.navigationController as! Shari.NavigationController).si_delegate = self
-        
         self.tableView.scrollEnabled = false
     }
     
@@ -56,6 +55,7 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     }
 
     // MARK: - Shari.NavigationControllerDelegate
+
     func navigationControllerDidSpreadToEntire(navigationController: UINavigationController) {
 
         self.tableView.scrollEnabled = true

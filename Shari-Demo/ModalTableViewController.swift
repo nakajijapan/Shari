@@ -11,6 +11,8 @@ import Shari
 
 class ModalTableViewController: UITableViewController, Shari.NavigationControllerDelegate {
     
+    var statusbarBG:UIView = UIView(frame: UIApplication.sharedApplication().statusBarFrame)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         (self.navigationController as! Shari.NavigationController).si_delegate = self
@@ -18,15 +20,15 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     }
     
     // MARK: - UITableViewDataSource
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         cell.textLabel!.text = "Title #\(indexPath.row)"
@@ -41,7 +43,7 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
         currentNavigationController.parentNavigationController!.si_dismissModalView({ () -> Void in
             print("close via cell")
         })
-
+        
     }
     
     // MARK: - Button Actions
@@ -50,19 +52,24 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
         
         let currentNavigationController = self.navigationController as! Shari.NavigationController
         currentNavigationController.parentNavigationController!.si_dismissModalView({ () -> Void in
+            self.statusbarBG.removeFromSuperview()
+            
             print("close via button")
         })
     }
-
+    
     // MARK: - Shari.NavigationControllerDelegate
-
+    
     func navigationControllerDidSpreadToEntire(navigationController: UINavigationController) {
-
+        
         self.tableView.scrollEnabled = true
-
+        
+        statusbarBG.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
+        UIApplication.sharedApplication().keyWindow!.addSubview(statusbarBG)
+        
         print("spread to the entire")
-
+        
     }
-
+    
     
 }

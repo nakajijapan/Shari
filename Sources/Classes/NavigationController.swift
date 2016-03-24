@@ -29,7 +29,11 @@ public class NavigationController: UINavigationController {
         
         let location = gestureRecognizer.locationInView(self.parentViewController!.view)
         let backgroundView = ModalAnimator.overlayView(self.parentNavigationController!.parentTargetView())!
-        let degreeY = location.y - self.previousLocation.y
+        var degreeY:CGFloat = 0.0
+        
+        if (self.view.frame.origin.y + (location.y - previousLocation.y)) > UIApplication.sharedApplication().statusBarFrame.height {
+            degreeY = location.y - previousLocation.y
+        }
 
         switch gestureRecognizer.state {
         case UIGestureRecognizerState.Began :

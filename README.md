@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/Shari.svg?style=flat)](http://cocoapods.org/pods/Shari)
 [![Platform](https://img.shields.io/cocoapods/p/Shari.svg?style=flat)](http://cocoapods.org/pods/Shari)
 
-Shari is the alternative to the library of UIPickerView(drum roll) in Swift. You can select a item using UITableView.
+Shari is the alternative to the library of `UIPickerView` (drum roll) in Swift. You can select a item using `UITableView`.
 Is inspired to [Etsy](https://www.etsy.com/)'s view controller transition.
 
 ![Shari](./demo.gif)
@@ -35,20 +35,20 @@ $ pod install
 
 ## Carthage
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager for Cocoa application. 
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager for Cocoa applications. 
 
 ``` bash
 $ brew update
 $ brew install carthage
 ```
 
-To integrate Kingfisher into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate Shari into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ``` ogdl
 github "nakajijapan/Shari"
 ```
 
-Then, run the following command to build the Kingfisher framework:
+Then, run the following command to build Shari:
 
 ``` bash
 $ carthage update
@@ -77,14 +77,14 @@ Shari.BackgroundColorOfOverlayView = UIColor.redColor()
 ## ModalViewController
 
 - Create NavigationController and ViewController in storyboards.
-- Input Shari.NavigationController in Custom Class for NavigationController.
+- Input `Shari.NavigationController` in Custom Class for NavigationController.
 
 ![Shari](./shari01.png)
 
 
-### close a window
+### Closing a window
 
-You can close using the following code in viewController:
+You can close using the following code in `viewController`:
 
 ```swift
 let currentNavigationController = self.navigationController as! Shari.NavigationController

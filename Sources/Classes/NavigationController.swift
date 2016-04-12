@@ -21,7 +21,7 @@ public class NavigationController: UINavigationController {
     var originalLocation = CGPointZero
 
     override public func viewDidLoad() {
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavigationController.handlePanGesture(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
     }
    
@@ -29,10 +29,10 @@ public class NavigationController: UINavigationController {
         
         let location = gestureRecognizer.locationInView(self.parentViewController!.view)
         let backgroundView = ModalAnimator.overlayView(self.parentNavigationController!.parentTargetView())!
-        var degreeY:CGFloat = 0.0
+        var deltaY:CGFloat = 0.0
         
         if (self.view.frame.origin.y + (location.y - previousLocation.y)) > UIApplication.sharedApplication().statusBarFrame.height {
-            degreeY = location.y - previousLocation.y
+            deltaY = location.y - previousLocation.y
         }
 
         switch gestureRecognizer.state {
@@ -43,12 +43,7 @@ public class NavigationController: UINavigationController {
 
         case UIGestureRecognizerState.Changed :
             
-            var frame = self.view.frame
-            frame.origin.y += degreeY
-            self.view.frame = frame
-
-            ModalAnimator.transitionBackgroundView(backgroundView, location: location)
-
+            moveTo(self.view.frame.origin.y + deltaY, touch: location)
             break
 
         case UIGestureRecognizerState.Ended :
@@ -122,6 +117,14 @@ public class NavigationController: UINavigationController {
         
         self.previousLocation = location
         
+    }
+    
+    public func moveTo(y: CGFloat, touch:CGPoint) {
+        var frame = self.view.frame
+        frame.origin.y = y
+        self.view.frame = frame
+        
+        ModalAnimator.transitionBackgroundView(ModalAnimator.overlayView(self.parentNavigationController!.parentTargetView())!, location: touch)
     }
     
 }

@@ -28,7 +28,7 @@ public extension UINavigationController {
             
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "overlayViewDidTap:")
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UINavigationController.overlayViewDidTap(_:)))
         let overlayView = ModalAnimator.overlayView(self.parentTargetView())
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 

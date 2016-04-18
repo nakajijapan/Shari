@@ -21,7 +21,10 @@ public class ModalAnimator {
         
         self.addScreenShotView(fromView, screenshotContainer: overlayView)
 
-        toView.frame = CGRectOffset(fromView.bounds, 0, fromView.bounds.size.height)
+        var toViewFrame = CGRectOffset(fromView.bounds, 0, fromView.bounds.size.height)
+        toViewFrame.size.height = 0
+        toView.frame = toViewFrame
+        
         toView.tag = InternalStructureViewType.ToView.rawValue
         fromView.addSubview(toView)
         
@@ -30,7 +33,10 @@ public class ModalAnimator {
             animations: { () -> Void in
                 
                 let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
-                toView.frame = CGRectOffset(fromView.bounds, 0, statusBarHeight + fromView.bounds.size.height / 2.0)
+                var toViewFrame = CGRectOffset(fromView.bounds, 0, statusBarHeight + fromView.bounds.size.height / 2.0)
+                toViewFrame.size.height -= toViewFrame.origin.y
+                toView.frame = toViewFrame
+                
                 toView.alpha = 1.0
                 
             }) { (result) -> Void in

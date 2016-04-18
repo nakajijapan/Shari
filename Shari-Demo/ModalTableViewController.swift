@@ -18,7 +18,7 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
             nc.dismissControllSwipeDown = true
 //            nc.fullScreenSwipeUp = false
         }
-        self.tableView.scrollEnabled = false
+//        self.tableView.scrollEnabled = false
     }
     
     // MARK: - UITableViewDataSource
@@ -63,7 +63,7 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
 
     func navigationControllerDidSpreadToEntire(navigationController: UINavigationController) {
 
-        self.tableView.scrollEnabled = true
+//        self.tableView.scrollEnabled = true
 
         print("spread to the entire")
 

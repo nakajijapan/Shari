@@ -28,21 +28,21 @@ public extension UINavigationController {
             
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "overlayViewDidTap:")
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UINavigationController.overlayViewDidTap(_:)))
         let overlayView = ModalAnimator.overlayView(self.parentTargetView())
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
     }
     
-    func si_dismissModalView(completion: () -> Void) {
+    func si_dismissModalView(completion: (() -> Void)?) {
         
         self.willMoveToParentViewController(nil)
 
         ModalAnimator.dismiss(
             self.parentTargetView(),
-            presentingViewController: self.visibleViewController) { () -> Void in
+            presentingViewController: self.visibleViewController) { _ in
 
-                completion()
+                completion?()
 
         }
         
@@ -54,12 +54,22 @@ public extension UINavigationController {
 
         ModalAnimator.dismiss(
             self.parentTargetView(),
-            presentingViewController: self.visibleViewController) { () -> Void in
+            presentingViewController: self.visibleViewController) { _ in
 
 
         }
 
     }
     
-
+    func si_dismissDownSwipeModalView(completion: (() -> Void)?) {
+        
+        self.willMoveToParentViewController(nil)
+        
+        ModalAnimator.dismiss(
+            self.view.superview ?? self.parentTargetView(),
+            presentingViewController: self.visibleViewController) { _ in
+                completion?()
+        }
+        
+    }
 }

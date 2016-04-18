@@ -13,7 +13,11 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        (self.navigationController as! Shari.NavigationController).si_delegate = self
+        if let nc = self.navigationController as? Shari.NavigationController {
+            nc.si_delegate = self
+            nc.dismissControllSwipeDown = true
+//            nc.fullScreenSwipeUp = false
+        }
         self.tableView.scrollEnabled = false
     }
     
@@ -38,6 +42,7 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let currentNavigationController = self.navigationController as! Shari.NavigationController
+        
         currentNavigationController.parentNavigationController!.si_dismissModalView({ () -> Void in
             print("close via cell")
         })

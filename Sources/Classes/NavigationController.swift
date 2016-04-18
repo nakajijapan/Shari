@@ -17,11 +17,18 @@ public class NavigationController: UINavigationController {
 
     public var si_delegate: NavigationControllerDelegate?
     public var parentNavigationController: UINavigationController?
+    
+    public var minDeltaUpSwipe: CGFloat = 50
+    public var minDeltaDownSwipe: CGFloat = 50
+    
+    public var dismissControllSwipeDown = false
+    public var fullScreenSwipeUp = true
+    
     var previousLocation = CGPointZero
     var originalLocation = CGPointZero
-
+    
     override public func viewDidLoad() {
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavigationController.handlePanGesture(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
     }
    
@@ -49,7 +56,7 @@ public class NavigationController: UINavigationController {
 
         case UIGestureRecognizerState.Ended :
             
-            if (self.view.frame.minY < originalLocation.y) {
+            if fullScreenSwipeUp &&  originalLocation.y - self.view.frame.minY > minDeltaUpSwipe {
                 
                 UIView.animateWithDuration(
                     0.2,
@@ -82,8 +89,9 @@ public class NavigationController: UINavigationController {
                     }
                 )
                 
+            } else if dismissControllSwipeDown && self.view.frame.minY - originalLocation.y > minDeltaDownSwipe {
+                si_dismissDownSwipeModalView(nil)
             } else {
-                
 
                 UIView.animateWithDuration(
                     0.6,

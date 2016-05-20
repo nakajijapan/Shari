@@ -66,12 +66,11 @@ public class NavigationController: UINavigationController {
                     animations: { [weak self] in
                         guard let strongslef = self else { return }
                         
-                        var frame = strongslef.originalFrame //self.view.frame
+                        var frame = strongslef.originalFrame
                         let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
                         frame.origin.y = statusBarHeight
                         frame.size.height -= statusBarHeight
                         strongslef.view.frame = frame
-                        print("end fullscreen: \(frame)")
                         
                         ModalAnimator.transitionBackgroundView(backgroundView, location: strongslef.view.frame.origin)
                         
@@ -84,10 +83,11 @@ public class NavigationController: UINavigationController {
                             animations: { () -> Void in
                                 backgroundView.alpha = 0.0
                             },
-                            completion: { (result) -> Void in
-                                
+                            completion: { [weak self] result in
+                                guard let strongslef = self else { return }
+                              
                                 gestureRecognizer.enabled = false
-                                self.si_delegate?.navigationControllerDidSpreadToEntire?(self)
+                                strongslef.si_delegate?.navigationControllerDidSpreadToEntire?(strongslef)
                                 
                             }
                         )

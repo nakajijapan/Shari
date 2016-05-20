@@ -21,10 +21,10 @@ public extension UINavigationController {
     func si_presentViewController(toViewController:UIViewController) {
 
         toViewController.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toViewController.view, fromView: self.parentTargetView()) { () -> Void in
-            
+        ModalAnimator.present(toViewController.view, fromView: self.parentTargetView()) { [weak self] in
+            guard let strongslef = self else { return }
             toViewController.endAppearanceTransition()
-            toViewController.didMoveToParentViewController(self)
+            toViewController.didMoveToParentViewController(strongslef)
             
         }
         

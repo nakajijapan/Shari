@@ -456,6 +456,7 @@
 				DC5432721C62214300612AE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC9E67F51C3005070095C3AB /* Build configuration list for PBXProject "Shari-Demo" */ = {
 			isa = XCConfigurationList;

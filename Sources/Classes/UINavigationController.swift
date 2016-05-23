@@ -21,28 +21,28 @@ public extension UINavigationController {
     func si_presentViewController(toViewController:UIViewController) {
 
         toViewController.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toViewController.view, fromView: self.parentTargetView()) { () -> Void in
-            
+        ModalAnimator.present(toViewController.view, fromView: self.parentTargetView()) { [weak self] in
+            guard let strongslef = self else { return }
             toViewController.endAppearanceTransition()
-            toViewController.didMoveToParentViewController(self)
+            toViewController.didMoveToParentViewController(strongslef)
             
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "overlayViewDidTap:")
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UINavigationController.overlayViewDidTap(_:)))
         let overlayView = ModalAnimator.overlayView(self.parentTargetView())
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
     }
     
-    func si_dismissModalView(completion: () -> Void) {
+    func si_dismissModalView(completion: (() -> Void)?) {
         
         self.willMoveToParentViewController(nil)
 
         ModalAnimator.dismiss(
             self.parentTargetView(),
-            presentingViewController: self.visibleViewController) { () -> Void in
+            presentingViewController: self.visibleViewController) { _ in
 
-                completion()
+                completion?()
 
         }
         
@@ -54,12 +54,22 @@ public extension UINavigationController {
 
         ModalAnimator.dismiss(
             self.parentTargetView(),
-            presentingViewController: self.visibleViewController) { () -> Void in
+            presentingViewController: self.visibleViewController) { _ in
 
 
         }
 
     }
     
-
+    func si_dismissDownSwipeModalView(completion: (() -> Void)?) {
+        
+        self.willMoveToParentViewController(nil)
+        
+        ModalAnimator.dismiss(
+            self.view.superview ?? self.parentTargetView(),
+            presentingViewController: self.visibleViewController) { _ in
+                completion?()
+        }
+        
+    }
 }

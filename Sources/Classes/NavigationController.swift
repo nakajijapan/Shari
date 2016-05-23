@@ -17,11 +17,20 @@ public class NavigationController: UINavigationController {
 
     public var si_delegate: NavigationControllerDelegate?
     public var parentNavigationController: UINavigationController?
+    
+    public var minDeltaUpSwipe: CGFloat = 50
+    public var minDeltaDownSwipe: CGFloat = 50
+    
+    public var dismissControllSwipeDown = false
+    public var fullScreenSwipeUp = true
+    
     var previousLocation = CGPointZero
     var originalLocation = CGPointZero
-
+    var originalFrame = CGRectZero
+        
     override public func viewDidLoad() {
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+        originalFrame = self.view.frame
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavigationController.handlePanGesture(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
     }
    
@@ -41,6 +50,7 @@ public class NavigationController: UINavigationController {
             
             var frame = self.view.frame
             frame.origin.y += degreeY
+            frame.size.height += -degreeY
             self.view.frame = frame
 
             ModalAnimator.transitionBackgroundView(backgroundView, location: location)
@@ -49,19 +59,20 @@ public class NavigationController: UINavigationController {
 
         case UIGestureRecognizerState.Ended :
             
-            if (self.view.frame.minY < originalLocation.y) {
+            if fullScreenSwipeUp &&  originalLocation.y - self.view.frame.minY > minDeltaUpSwipe {
                 
                 UIView.animateWithDuration(
                     0.2,
-                    animations: { () -> Void in
+                    animations: { [weak self] in
+                        guard let strongslef = self else { return }
                         
-                        var frame = self.view.frame
+                        var frame = strongslef.originalFrame
                         let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
                         frame.origin.y = statusBarHeight
                         frame.size.height -= statusBarHeight
-                        self.view.frame = frame
+                        strongslef.view.frame = frame
                         
-                        ModalAnimator.transitionBackgroundView(backgroundView, location: self.view.frame.origin)
+                        ModalAnimator.transitionBackgroundView(backgroundView, location: strongslef.view.frame.origin)
                         
                     }, completion: { (result) -> Void in
                         
@@ -72,18 +83,20 @@ public class NavigationController: UINavigationController {
                             animations: { () -> Void in
                                 backgroundView.alpha = 0.0
                             },
-                            completion: { (result) -> Void in
-                                
+                            completion: { [weak self] result in
+                                guard let strongslef = self else { return }
+                              
                                 gestureRecognizer.enabled = false
-                                self.si_delegate?.navigationControllerDidSpreadToEntire?(self)
+                                strongslef.si_delegate?.navigationControllerDidSpreadToEntire?(strongslef)
                                 
                             }
                         )
                     }
                 )
                 
+            } else if dismissControllSwipeDown && self.view.frame.minY - originalLocation.y > minDeltaDownSwipe {
+                si_dismissDownSwipeModalView(nil)
             } else {
-                
 
                 UIView.animateWithDuration(
                     0.6,
@@ -91,14 +104,15 @@ public class NavigationController: UINavigationController {
                     usingSpringWithDamping: 0.5,
                     initialSpringVelocity: 0.1,
                     options: UIViewAnimationOptions.CurveLinear,
-                    animations: { () -> Void in
+                    animations: { [weak self] in
+                        guard let strongslef = self else { return }
                         
-                        ModalAnimator.transitionBackgroundView(backgroundView, location: self.originalLocation)
+                        ModalAnimator.transitionBackgroundView(backgroundView, location: strongslef.originalLocation)
                         
-                        var frame = self.view.frame
-                        frame.origin.y = self.originalLocation.y
-                        self.view.frame = frame
-                        
+                        var frame = strongslef.originalFrame //view.frame
+                        frame.origin.y = strongslef.originalLocation.y
+                        frame.size.height -= strongslef.originalLocation.y
+                        strongslef.view.frame = frame
                     },
 
                     completion: { (result) -> Void in

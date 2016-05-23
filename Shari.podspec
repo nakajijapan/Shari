@@ -11,8 +11,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Sources/Classes/**/*'
-  s.resource_bundles = {
-    'Shari' => ['Sources/Assets/*.png']
-  }
+  #s.resource_bundles = {
+  #  'Shari' => ['Sources/Assets/*.png']
+  #}
 
 end

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "Shari"
   s.version          = "0.2.0"
-  s.summary          = "Shari is the alternative to the library of UIPickerView(drum roll) in Swift. You can select a item using UITableView. Is inspired to Etsy's view controller transition."
+  s.summary          = "Shari is the alternative to the library of UIPickerView in Swift. Inspired to Etsy's view controller transition."
   s.homepage         = "https://github.com/nakajijapan/Shari"
   s.license          = 'MIT'
   s.author           = { "nakajijapan" => "pp.kupepo.gattyanmo@gmail.com" }

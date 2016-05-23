@@ -20,7 +20,7 @@ public class ModalAnimator {
         fromView.addSubview(overlayView)
         
         self.addScreenShotView(fromView, screenshotContainer: overlayView)
-
+        
         var toViewFrame = CGRectOffset(fromView.bounds, 0, fromView.bounds.size.height)
         toViewFrame.size.height = 0
         toView.frame = toViewFrame
@@ -29,7 +29,7 @@ public class ModalAnimator {
         fromView.addSubview(toView)
         
         UIView.animateWithDuration(
-            0.3,
+            0.2,
             animations: { () -> Void in
                 
                 let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
@@ -39,10 +39,10 @@ public class ModalAnimator {
                 
                 toView.alpha = 1.0
                 
-            }) { (result) -> Void in
-                
-                completion()
-                
+        }) { (result) -> Void in
+            
+            completion()
+            
         }
         
     }
@@ -59,15 +59,15 @@ public class ModalAnimator {
         return overlayView.viewWithTag(InternalStructureViewType.ScreenShot.rawValue) as! UIImageView
     }
     
-   
+    
     public class func dismiss(fromView: UIView, presentingViewController: UIViewController?, completion: () -> Void) {
-
+        
         let targetView = fromView
         let modalView = ModalAnimator.modalView(fromView)
         let overlayView = ModalAnimator.overlayView(fromView)
         overlayView?.alpha = 1.0
         
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
             
             modalView?.frame = CGRectMake(
                 (targetView.bounds.size.width - modalView!.frame.size.width) / 2.0,
@@ -75,13 +75,13 @@ public class ModalAnimator {
                 (modalView?.frame.size.width)!,
                 (modalView?.frame.size.height)!);
             
-            }) { (result) -> Void in
-                
-                overlayView?.removeFromSuperview()
-                modalView?.removeFromSuperview()
-                
-                // Remove Modal View Controller
-                presentingViewController?.removeFromParentViewController()
+        }) { (result) -> Void in
+            
+            overlayView?.removeFromSuperview()
+            modalView?.removeFromSuperview()
+            
+            // Remove Modal View Controller
+            presentingViewController?.removeFromParentViewController()
         }
         
         // Begin Overlay Animation
@@ -90,18 +90,18 @@ public class ModalAnimator {
             let screenShotView = overlayView?.subviews[0] as! UIImageView
             screenShotView.layer.addAnimation(self.animationGroupForward(false), forKey: "bringForwardAnimation")
             
-            UIView.animateWithDuration(0.6, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-            
-                    screenShotView.alpha = 1.0
+            UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                
+                screenShotView.alpha = 1.0
                 
                 }, completion: { (result) -> Void in
-
+                    
                     completion()
-
+                    
             })
             
         }
-   
+        
     }
     
     public class func transitionBackgroundView(overlayView: UIView, location:CGPoint) {
@@ -135,15 +135,15 @@ public class ModalAnimator {
         screenshotContainer.addSubview(screenshot)
         
         screenshot.layer.addAnimation(self.animationGroupForward(true), forKey:"pushedBackAnimation")
-        UIView.animateWithDuration(0.3) { () -> Void in
+        UIView.animateWithDuration(0.2) { () -> Void in
             screenshot.alpha = 0.5
         }
         
-
+        
     }
     
     class func animationGroupForward(forward:Bool) -> CAAnimationGroup {
-
+        
         var transform = CATransform3DIdentity
         transform = CATransform3DScale(transform, 0.95, 0.95, 1)
         
@@ -155,8 +155,7 @@ public class ModalAnimator {
             animation.toValue = NSValue(CATransform3D:CATransform3DIdentity)
         }
         
-        let duration:CFTimeInterval = 1.0
-        animation.duration = duration / 3.0
+        animation.duration = 0.2
         animation.fillMode = kCAFillModeForwards
         animation.removedOnCompletion = false
         animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseOut)
@@ -169,15 +168,15 @@ public class ModalAnimator {
         group.animations = [animation]
         return group
     }
-
-
+    
+    
     class func map(value:CGFloat, inMin:CGFloat, inMax:CGFloat, outMin:CGFloat, outMax:CGFloat) -> CGFloat {
         
         let inRatio = value / (inMax - inMin)
         let outRatio = (outMax - outMin) * inRatio + outMin
-
+        
         return outRatio
     }
-
+    
     
 }

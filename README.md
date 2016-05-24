@@ -74,6 +74,14 @@ You can change background color using following code:
 Shari.BackgroundColorOfOverlayView = UIColor.redColor()
 ```
 
+
+You can change with following code whether view should transform scale down:
+
+```swift
+Shari.ShouldTransformScaleDown = true
+```
+
+
 ## ModalViewController
 
 - Create NavigationController and ViewController in storyboards.

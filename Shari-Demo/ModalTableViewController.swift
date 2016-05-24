@@ -17,7 +17,6 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
             nc.si_delegate = self
             nc.fullScreenSwipeUp = true
             nc.dismissControllSwipeDown = false
-
         }
         self.tableView.scrollEnabled = false
     }

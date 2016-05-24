@@ -106,6 +106,10 @@ public class ModalAnimator {
     
     public class func transitionBackgroundView(overlayView: UIView, location:CGPoint) {
         
+        if !ShouldTransformScaleDown {
+            return;
+        }
+        
         let screenShotView = ModalAnimator.screenShotView(overlayView)
         let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.9, outMax: 1.0)
         let transform = CATransform3DMakeScale(scale, scale, 1)
@@ -145,7 +149,12 @@ public class ModalAnimator {
     class func animationGroupForward(forward:Bool) -> CAAnimationGroup {
         
         var transform = CATransform3DIdentity
-        transform = CATransform3DScale(transform, 0.95, 0.95, 1)
+        
+        if ShouldTransformScaleDown {
+            transform = CATransform3DScale(transform, 0.95, 0.95, 1.0);
+        } else {
+            transform = CATransform3DScale(transform, 1.0, 1.0, 1.0);
+        }
         
         let animation:CABasicAnimation = CABasicAnimation(keyPath: "transform")
         

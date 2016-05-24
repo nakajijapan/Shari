@@ -141,9 +141,9 @@
 		DC9E685E1C300D260095C3AB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DC9E68621C300D260095C3AB /* Shari.swift */,
 				DC9E68601C300D260095C3AB /* ModalAnimator.swift */,
 				DC9E68611C300D260095C3AB /* NavigationController.swift */,
-				DC9E68621C300D260095C3AB /* Shari.swift */,
 				DC9E68631C300D260095C3AB /* UINavigationController.swift */,
 			);
 			path = Classes;

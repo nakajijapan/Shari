@@ -12,7 +12,7 @@ class ViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController.tabBar.setHidden(false)
+        //tabBarController?.tabBar.hidden = false
     }
     
 }

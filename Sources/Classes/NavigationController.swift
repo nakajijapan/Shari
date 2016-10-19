@@ -38,7 +38,7 @@ public class NavigationController: UINavigationController {
     func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
         
         let location = gestureRecognizer.locationInView(parentViewController!.view)
-        let backgroundView = ModalAnimator.overlayView(parentTargetView())!
+        let backgroundView = ModalAnimator.overlayView(parentTargetView)!
         let degreeY = location.y - self.previousLocation.y
 
         switch gestureRecognizer.state {
@@ -135,15 +135,15 @@ public class NavigationController: UINavigationController {
         
     }
     
-    public override func parentTargetView() -> UIView {
+    public override var parentTargetView: UIView {
         if tabBarController != nil {
-            return tabBarController!.parentTargetView()
+            return tabBarController!.parentTargetView
         }
         
-        return navigationController!.parentTargetView()
+        return navigationController!.parentTargetView
     }
     
-    public func parentController() -> UIViewController {
+    public var parentController: UIViewController {
         if let tabBarController = self.tabBarController {
             return tabBarController
         }

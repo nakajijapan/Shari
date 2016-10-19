@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import Shari
 
 class TabBarViewController: UIViewController {
 
-    @IBAction func buttonDidTap(sender: AnyObject) {
+    @IBAction func buttonDidTap(button: UIButton) {
         
-        let modalNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
+        let modalNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
         
         //Shari.ShouldTransformScaleDown = false
         //Shari.BackgroundColorOfOverlayView = UIColor.redColor()
-        modalNavigationController.parentNavigationController = self.tabBarController
+        modalNavigationController.parentTabBarController = tabBarController
         
-        self.navigationController!.addChildViewController(modalNavigationController)
-        self.navigationController?.si_presentViewController(modalNavigationController)
+        tabBarController!.addChildViewController(modalNavigationController)
+        tabBarController?.si_presentViewController(modalNavigationController)
         
     }
 }

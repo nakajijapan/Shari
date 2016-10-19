@@ -124,7 +124,7 @@
         <!--Detail View Controller-->
         <scene sceneID="OT7-8i-vcA">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="JDH-sg-6eo" customClass="DetailViewController" customModule="Shari_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" hidesBottomBarWhenPushed="YES" id="JDH-sg-6eo" customClass="DetailViewController" customModule="Shari_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P0L-EJ-Syn"/>
                         <viewControllerLayoutGuide type="bottom" id="iQB-HQ-0en"/>
@@ -170,7 +170,7 @@
                                 <accessibility key="accessibilityConfiguration" label="Button"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="openButtonDidTap:" destination="jtG-Bz-UGW" eventType="touchUpInside" id="YTv-EV-vyW"/>
+                                    <action selector="buttonDidTap:" destination="jtG-Bz-UGW" eventType="touchUpInside" id="T88-gu-fMZ"/>
                                 </connections>
                             </button>
                         </subviews>

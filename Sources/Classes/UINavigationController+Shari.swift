@@ -14,14 +14,14 @@ enum InternalStructureViewType:Int {
 
 public extension UINavigationController {
 
-    func parentTargetView() -> UIView {
+    var parentTargetView: UIView {
         return view
     }
     
     func si_presentViewController(toViewController:UIViewController) {
 
         toViewController.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toViewController.view, fromView: parentTargetView()) { [weak self] in
+        ModalAnimator.present(toViewController.view, fromView: parentTargetView) { [weak self] in
             guard let strongslef = self else { return }
             toViewController.endAppearanceTransition()
             toViewController.didMoveToParentViewController(strongslef)
@@ -29,7 +29,7 @@ public extension UINavigationController {
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UINavigationController.overlayViewDidTap(_:)))
-        let overlayView = ModalAnimator.overlayView(parentTargetView())
+        let overlayView = ModalAnimator.overlayView(parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
     }
@@ -39,7 +39,7 @@ public extension UINavigationController {
         willMoveToParentViewController(nil)
 
         ModalAnimator.dismiss(
-            parentTargetView(),
+            parentTargetView,
             presentingViewController: visibleViewController) { _ in
 
                 completion?()
@@ -53,7 +53,7 @@ public extension UINavigationController {
         willMoveToParentViewController(nil)
 
         ModalAnimator.dismiss(
-            parentTargetView(),
+            parentTargetView,
             presentingViewController: visibleViewController) { _ in
 
                 self.visibleViewController?.removeFromParentViewController()
@@ -66,7 +66,7 @@ public extension UINavigationController {
         willMoveToParentViewController(nil)
         
         ModalAnimator.dismiss(
-            view.superview ?? parentTargetView(),
+            view.superview ?? parentTargetView,
             presentingViewController: visibleViewController) { _ in
                 
                 completion?()

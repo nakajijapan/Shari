@@ -10,21 +10,21 @@ import UIKit
 
 public extension UITabBarController {
     
-    func parentTargetView() -> UIView {
+    var parentTargetView: UIView {
         return view
     }
     
     func si_presentViewController(toViewController:UIViewController) {
         
         toViewController.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toViewController.view, fromView: parentTargetView()) { [weak self] in
+        ModalAnimator.present(toViewController.view, fromView: parentTargetView) { [weak self] in
             guard let strongslef = self else { return }
             toViewController.endAppearanceTransition()
             toViewController.didMoveToParentViewController(strongslef)
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UITabBarController.overlayViewDidTap(_:)))
-        let overlayView = ModalAnimator.overlayView(parentTargetView())
+        let overlayView = ModalAnimator.overlayView(parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
         
     }
@@ -37,7 +37,7 @@ public extension UITabBarController {
         willMoveToParentViewController(nil)
         
         ModalAnimator.dismiss(
-            parentTargetView(),
+            parentTargetView,
             presentingViewController: presentingViewController) { _ in
                 
                 completion?()
@@ -55,7 +55,7 @@ public extension UITabBarController {
         willMoveToParentViewController(nil)
         
         ModalAnimator.dismiss(
-            parentTargetView(),
+            parentTargetView,
             presentingViewController: presentingViewController) { _ in
                 
                 self.presentingViewController?.removeFromParentViewController()
@@ -71,7 +71,7 @@ public extension UITabBarController {
         willMoveToParentViewController(nil)
         
         ModalAnimator.dismiss(
-            view.superview ?? parentTargetView(),
+            view.superview ?? parentTargetView,
             presentingViewController: presentingViewController) { _ in
 
                 completion?()

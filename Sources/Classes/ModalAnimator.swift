@@ -80,8 +80,6 @@ public class ModalAnimator {
             overlayView?.removeFromSuperview()
             modalView?.removeFromSuperview()
             
-            // Remove Modal View Controller
-            presentingViewController?.removeFromParentViewController()
         }
         
         // Begin Overlay Animation

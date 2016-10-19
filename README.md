@@ -61,12 +61,24 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## ViewController
 
+- UINavigationController
+
 ```swift
-let modalNavigationVC = self.storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
-modalNavigationVC.parentNavigationController = self.navigationController
-self.navigationController!.addChildViewController(modalNavigationVC)
-self.navigationController?.si_presentViewController(modalNavigationVC)
+let modalNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
+modalNavigationController.parentNavigationController = self.navigationController
+self.navigationController?.addChildViewController(modalNavigationController)
+self.navigationController?.si_presentViewController(modalNavigationController)
 ```
+
+- UITabBarController
+
+```swift
+let modalNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
+modalNavigationController.parentTabBarController = tabBarController
+tabBarController?.addChildViewController(modalNavigationController)
+tabBarController?.si_presentViewController(modalNavigationController)
+```
+
 
 You can change background color using following code:
 

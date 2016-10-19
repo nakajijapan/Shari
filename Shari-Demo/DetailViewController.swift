@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
         //Shari.BackgroundColorOfOverlayView = UIColor.redColor()
         modalNavigationController.parentNavigationController = navigationController
         
-        navigationController!.addChildViewController(modalNavigationController)
+        navigationController?.addChildViewController(modalNavigationController)
         navigationController?.si_presentViewController(modalNavigationController)
 
     }

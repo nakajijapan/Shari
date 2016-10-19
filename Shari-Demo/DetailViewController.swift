@@ -14,7 +14,12 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController.tabBar.setHidden(true)
+    }
+    
     // MARK: - Button Actions
 
     @IBAction func buttonDidTap(sender: AnyObject) {

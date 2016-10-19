@@ -17,6 +17,7 @@
 		DC9E68591C300C2E0095C3AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */; };
 		DC9E686B1C300DAF0095C3AB /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; };
 		DC9E686C1C300DAF0095C3AB /* Shari.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DCBED0611DB727AC00D3453A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBED0601DB727AC00D3453A /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		DC9E683A1C30088F0095C3AB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DCBED0601DB727AC00D3453A /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				DC9E67FD1C3005070095C3AB /* AppDelegate.swift */,
 				DC9E67FF1C3005070095C3AB /* ViewController.swift */,
 				DC9E683A1C30088F0095C3AB /* DetailViewController.swift */,
+				DCBED0601DB727AC00D3453A /* TabBarViewController.swift */,
 				DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */,
 				DC9E68011C3005070095C3AB /* Main.storyboard */,
 				DC9E68041C3005070095C3AB /* Assets.xcassets */,
@@ -288,6 +291,7 @@
 				DC9E683C1C30088F0095C3AB /* DetailViewController.swift in Sources */,
 				DC9E683D1C30088F0095C3AB /* ModalTableViewController.swift in Sources */,
 				DC9E68001C3005070095C3AB /* ViewController.swift in Sources */,
+				DCBED0611DB727AC00D3453A /* TabBarViewController.swift in Sources */,
 				DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

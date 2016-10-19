@@ -10,19 +10,9 @@ import UIKit
 
 class ViewController: UITableViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController.tabBar.setHidden(false)
     }
     
-    // MARK: - UITableViewDataSource
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("test")
-        return cell!
-    }
-
 }

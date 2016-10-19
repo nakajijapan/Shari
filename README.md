@@ -16,6 +16,7 @@ Is inspired to [Etsy](https://www.etsy.com/)'s view controller transition.
 
 - iOS 8.0+
 - Xcode 8+
+- Swift 2.3
 
 ## CocoaPods
 

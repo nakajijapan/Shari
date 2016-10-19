@@ -41,11 +41,16 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let currentNavigationController = self.navigationController as! Shari.NavigationController
-        
-        currentNavigationController.parentNavigationController!.si_dismissModalView({ () -> Void in
+        let currentController = self.navigationController as! Shari.NavigationController
+        let completion = {() -> Void in
             print("close via cell")
-        })
+        }
+        
+        if let parentController = currentController.parentNavigationController {
+            parentController.si_dismissModalView(completion)
+        } else if let parentController = currentController.parentTabBarController {
+            parentController.si_dismissModalView(completion)
+        }
 
     }
     
@@ -53,10 +58,16 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     
     @IBAction func closeButtonDidTap(sender: AnyObject) {
         
-        let currentNavigationController = self.navigationController as! Shari.NavigationController
-        currentNavigationController.parentNavigationController!.si_dismissModalView({ () -> Void in
+        let currentController = self.navigationController as! Shari.NavigationController
+        let completion = {() -> Void in
             print("close via button")
-        })
+        }
+
+        if let parentController = currentController.parentNavigationController {
+            parentController.si_dismissModalView(completion)
+        } else if let parentController = currentController.parentTabBarController {
+            parentController.si_dismissModalView(completion)
+        }
     }
 
     // MARK: - Shari.NavigationControllerDelegate

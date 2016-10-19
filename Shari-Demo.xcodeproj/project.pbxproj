@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC54326D1C62214300612AE3 /* Shari_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54326C1C62214300612AE3 /* Shari_DemoUITests.swift */; };
+		DC38C9731DB750C900EFD83E /* TabBarControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */; };
+		DC54326D1C62214300612AE3 /* NavigationControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */; };
 		DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E67FD1C3005070095C3AB /* AppDelegate.swift */; };
 		DC9E68001C3005070095C3AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E67FF1C3005070095C3AB /* ViewController.swift */; };
 		DC9E68031C3005070095C3AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9E68011C3005070095C3AB /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 		DC9E68591C300C2E0095C3AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */; };
 		DC9E686B1C300DAF0095C3AB /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; };
 		DC9E686C1C300DAF0095C3AB /* Shari.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DCBED0611DB727AC00D3453A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBED0601DB727AC00D3453A /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +67,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerUITests.swift; sourceTree = "<group>"; };
 		DC54326A1C62214300612AE3 /* Shari-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shari-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC54326C1C62214300612AE3 /* Shari_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shari_DemoUITests.swift; sourceTree = "<group>"; };
+		DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerUITests.swift; sourceTree = "<group>"; };
 		DC54326E1C62214300612AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC9E67FA1C3005070095C3AB /* Shari-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shari-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9E67FD1C3005070095C3AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 		DC9E683A1C30088F0095C3AB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DCBED0601DB727AC00D3453A /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,8 @@
 		DC54326B1C62214300612AE3 /* Shari-DemoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DC54326C1C62214300612AE3 /* Shari_DemoUITests.swift */,
+				DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */,
+				DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */,
 				DC54326E1C62214300612AE3 /* Info.plist */,
 			);
 			path = "Shari-DemoUITests";
@@ -133,6 +138,7 @@
 				DC9E67FD1C3005070095C3AB /* AppDelegate.swift */,
 				DC9E67FF1C3005070095C3AB /* ViewController.swift */,
 				DC9E683A1C30088F0095C3AB /* DetailViewController.swift */,
+				DCBED0601DB727AC00D3453A /* TabBarViewController.swift */,
 				DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */,
 				DC9E68011C3005070095C3AB /* Main.storyboard */,
 				DC9E68041C3005070095C3AB /* Assets.xcassets */,
@@ -145,8 +151,8 @@
 		DC9E68181C3006C50095C3AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC9E68201C3006C50095C3AB /* Shari_Tests.xctest */,
 				DC9E68221C3006C50095C3AB /* Shari.framework */,
+				DC9E68201C3006C50095C3AB /* Shari_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,18 +204,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = nakajijapan;
 				TargetAttributes = {
 					DC5432691C62214300612AE3 = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0810;
 						TestTargetID = DC9E67F91C3005070095C3AB;
 					};
 					DC9E67F91C3005070095C3AB = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = CNE5C4C374;
-						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -280,7 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC54326D1C62214300612AE3 /* Shari_DemoUITests.swift in Sources */,
+				DC54326D1C62214300612AE3 /* NavigationControllerUITests.swift in Sources */,
+				DC38C9731DB750C900EFD83E /* TabBarControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +296,7 @@
 				DC9E683C1C30088F0095C3AB /* DetailViewController.swift in Sources */,
 				DC9E683D1C30088F0095C3AB /* ModalTableViewController.swift in Sources */,
 				DC9E68001C3005070095C3AB /* ViewController.swift in Sources */,
+				DCBED0611DB727AC00D3453A /* TabBarViewController.swift in Sources */,
 				DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,7 +335,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.Shari-DemoUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = "Shari-Demo";
 				USES_XCTRUNNER = YES;
 			};
@@ -342,7 +347,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.Shari-DemoUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = "Shari-Demo";
 				USES_XCTRUNNER = YES;
 			};
@@ -361,8 +365,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -406,8 +412,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -426,6 +434,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -437,11 +446,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CNE5C4C374;
 				INFOPLIST_FILE = "Shari-Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.Shari-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -451,11 +458,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CNE5C4C374;
 				INFOPLIST_FILE = "Shari-Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.Shari-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

@@ -1,5 +1,5 @@
 //
-//  UINavigationControllerExtension.swift
+//  UINavigationController+Shari.swift
 //  Shari
 //
 //  Created by nakajijapan on 2015/12/11.
@@ -14,14 +14,14 @@ enum InternalStructureViewType:Int {
 
 public extension UINavigationController {
 
-    public func parentTargetView() -> UIView {
-        return self.view
+    var parentTargetView: UIView {
+        return view
     }
     
     func si_presentViewController(toViewController:UIViewController) {
 
         toViewController.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toViewController.view, fromView: self.parentTargetView()) { [weak self] in
+        ModalAnimator.present(toViewController.view, fromView: parentTargetView) { [weak self] in
             guard let strongslef = self else { return }
             toViewController.endAppearanceTransition()
             toViewController.didMoveToParentViewController(strongslef)
@@ -29,46 +29,49 @@ public extension UINavigationController {
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UINavigationController.overlayViewDidTap(_:)))
-        let overlayView = ModalAnimator.overlayView(self.parentTargetView())
+        let overlayView = ModalAnimator.overlayView(parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
     }
     
     func si_dismissModalView(completion: (() -> Void)?) {
         
-        self.willMoveToParentViewController(nil)
+        willMoveToParentViewController(nil)
 
         ModalAnimator.dismiss(
-            self.parentTargetView(),
-            presentingViewController: self.visibleViewController) { _ in
+            parentTargetView,
+            presentingViewController: visibleViewController) { _ in
 
                 completion?()
-
+                self.visibleViewController?.removeFromParentViewController()
         }
         
     }
     
     func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
         
-        self.willMoveToParentViewController(nil)
+        willMoveToParentViewController(nil)
 
         ModalAnimator.dismiss(
-            self.parentTargetView(),
-            presentingViewController: self.visibleViewController) { _ in
+            parentTargetView,
+            presentingViewController: visibleViewController) { _ in
 
-
+                self.visibleViewController?.removeFromParentViewController()
         }
 
     }
     
     func si_dismissDownSwipeModalView(completion: (() -> Void)?) {
         
-        self.willMoveToParentViewController(nil)
+        willMoveToParentViewController(nil)
         
         ModalAnimator.dismiss(
-            self.view.superview ?? self.parentTargetView(),
-            presentingViewController: self.visibleViewController) { _ in
+            view.superview ?? parentTargetView,
+            presentingViewController: visibleViewController) { _ in
+                
                 completion?()
+                self.visibleViewController?.removeFromParentViewController()
+                
         }
         
     }

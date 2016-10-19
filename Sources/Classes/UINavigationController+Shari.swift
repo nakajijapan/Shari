@@ -14,7 +14,7 @@ enum InternalStructureViewType:Int {
 
 public extension UINavigationController {
 
-    public func parentTargetView() -> UIView {
+    func parentTargetView() -> UIView {
         return view
     }
     
@@ -41,7 +41,9 @@ public extension UINavigationController {
         ModalAnimator.dismiss(
             parentTargetView(),
             presentingViewController: visibleViewController) { _ in
+
                 completion?()
+                self.visibleViewController?.removeFromParentViewController()
         }
         
     }
@@ -54,7 +56,7 @@ public extension UINavigationController {
             parentTargetView(),
             presentingViewController: visibleViewController) { _ in
 
-
+                self.visibleViewController?.removeFromParentViewController()
         }
 
     }
@@ -66,7 +68,10 @@ public extension UINavigationController {
         ModalAnimator.dismiss(
             view.superview ?? parentTargetView(),
             presentingViewController: visibleViewController) { _ in
+                
                 completion?()
+                self.visibleViewController?.removeFromParentViewController()
+                
         }
         
     }

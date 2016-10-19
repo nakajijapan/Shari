@@ -127,7 +127,7 @@ public class ModalAnimator {
         screenshotContainer.hidden = true
         
         UIGraphicsBeginImageContextWithOptions(capturedView.bounds.size, false, UIScreen.mainScreen().scale)
-        let context = UIGraphicsGetCurrentContext()
+        let context = UIGraphicsGetCurrentContext()!
         CGContextTranslateCTM(context, -capturedView.bounds.origin.x, -capturedView.bounds.origin.y)
         capturedView.layer.renderInContext(context)
 

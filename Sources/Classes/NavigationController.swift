@@ -135,20 +135,20 @@ public class NavigationController: UINavigationController {
         
     }
     
-    func parentTargetView() -> UIView {
-        if let tabBarController = self.tabBarController {
-            return tabBarController.parentTargetView()
+    public override func parentTargetView() -> UIView {
+        if tabBarController != nil {
+            return tabBarController!.parentTargetView()
         }
         
-        return navigationController.parentTargetView()
+        return navigationController!.parentTargetView()
     }
     
-    func parentController() -> UIViewController {
+    public func parentController() -> UIViewController {
         if let tabBarController = self.tabBarController {
             return tabBarController
         }
         
-        return navigationController
+        return navigationController!
     }
     
 }

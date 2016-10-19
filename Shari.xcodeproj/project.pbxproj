@@ -17,6 +17,7 @@
 		DC9E68711C300DE50095C3AB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68611C300D260095C3AB /* NavigationController.swift */; };
 		DC9E68721C300DE50095C3AB /* Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68621C300D260095C3AB /* Shari.swift */; };
 		DC9E68731C300DE50095C3AB /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68631C300D260095C3AB /* UINavigationController.swift */; };
+		DCBED0641DB7343E00D3453A /* UITabBarController+Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -45,6 +46,7 @@
 		DC9E68611C300D260095C3AB /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DC9E68621C300D260095C3AB /* Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shari.swift; sourceTree = "<group>"; };
 		DC9E68631C300D260095C3AB /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Shari.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				DC9E68601C300D260095C3AB /* ModalAnimator.swift */,
 				DC9E68611C300D260095C3AB /* NavigationController.swift */,
 				DC9E68631C300D260095C3AB /* UINavigationController.swift */,
+				DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC9E68661C300D260095C3AB /* ModalAnimator.swift in Sources */,
+				DCBED0641DB7343E00D3453A /* UITabBarController+Shari.swift in Sources */,
 				DC9E68691C300D260095C3AB /* UINavigationController.swift in Sources */,
 				DC9E68681C300D260095C3AB /* Shari.swift in Sources */,
 				DC9E68671C300D260095C3AB /* NavigationController.swift in Sources */,

@@ -17,6 +17,7 @@ public class NavigationController: UINavigationController {
 
     public var si_delegate: NavigationControllerDelegate?
     public var parentNavigationController: UINavigationController?
+    public var parentTabBarController: UITabBarController?
     
     public var minDeltaUpSwipe: CGFloat = 50
     public var minDeltaDownSwipe: CGFloat = 50
@@ -36,17 +37,17 @@ public class NavigationController: UINavigationController {
    
     func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
         
-        let location = gestureRecognizer.locationInView(self.parentViewController!.view)
-        let backgroundView = ModalAnimator.overlayView(self.parentNavigationController!.parentTargetView())!
+        let location = gestureRecognizer.locationInView(parentViewController!.view)
+        let backgroundView = ModalAnimator.overlayView(parentTargetView())!
         let degreeY = location.y - self.previousLocation.y
 
         switch gestureRecognizer.state {
-        case UIGestureRecognizerState.Began :
+        case UIGestureRecognizerState.Began:
             
             originalLocation = self.view.frame.origin
             break
 
-        case UIGestureRecognizerState.Changed :
+        case UIGestureRecognizerState.Changed:
             
             var frame = self.view.frame
             frame.origin.y += degreeY
@@ -132,6 +133,22 @@ public class NavigationController: UINavigationController {
         
         self.previousLocation = location
         
+    }
+    
+    func parentTargetView() -> UIView {
+        if let tabBarController = self.tabBarController {
+            return tabBarController.parentTargetView()
+        }
+        
+        return navigationController.parentTargetView()
+    }
+    
+    func parentController() -> UIViewController {
+        if let tabBarController = self.tabBarController {
+            return tabBarController
+        }
+        
+        return navigationController
     }
     
 }

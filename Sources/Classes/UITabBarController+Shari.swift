@@ -11,7 +11,7 @@ import UIKit
 public extension UITabBarController {
     
     public func parentTargetView() -> UIView {
-        return self.view
+        return view
     }
     
     func si_presentViewController(toViewController:UIViewController) {
@@ -21,7 +21,6 @@ public extension UITabBarController {
             guard let strongslef = self else { return }
             toViewController.endAppearanceTransition()
             toViewController.didMoveToParentViewController(strongslef)
-            
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UITabBarController.overlayViewDidTap(_:)))

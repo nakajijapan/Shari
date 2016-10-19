@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC54326D1C62214300612AE3 /* Shari_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54326C1C62214300612AE3 /* Shari_DemoUITests.swift */; };
+		DC38C9731DB750C900EFD83E /* TabBarControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */; };
+		DC54326D1C62214300612AE3 /* NavigationControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */; };
 		DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E67FD1C3005070095C3AB /* AppDelegate.swift */; };
 		DC9E68001C3005070095C3AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E67FF1C3005070095C3AB /* ViewController.swift */; };
 		DC9E68031C3005070095C3AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9E68011C3005070095C3AB /* Main.storyboard */; };
@@ -66,8 +67,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerUITests.swift; sourceTree = "<group>"; };
 		DC54326A1C62214300612AE3 /* Shari-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shari-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC54326C1C62214300612AE3 /* Shari_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shari_DemoUITests.swift; sourceTree = "<group>"; };
+		DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerUITests.swift; sourceTree = "<group>"; };
 		DC54326E1C62214300612AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC9E67FA1C3005070095C3AB /* Shari-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shari-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9E67FD1C3005070095C3AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +106,8 @@
 		DC54326B1C62214300612AE3 /* Shari-DemoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DC54326C1C62214300612AE3 /* Shari_DemoUITests.swift */,
+				DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */,
+				DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */,
 				DC54326E1C62214300612AE3 /* Info.plist */,
 			);
 			path = "Shari-DemoUITests";
@@ -148,8 +151,8 @@
 		DC9E68181C3006C50095C3AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC9E68201C3006C50095C3AB /* Shari_Tests.xctest */,
 				DC9E68221C3006C50095C3AB /* Shari.framework */,
+				DC9E68201C3006C50095C3AB /* Shari_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 					};
 					DC9E67F91C3005070095C3AB = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = CNE5C4C374;
 					};
 				};
 			};
@@ -280,7 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC54326D1C62214300612AE3 /* Shari_DemoUITests.swift in Sources */,
+				DC54326D1C62214300612AE3 /* NavigationControllerUITests.swift in Sources */,
+				DC38C9731DB750C900EFD83E /* TabBarControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CNE5C4C374;
 				INFOPLIST_FILE = "Shari-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.Shari-Demo";
@@ -450,6 +456,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CNE5C4C374;
 				INFOPLIST_FILE = "Shari-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.Shari-Demo";

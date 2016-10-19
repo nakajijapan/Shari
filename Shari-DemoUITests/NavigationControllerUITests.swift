@@ -1,5 +1,5 @@
 //
-//  Shari_DemoUITests.swift
+//  NavigationControllerUITests.swift
 //  Shari-DemoUITests
 //
 //  Created by nakajijapan on 2016/02/03.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Shari_DemoUITests: XCTestCase {
+class NavigationControllerUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -49,6 +49,5 @@ class Shari_DemoUITests: XCTestCase {
         app.otherElements.containingType(.NavigationBar, identifier:"Shari.Navigation").childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Image).element.tap()
         
     }
-    
-    
+
 }

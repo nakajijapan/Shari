@@ -12,7 +12,7 @@ def currentDestination
 end
 
 
-$PROJECT = "Kazaguruma"
+$PROJECT = "Shari"
 $WORKSPACE = "#{$PROJECT}.xcworkspace"
 
 namespace 'clean' do

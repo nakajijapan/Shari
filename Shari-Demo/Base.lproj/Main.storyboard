@@ -46,7 +46,7 @@
                     <navigationItem key="navigationItem" title="modal" id="BHz-Ob-nvG">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="Nwb-Ce-Axs">
                             <connections>
-                                <action selector="closeButtonDidTap:" destination="6iZ-sq-J3f" id="Sqw-bV-rwI"/>
+                                <action selector="closeButtonDidTapWithButton:" destination="6iZ-sq-J3f" id="x3w-SV-ZaK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

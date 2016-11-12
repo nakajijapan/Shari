@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     
     // MARK: - Button Actions
 
-    @IBAction func buttonDidTap(sender: AnyObject) {
+    @IBAction func buttonDidTap(button: AnyObject) {
 
         let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! Shari.NavigationController
 

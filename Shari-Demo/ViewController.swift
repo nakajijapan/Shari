@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController {
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //tabBarController?.tabBar.hidden = false
     }

@@ -31,7 +31,8 @@ public class NavigationController: UINavigationController {
         
     override public func viewDidLoad() {
         originalFrame = self.view.frame
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavigationController.handlePanGesture(_:)))
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavigationController.handlePanGesture(gestureRecognizer:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
     }
    

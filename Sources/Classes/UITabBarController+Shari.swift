@@ -23,7 +23,7 @@ public extension UITabBarController {
             toViewController.didMove(toParentViewController: strongslef)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UITabBarController.overlayViewDidTap(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UITabBarController.overlayViewDidTap(gestureRecognizer:)))
         let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
         

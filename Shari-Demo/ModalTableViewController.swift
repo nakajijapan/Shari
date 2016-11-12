@@ -18,28 +18,28 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
             nc.fullScreenSwipeUp = true
             nc.dismissControllSwipeDown = false
         }
-        self.tableView.scrollEnabled = false
+        self.tableView.isScrollEnabled = false
     }
     
     // MARK: - UITableViewDataSource
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
         cell.textLabel!.text = "Title #\(indexPath.row)"
         return cell
     }
     
     // MARK: - UITableViewDelegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let currentController = self.navigationController as! Shari.NavigationController
         let completion = {() -> Void in
@@ -47,9 +47,9 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
         }
         
         if let parentController = currentController.parentNavigationController {
-            parentController.si_dismissModalView(completion)
+            parentController.si_dismissModalView(completion: completion)
         } else if let parentController = currentController.parentTabBarController {
-            parentController.si_dismissModalView(completion)
+            parentController.si_dismissModalView(completion: completion)
         }
 
     }
@@ -64,9 +64,9 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
         }
 
         if let parentController = currentController.parentNavigationController {
-            parentController.si_dismissModalView(completion)
+            parentController.si_dismissModalView(completion: completion)
         } else if let parentController = currentController.parentTabBarController {
-            parentController.si_dismissModalView(completion)
+            parentController.si_dismissModalView(completion: completion)
         }
     }
 
@@ -74,7 +74,7 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
 
     func navigationControllerDidSpreadToEntire(navigationController: UINavigationController) {
 
-        self.tableView.scrollEnabled = true
+        self.tableView.isScrollEnabled = true
 
         print("spread to the entire")
 

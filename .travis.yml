@@ -11,5 +11,5 @@ install:
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 
 script:
-  - rake build:ios DESTINATION="$DESTINATION"
+  - rake test:ios DESTINATION="$DESTINATION"
   - pod lib lint --quick

@@ -1,0 +1,12 @@
+
+[!] Unable to find a spec named `PhotoSlider.podspec'.
+
+/Users/nakajijapan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/cocoapods-1.1.0.rc.2/lib/cocoapods/command/spec/lint.rb:106:in `block in podspecs_to_lint'
+/Users/nakajijapan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/cocoapods-1.1.0.rc.2/lib/cocoapods/command/spec/lint.rb:92:in `each'
+/Users/nakajijapan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/cocoapods-1.1.0.rc.2/lib/cocoapods/command/spec/lint.rb:92:in `podspecs_to_lint'
+/Users/nakajijapan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/cocoapods-1.1.0.rc.2/lib/cocoapods/command/spec/lint.rb:50:in `run'
+/Users/nakajijapan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/claide-1.0.0/lib/claide/command.rb:334:in `run'
+/Users/nakajijapan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/cocoapods-1.1.0.rc.2/lib/cocoapods/command.rb:50:in `run'
+/Users/nakajijapan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/cocoapods-1.1.0.rc.2/bin/pod:55:in `<top (required)>'
+/Users/nakajijapan/.rbenv/versions/2.3.0/bin/pod:23:in `load'
+/Users/nakajijapan/.rbenv/versions/2.3.0/bin/pod:23:in `<main>'

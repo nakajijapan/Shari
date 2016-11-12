@@ -21,25 +21,25 @@ public extension UINavigationController {
     func si_presentViewController(toViewController:UIViewController) {
 
         toViewController.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toViewController.view, fromView: parentTargetView) { [weak self] in
+        ModalAnimator.present(toView: toViewController.view, fromView: parentTargetView) { [weak self] in
             guard let strongslef = self else { return }
             toViewController.endAppearanceTransition()
-            toViewController.didMoveToParentViewController(strongslef)
+            toViewController.didMove(toParentViewController: strongslef)
             
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UINavigationController.overlayViewDidTap(_:)))
-        let overlayView = ModalAnimator.overlayView(parentTargetView)
+        let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
     }
     
     func si_dismissModalView(completion: (() -> Void)?) {
         
-        willMoveToParentViewController(nil)
+        willMove(toParentViewController: nil)
 
         ModalAnimator.dismiss(
-            parentTargetView,
+            fromView: parentTargetView,
             presentingViewController: visibleViewController) { _ in
 
                 completion?()
@@ -51,15 +51,15 @@ public extension UINavigationController {
     func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
         
         
-        parentTargetView.userInteractionEnabled = false
-        willMoveToParentViewController(nil)
+        parentTargetView.isUserInteractionEnabled = false
+        willMove(toParentViewController: nil)
         
         ModalAnimator.dismiss(
-            parentTargetView,
+            fromView: parentTargetView,
             presentingViewController: visibleViewController) { _ in
                 
                 self.visibleViewController?.removeFromParentViewController()
-                self.parentTargetView.userInteractionEnabled = true
+                self.parentTargetView.isUserInteractionEnabled = true
 
         }
 
@@ -67,10 +67,10 @@ public extension UINavigationController {
     
     func si_dismissDownSwipeModalView(completion: (() -> Void)?) {
         
-        willMoveToParentViewController(nil)
+        willMove(toParentViewController: nil)
         
         ModalAnimator.dismiss(
-            view.superview ?? parentTargetView,
+            fromView: view.superview ?? parentTargetView,
             presentingViewController: visibleViewController) { _ in
                 
                 completion?()

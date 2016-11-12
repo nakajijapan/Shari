@@ -52,6 +52,7 @@ public extension UITabBarController {
         let presentingViewController = childViewControllers.last
         presentingViewController!.willMoveToParentViewController(nil)
         
+        parentTargetView.userInteractionEnabled = false
         willMoveToParentViewController(nil)
         
         ModalAnimator.dismiss(
@@ -59,6 +60,8 @@ public extension UITabBarController {
             presentingViewController: presentingViewController) { _ in
                 
                 self.presentingViewController?.removeFromParentViewController()
+                self.parentTargetView.userInteractionEnabled = true
+
         }
         
     }

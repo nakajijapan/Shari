@@ -50,13 +50,17 @@ public extension UINavigationController {
     
     func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
         
+        
+        parentTargetView.userInteractionEnabled = false
         willMoveToParentViewController(nil)
-
+        
         ModalAnimator.dismiss(
             parentTargetView,
             presentingViewController: visibleViewController) { _ in
-
+                
                 self.visibleViewController?.removeFromParentViewController()
+                self.parentTargetView.userInteractionEnabled = true
+
         }
 
     }

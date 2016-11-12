@@ -15,10 +15,10 @@ end
 $PROJECT = "Shari"
 $WORKSPACE = "#{$PROJECT}.xcworkspace"
 
-namespace 'clean' do
+namespace :clean do
 
-  task :demo do
-    run "xcodebuild -workspace #{$WORKSPACE} -scheme #{$PROJECT}Demo clean"
+  task :app do
+    run "xcodebuild -workspace #{$WORKSPACE} -scheme #{$PROJECT}-Demo clean"
   end
 
   task :framework do
@@ -27,10 +27,10 @@ namespace 'clean' do
 
 end
 
-namespace "build" do
+namespace :build do
 
   desc "Build for all iOS targets"
-  task :ios do |task, args|
+  task :app do |task, args|
 
     destination = currentDestination
     run "xcodebuild -workspace #{$WORKSPACE} -scheme #{$PROJECT} -destination '#{destination}' -configuration Debug clean build TEST_AFTER_BUILD=YES | xcpretty"
@@ -39,10 +39,18 @@ namespace "build" do
 
 end
 
-namespace "test" do
+namespace :test do
 
-  desc "Test for all iOS targets"
-  task :ios do |task, args|
+  desc "Test for "
+  task :app do |task, args|
+
+    destination = currentDestination
+    run "xcodebuild -workspace #{$WORKSPACE} -scheme #{$PROJECT}-Demo -destination '#{destination}' -destination-timeout 1 -sdk iphonesimulator -configuration Debug clean test | xcpretty"
+
+  end
+
+  desc "Test for Framework"
+  task :framework do |task, args|
 
     destination = currentDestination
     run "xcodebuild -workspace #{$WORKSPACE} -scheme #{$PROJECT} -destination '#{destination}' -destination-timeout 1 -sdk iphonesimulator -configuration Debug clean test | xcpretty"

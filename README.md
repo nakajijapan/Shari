@@ -64,10 +64,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 - UINavigationController
 
 ```swift
-let modalNavigationController = self.storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
-modalNavigationController.parentNavigationController = self.navigationController
-self.navigationController?.addChildViewController(modalNavigationController)
-self.navigationController?.si_presentViewController(modalNavigationController)
+let modalNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
+modalNavigationController.parentNavigationController = navigationController
+navigationController?.addChildViewController(modalNavigationController)
+navigationController?.si_presentViewController(modalNavigationController)
 ```
 
 - UITabBarController
@@ -108,7 +108,7 @@ Shari.ShouldTransformScaleDown = true
 You can close using the following code in viewController:
 
 ```swift
-let currentNavigationController = self.navigationController as! Shari.NavigationController
+let currentNavigationController = navigationController as! Shari.NavigationController
 currentNavigationController.parentNavigationController!.si_dismissModalView({ () -> Void in
 // something
 })

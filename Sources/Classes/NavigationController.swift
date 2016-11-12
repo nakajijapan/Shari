@@ -30,30 +30,30 @@ public class NavigationController: UINavigationController {
     var originalFrame = CGRect.zero
         
     override public func viewDidLoad() {
-        originalFrame = self.view.frame
+        originalFrame = view.frame
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavigationController.handlePanGesture(gestureRecognizer:)))
-        self.view.addGestureRecognizer(panGestureRecognizer)
+        view.addGestureRecognizer(panGestureRecognizer)
     }
    
     func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
         
         let location = gestureRecognizer.location(in: parent!.view)
         let backgroundView = ModalAnimator.overlayView(fromView: parentTargetView)!
-        let degreeY = location.y - self.previousLocation.y
+        let degreeY = location.y - previousLocation.y
 
         switch gestureRecognizer.state {
         case UIGestureRecognizerState.began:
             
-            originalLocation = self.view.frame.origin
+            originalLocation = view.frame.origin
             break
 
         case UIGestureRecognizerState.changed:
             
-            var frame = self.view.frame
+            var frame = view.frame
             frame.origin.y += degreeY
             frame.size.height += -degreeY
-            self.view.frame = frame
+            view.frame = frame
 
             ModalAnimator.transitionBackgroundView(overlayView: backgroundView, location: location)
 
@@ -61,12 +61,15 @@ public class NavigationController: UINavigationController {
 
         case UIGestureRecognizerState.ended :
             
-            if fullScreenSwipeUp &&  originalLocation.y - self.view.frame.minY > minDeltaUpSwipe {
+            if fullScreenSwipeUp &&  originalLocation.y - view.frame.minY > minDeltaUpSwipe {
                 
                 UIView.animate(
                     withDuration: 0.2,
                     animations: { [weak self] in
-                        guard let strongslef = self else { return }
+
+                        guard let strongslef = self else {
+                            return
+                        }
                         
                         var frame = strongslef.originalFrame
                         let statusBarHeight = UIApplication.shared.statusBarFrame.height
@@ -86,7 +89,10 @@ public class NavigationController: UINavigationController {
                                 backgroundView.alpha = 0.0
                             },
                             completion: { [weak self] result in
-                                guard let strongslef = self else { return }
+
+                                guard let strongslef = self else {
+                                    return
+                                }
                               
                                 gestureRecognizer.isEnabled = false
                                 strongslef.si_delegate?.navigationControllerDidSpreadToEntire?(navigationController: strongslef)
@@ -96,7 +102,7 @@ public class NavigationController: UINavigationController {
                     }
                 )
                 
-            } else if dismissControllSwipeDown && self.view.frame.minY - originalLocation.y > minDeltaDownSwipe {
+            } else if dismissControllSwipeDown && view.frame.minY - originalLocation.y > minDeltaDownSwipe {
                 si_dismissDownSwipeModalView(completion: nil)
             } else {
 
@@ -132,7 +138,7 @@ public class NavigationController: UINavigationController {
             
         }
         
-        self.previousLocation = location
+        previousLocation = location
         
     }
     
@@ -145,7 +151,7 @@ public class NavigationController: UINavigationController {
     }
     
     public var parentController: UIViewController {
-        if let tabBarController = self.tabBarController {
+        if let tabBarController = tabBarController {
             return tabBarController
         }
         

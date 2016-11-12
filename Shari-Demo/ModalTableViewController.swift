@@ -13,12 +13,12 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let nc = self.navigationController as? Shari.NavigationController {
+        if let nc = navigationController as? Shari.NavigationController {
             nc.si_delegate = self
             nc.fullScreenSwipeUp = true
             nc.dismissControllSwipeDown = false
         }
-        self.tableView.isScrollEnabled = false
+        tableView.isScrollEnabled = false
     }
     
     // MARK: - UITableViewDataSource
@@ -41,8 +41,8 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let currentController = self.navigationController as! Shari.NavigationController
-        let completion = {() -> Void in
+        let currentController = navigationController as! Shari.NavigationController
+        let completion = {
             print("close via cell")
         }
         
@@ -56,10 +56,10 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     
     // MARK: - Button Actions
     
-    @IBAction func closeButtonDidTap(sender: AnyObject) {
+    @IBAction func closeButtonDidTap(button: UIBarButtonItem) {
         
-        let currentController = self.navigationController as! Shari.NavigationController
-        let completion = {() -> Void in
+        let currentController = navigationController as! Shari.NavigationController
+        let completion = {
             print("close via button")
         }
 
@@ -74,7 +74,7 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
 
     func navigationControllerDidSpreadToEntire(navigationController: UINavigationController) {
 
-        self.tableView.isScrollEnabled = true
+        tableView.isScrollEnabled = true
 
         print("spread to the entire")
 

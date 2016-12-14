@@ -13,14 +13,14 @@ class TabBarViewController: UIViewController {
 
     @IBAction func buttonDidTap(button: UIButton) {
         
-        let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! Shari.NavigationController
+        let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! ShariNavigationController
         
         //Shari.ShouldTransformScaleDown = false
         //Shari.BackgroundColorOfOverlayView = UIColor.redColor()
         modalNavigationController.parentTabBarController = tabBarController
         
         tabBarController?.addChildViewController(modalNavigationController)
-        tabBarController?.si_presentViewController(toViewController: modalNavigationController)
+        tabBarController?.si.presentViewController(toViewController: modalNavigationController)
         
     }
 }

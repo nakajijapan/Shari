@@ -8,14 +8,14 @@
 
 import UIKit
 
-@objc public protocol NavigationControllerDelegate {
+@objc public protocol ShariNavigationControllerDelegate {
     @objc optional func navigationControllerDidSpreadToEntire(navigationController: UINavigationController)
 }
 
 
-public class NavigationController: UINavigationController {
+public class ShariNavigationController: UINavigationController {
 
-    public var si_delegate: NavigationControllerDelegate?
+    public var si_delegate: ShariNavigationControllerDelegate?
     public var parentNavigationController: UINavigationController?
     public var parentTabBarController: UITabBarController?
     
@@ -32,7 +32,7 @@ public class NavigationController: UINavigationController {
     override public func viewDidLoad() {
         originalFrame = view.frame
         
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(NavigationController.handlePanGesture(gestureRecognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ShariNavigationController.handlePanGesture(gestureRecognizer:)))
         view.addGestureRecognizer(panGestureRecognizer)
     }
    
@@ -103,7 +103,7 @@ public class NavigationController: UINavigationController {
                 )
                 
             } else if dismissControllSwipeDown && view.frame.minY - originalLocation.y > minDeltaDownSwipe {
-                si_dismissDownSwipeModalView(completion: nil)
+                si.dismissDownSwipeModalView(completion: nil)
             } else {
 
                 UIView.animate(
@@ -142,12 +142,12 @@ public class NavigationController: UINavigationController {
         
     }
     
-    public override var parentTargetView: UIView {
+    public var parentTargetView: UIView {
         if tabBarController != nil {
-            return tabBarController!.parentTargetView
+            return tabBarController!.si.parentTargetView
         }
         
-        return navigationController!.parentTargetView
+        return navigationController!.si.parentTargetView
     }
     
     public var parentController: UIViewController {

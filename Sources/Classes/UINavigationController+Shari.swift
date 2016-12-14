@@ -12,71 +12,74 @@ enum InternalStructureViewType:Int {
     case ToView = 900, ScreenShot = 910, Overlay = 920
 }
 
-public extension UINavigationController {
+public extension Shari where Base: UINavigationController {
 
     var parentTargetView: UIView {
-        return view
+        return base.view
     }
     
-    func si_presentViewController(toViewController:UIViewController) {
+    func presentViewController(toViewController:UIViewController) {
 
         toViewController.beginAppearanceTransition(true, animated: true)
         ModalAnimator.present(toView: toViewController.view, fromView: parentTargetView) { [weak self] in
-            guard let strongslef = self else { return }
+            guard let strongSelf = self else { return }
             toViewController.endAppearanceTransition()
-            toViewController.didMove(toParentViewController: strongslef)
-            
+            toViewController.didMove(toParentViewController: strongSelf.base)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UINavigationController.overlayViewDidTap(gestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: base, action: #selector(UINavigationController.overlayViewDidTap(gestureRecognizer:)))
         let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
     }
     
-    func si_dismissModalView(completion: (() -> Void)?) {
+    func dismissModalView(completion: (() -> Void)?) {
         
-        willMove(toParentViewController: nil)
+        base.willMove(toParentViewController: nil)
 
         ModalAnimator.dismiss(
             fromView: parentTargetView,
-            presentingViewController: visibleViewController) { _ in
+            presentingViewController: base.visibleViewController) { [weak self] in
 
                 completion?()
-                self.visibleViewController?.removeFromParentViewController()
+                self?.base.visibleViewController?.removeFromParentViewController()
         }
         
     }
     
-    func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
+   
+    func dismissDownSwipeModalView(completion: (() -> Void)?) {
         
-        
-        parentTargetView.isUserInteractionEnabled = false
-        willMove(toParentViewController: nil)
-        
-        ModalAnimator.dismiss(
-            fromView: parentTargetView,
-            presentingViewController: visibleViewController) { _ in
-                
-                self.visibleViewController?.removeFromParentViewController()
-                self.parentTargetView.isUserInteractionEnabled = true
-
-        }
-
-    }
-    
-    func si_dismissDownSwipeModalView(completion: (() -> Void)?) {
-        
-        willMove(toParentViewController: nil)
+        base.willMove(toParentViewController: nil)
         
         ModalAnimator.dismiss(
-            fromView: view.superview ?? parentTargetView,
-            presentingViewController: visibleViewController) { _ in
+            fromView: base.view.superview ?? parentTargetView,
+            presentingViewController: base.visibleViewController) { [weak self] in
                 
                 completion?()
-                self.visibleViewController?.removeFromParentViewController()
+                self?.base.visibleViewController?.removeFromParentViewController()
                 
         }
         
     }
 }
+
+public extension UINavigationController {
+    
+    func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
+        
+        si.parentTargetView.isUserInteractionEnabled = false
+        willMove(toParentViewController: nil)
+        
+        ModalAnimator.dismiss(
+            fromView: si.parentTargetView,
+            presentingViewController: visibleViewController) { [weak self] in
+                
+                self?.visibleViewController?.removeFromParentViewController()
+                self?.si.parentTargetView.isUserInteractionEnabled = true
+                
+        }
+        
+    }
+}
+

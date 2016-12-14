@@ -9,11 +9,11 @@
 import UIKit
 import Shari
 
-class ModalTableViewController: UITableViewController, Shari.NavigationControllerDelegate {
+class ModalTableViewController: UITableViewController, ShariNavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let nc = navigationController as? Shari.NavigationController {
+        if let nc = navigationController as? ShariNavigationController {
             nc.si_delegate = self
             nc.fullScreenSwipeUp = true
             nc.dismissControllSwipeDown = false
@@ -41,15 +41,15 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let currentController = navigationController as! Shari.NavigationController
+        let currentController = navigationController as! ShariNavigationController
         let completion = {
             print("close via cell")
         }
         
         if let parentController = currentController.parentNavigationController {
-            parentController.si_dismissModalView(completion: completion)
+            parentController.si.dismissModalView(completion: completion)
         } else if let parentController = currentController.parentTabBarController {
-            parentController.si_dismissModalView(completion: completion)
+            parentController.si.dismissModalView(completion: completion)
         }
 
     }
@@ -58,15 +58,15 @@ class ModalTableViewController: UITableViewController, Shari.NavigationControlle
     
     @IBAction func closeButtonDidTap(button: UIBarButtonItem) {
         
-        let currentController = navigationController as! Shari.NavigationController
+        let currentController = navigationController as! ShariNavigationController
         let completion = {
             print("close via button")
         }
 
         if let parentController = currentController.parentNavigationController {
-            parentController.si_dismissModalView(completion: completion)
+            parentController.si.dismissModalView(completion: completion)
         } else if let parentController = currentController.parentTabBarController {
-            parentController.si_dismissModalView(completion: completion)
+            parentController.si.dismissModalView(completion: completion)
         }
     }
 

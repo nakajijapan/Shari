@@ -10,3 +10,26 @@ import Foundation
 
 public var BackgroundColorOfOverlayView = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
 public var ShouldTransformScaleDown = true
+
+public protocol ShariCompatible {
+    associatedtype CompatibleType
+    var si: CompatibleType { get }
+}
+
+public final class Shari<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
+    }
+}
+
+public extension ShariCompatible {
+    public var si: Shari<Self> {
+        get {
+            return Shari(self)
+        }
+    }
+}
+
+extension UINavigationController: ShariCompatible { }
+extension UITabBarController: ShariCompatible { }

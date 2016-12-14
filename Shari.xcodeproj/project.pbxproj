@@ -11,7 +11,7 @@
 		DC4D0ABC1DD726C900366D6C /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E67C11C2FDC020095C3AB /* Shari.framework */; };
 		DC9E68391C30084C0095C3AB /* Shari.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9E68381C30084C0095C3AB /* Shari.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC9E68701C300DE50095C3AB /* ModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68601C300D260095C3AB /* ModalAnimator.swift */; };
-		DC9E68711C300DE50095C3AB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68611C300D260095C3AB /* NavigationController.swift */; };
+		DC9E68711C300DE50095C3AB /* ShariNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68611C300D260095C3AB /* ShariNavigationController.swift */; };
 		DC9E68721C300DE50095C3AB /* Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68621C300D260095C3AB /* Shari.swift */; };
 		DC9E68731C300DE50095C3AB /* UINavigationController+Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68631C300D260095C3AB /* UINavigationController+Shari.swift */; };
 		DCBED0651DB73EB700D3453A /* UITabBarController+Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */; };
@@ -50,7 +50,7 @@
 		DC9E68251C3006EE0095C3AB /* Shari.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Shari.podspec; sourceTree = "<group>"; };
 		DC9E68381C30084C0095C3AB /* Shari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shari.h; sourceTree = "<group>"; };
 		DC9E68601C300D260095C3AB /* ModalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalAnimator.swift; sourceTree = "<group>"; };
-		DC9E68611C300D260095C3AB /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		DC9E68611C300D260095C3AB /* ShariNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShariNavigationController.swift; sourceTree = "<group>"; };
 		DC9E68621C300D260095C3AB /* Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shari.swift; sourceTree = "<group>"; };
 		DC9E68631C300D260095C3AB /* UINavigationController+Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Shari.swift"; sourceTree = "<group>"; };
 		DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Shari.swift"; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 			children = (
 				DC9E68621C300D260095C3AB /* Shari.swift */,
 				DC9E68601C300D260095C3AB /* ModalAnimator.swift */,
-				DC9E68611C300D260095C3AB /* NavigationController.swift */,
+				DC9E68611C300D260095C3AB /* ShariNavigationController.swift */,
 				DC9E68631C300D260095C3AB /* UINavigationController+Shari.swift */,
 				DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */,
 			);
@@ -277,7 +277,7 @@
 				DC9E68721C300DE50095C3AB /* Shari.swift in Sources */,
 				DCBED0651DB73EB700D3453A /* UITabBarController+Shari.swift in Sources */,
 				DC9E68701C300DE50095C3AB /* ModalAnimator.swift in Sources */,
-				DC9E68711C300DE50095C3AB /* NavigationController.swift in Sources */,
+				DC9E68711C300DE50095C3AB /* ShariNavigationController.swift in Sources */,
 				DC9E68731C300DE50095C3AB /* UINavigationController+Shari.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

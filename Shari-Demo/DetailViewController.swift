@@ -11,23 +11,23 @@ import Shari
 
 class DetailViewController: UIViewController {
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //tabBarController?.tabBar.hidden = true
     }
     
     // MARK: - Button Actions
 
-    @IBAction func buttonDidTap(sender: AnyObject) {
+    @IBAction func buttonDidTap(button: AnyObject) {
 
-        let modalNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
+        let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! ShariNavigationController
 
         //Shari.ShouldTransformScaleDown = false
         //Shari.BackgroundColorOfOverlayView = UIColor.redColor()
         modalNavigationController.parentNavigationController = navigationController
         
         navigationController?.addChildViewController(modalNavigationController)
-        navigationController?.si_presentViewController(modalNavigationController)
+        navigationController?.si.presentViewController(toViewController: modalNavigationController)
 
     }
 }

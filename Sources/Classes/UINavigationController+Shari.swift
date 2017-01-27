@@ -12,71 +12,74 @@ enum InternalStructureViewType:Int {
     case ToView = 900, ScreenShot = 910, Overlay = 920
 }
 
-public extension UINavigationController {
+public extension Shari where Base: UINavigationController {
 
     var parentTargetView: UIView {
-        return view
+        return base.view
     }
     
-    func si_presentViewController(toViewController:UIViewController) {
+    func presentViewController(toViewController:UIViewController) {
 
         toViewController.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toViewController.view, fromView: parentTargetView) { [weak self] in
-            guard let strongslef = self else { return }
+        ModalAnimator.present(toView: toViewController.view, fromView: parentTargetView) { [weak self] in
+            guard let strongSelf = self else { return }
             toViewController.endAppearanceTransition()
-            toViewController.didMoveToParentViewController(strongslef)
-            
+            toViewController.didMove(toParentViewController: strongSelf.base)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UINavigationController.overlayViewDidTap(_:)))
-        let overlayView = ModalAnimator.overlayView(parentTargetView)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: base, action: #selector(UINavigationController.overlayViewDidTap(gestureRecognizer:)))
+        let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
     }
     
-    func si_dismissModalView(completion: (() -> Void)?) {
+    func dismissModalView(completion: (() -> Void)?) {
         
-        willMoveToParentViewController(nil)
+        base.willMove(toParentViewController: nil)
 
         ModalAnimator.dismiss(
-            parentTargetView,
-            presentingViewController: visibleViewController) { _ in
+            fromView: parentTargetView,
+            presentingViewController: base.visibleViewController) { [weak self] in
 
                 completion?()
-                self.visibleViewController?.removeFromParentViewController()
+                self?.base.visibleViewController?.removeFromParentViewController()
         }
         
     }
     
-    func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
+   
+    func dismissDownSwipeModalView(completion: (() -> Void)?) {
         
-        
-        parentTargetView.userInteractionEnabled = false
-        willMoveToParentViewController(nil)
-        
-        ModalAnimator.dismiss(
-            parentTargetView,
-            presentingViewController: visibleViewController) { _ in
-                
-                self.visibleViewController?.removeFromParentViewController()
-                self.parentTargetView.userInteractionEnabled = true
-
-        }
-
-    }
-    
-    func si_dismissDownSwipeModalView(completion: (() -> Void)?) {
-        
-        willMoveToParentViewController(nil)
+        base.willMove(toParentViewController: nil)
         
         ModalAnimator.dismiss(
-            view.superview ?? parentTargetView,
-            presentingViewController: visibleViewController) { _ in
+            fromView: base.view.superview ?? parentTargetView,
+            presentingViewController: base.visibleViewController) { [weak self] in
                 
                 completion?()
-                self.visibleViewController?.removeFromParentViewController()
+                self?.base.visibleViewController?.removeFromParentViewController()
                 
         }
         
     }
 }
+
+public extension UINavigationController {
+    
+    func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
+        
+        si.parentTargetView.isUserInteractionEnabled = false
+        willMove(toParentViewController: nil)
+        
+        ModalAnimator.dismiss(
+            fromView: si.parentTargetView,
+            presentingViewController: visibleViewController) { [weak self] in
+                
+                self?.visibleViewController?.removeFromParentViewController()
+                self?.si.parentTargetView.isUserInteractionEnabled = true
+                
+        }
+        
+    }
+}
+

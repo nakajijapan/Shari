@@ -8,80 +8,85 @@
 
 import UIKit
 
-public extension UITabBarController {
+public extension Shari where Base: UITabBarController {
     
     var parentTargetView: UIView {
-        return view
+        return base.view
     }
     
-    func si_presentViewController(toViewController:UIViewController) {
+    func presentViewController(toViewController:UIViewController) {
         
         toViewController.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toViewController.view, fromView: parentTargetView) { [weak self] in
+        ModalAnimator.present(toView: toViewController.view, fromView: parentTargetView) { [weak self] in
             guard let strongslef = self else { return }
             toViewController.endAppearanceTransition()
-            toViewController.didMoveToParentViewController(strongslef)
+            toViewController.didMove(toParentViewController: strongslef.base)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UITabBarController.overlayViewDidTap(_:)))
-        let overlayView = ModalAnimator.overlayView(parentTargetView)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: base, action: #selector(UITabBarController.overlayViewDidTap(gestureRecognizer:)))
+        let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
         
     }
     
-    func si_dismissModalView(completion: (() -> Void)?) {
+    func dismissModalView(completion: (() -> Void)?) {
         
-        let presentingViewController = childViewControllers.last
-        presentingViewController!.willMoveToParentViewController(nil)
+        let presentingViewController = base.childViewControllers.last
+        presentingViewController!.willMove(toParentViewController: nil)
         
-        willMoveToParentViewController(nil)
+        base.willMove(toParentViewController: nil)
         
         ModalAnimator.dismiss(
-            parentTargetView,
-            presentingViewController: presentingViewController) { _ in
+            fromView: parentTargetView,
+            presentingViewController: presentingViewController) { [weak self] in
                 
                 completion?()
-                self.presentingViewController?.removeFromParentViewController()
+                self?.base.presentingViewController?.removeFromParentViewController()
 
         }
         
     }
     
-    func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
+   
+    func dismissDownSwipeModalView(completion: (() -> Void)?) {
         
-        let presentingViewController = childViewControllers.last
-        presentingViewController!.willMoveToParentViewController(nil)
+        let presentingViewController = base.childViewControllers.last
+        presentingViewController!.willMove(toParentViewController: nil)
         
-        parentTargetView.userInteractionEnabled = false
-        willMoveToParentViewController(nil)
-        
-        ModalAnimator.dismiss(
-            parentTargetView,
-            presentingViewController: presentingViewController) { _ in
-                
-                self.presentingViewController?.removeFromParentViewController()
-                self.parentTargetView.userInteractionEnabled = true
-
-        }
-        
-    }
-    
-    func si_dismissDownSwipeModalView(completion: (() -> Void)?) {
-        
-        let presentingViewController = childViewControllers.last
-        presentingViewController!.willMoveToParentViewController(nil)
-        
-        willMoveToParentViewController(nil)
+        base.willMove(toParentViewController: nil)
         
         ModalAnimator.dismiss(
-            view.superview ?? parentTargetView,
-            presentingViewController: presentingViewController) { _ in
+            fromView: base.view.superview ?? parentTargetView,
+            presentingViewController: presentingViewController) { [weak self] in
 
                 completion?()
-                self.presentingViewController?.removeFromParentViewController()
+                self?.base.presentingViewController?.removeFromParentViewController()
 
         }
         
     }
  
+}
+
+public extension UITabBarController {
+    
+    func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
+        
+        let presentingViewController = childViewControllers.last
+        presentingViewController!.willMove(toParentViewController: nil)
+        
+        si.parentTargetView.isUserInteractionEnabled = false
+        willMove(toParentViewController: nil)
+        
+        ModalAnimator.dismiss(
+            fromView: si.parentTargetView,
+            presentingViewController: presentingViewController) { [weak self] in
+                
+                self?.presentingViewController?.removeFromParentViewController()
+                self?.si.parentTargetView.isUserInteractionEnabled = true
+                
+        }
+        
+    }
+    
 }

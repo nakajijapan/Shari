@@ -46,7 +46,7 @@ class NavigationControllerUITests: XCTestCase {
         let app = XCUIApplication()
         app.tables.staticTexts["Detail View Controller"].tap()
         app.buttons["Button"].tap()
-        app.otherElements.containingType(.NavigationBar, identifier:"Shari.Navigation").childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Image).element.tap()
+        app.otherElements.containing(.navigationBar, identifier:"Shari.Navigation").children(matching: .other).element(boundBy: 1).children(matching: .image).element.tap()
         
     }
 

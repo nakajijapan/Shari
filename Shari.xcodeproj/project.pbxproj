@@ -11,7 +11,7 @@
 		DC4D0ABC1DD726C900366D6C /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E67C11C2FDC020095C3AB /* Shari.framework */; };
 		DC9E68391C30084C0095C3AB /* Shari.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9E68381C30084C0095C3AB /* Shari.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC9E68701C300DE50095C3AB /* ModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68601C300D260095C3AB /* ModalAnimator.swift */; };
-		DC9E68711C300DE50095C3AB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68611C300D260095C3AB /* NavigationController.swift */; };
+		DC9E68711C300DE50095C3AB /* ShariNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68611C300D260095C3AB /* ShariNavigationController.swift */; };
 		DC9E68721C300DE50095C3AB /* Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68621C300D260095C3AB /* Shari.swift */; };
 		DC9E68731C300DE50095C3AB /* UINavigationController+Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E68631C300D260095C3AB /* UINavigationController+Shari.swift */; };
 		DCBED0651DB73EB700D3453A /* UITabBarController+Shari.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */; };
@@ -50,7 +50,7 @@
 		DC9E68251C3006EE0095C3AB /* Shari.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Shari.podspec; sourceTree = "<group>"; };
 		DC9E68381C30084C0095C3AB /* Shari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shari.h; sourceTree = "<group>"; };
 		DC9E68601C300D260095C3AB /* ModalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalAnimator.swift; sourceTree = "<group>"; };
-		DC9E68611C300D260095C3AB /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		DC9E68611C300D260095C3AB /* ShariNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShariNavigationController.swift; sourceTree = "<group>"; };
 		DC9E68621C300D260095C3AB /* Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shari.swift; sourceTree = "<group>"; };
 		DC9E68631C300D260095C3AB /* UINavigationController+Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Shari.swift"; sourceTree = "<group>"; };
 		DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Shari.swift"; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 			children = (
 				DC9E68621C300D260095C3AB /* Shari.swift */,
 				DC9E68601C300D260095C3AB /* ModalAnimator.swift */,
-				DC9E68611C300D260095C3AB /* NavigationController.swift */,
+				DC9E68611C300D260095C3AB /* ShariNavigationController.swift */,
 				DC9E68631C300D260095C3AB /* UINavigationController+Shari.swift */,
 				DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */,
 			);
@@ -210,7 +210,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					DC4D0AB61DD726C900366D6C = {
@@ -277,7 +277,7 @@
 				DC9E68721C300DE50095C3AB /* Shari.swift in Sources */,
 				DCBED0651DB73EB700D3453A /* UITabBarController+Shari.swift in Sources */,
 				DC9E68701C300DE50095C3AB /* ModalAnimator.swift in Sources */,
-				DC9E68711C300DE50095C3AB /* NavigationController.swift in Sources */,
+				DC9E68711C300DE50095C3AB /* ShariNavigationController.swift in Sources */,
 				DC9E68731C300DE50095C3AB /* UINavigationController+Shari.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +337,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -377,7 +377,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -396,7 +396,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.minne.ShariTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -412,14 +412,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pepabo.minne.ShariTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
 		DC9E67CA1C2FDC020095C3AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -443,7 +443,7 @@
 		DC9E67CB1C2FDC020095C3AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CNE5C4C374;
@@ -482,6 +482,7 @@
 				DC4D0AC11DD726C900366D6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC9E67CC1C2FDC020095C3AB /* Build configuration list for PBXNativeTarget "Shari" */ = {
 			isa = XCConfigurationList;

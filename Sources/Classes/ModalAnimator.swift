@@ -10,30 +10,30 @@ import UIKit
 
 public class ModalAnimator {
     
-    public class func present(toView: UIView, fromView: UIView, completion: () -> Void) {
+    public class func present(toView: UIView, fromView: UIView, completion: @escaping () -> Void) {
         
         let overlayView = UIView(frame: fromView.bounds)
         
         overlayView.backgroundColor = BackgroundColorOfOverlayView
-        overlayView.userInteractionEnabled = true
+        overlayView.isUserInteractionEnabled = true
         overlayView.tag = InternalStructureViewType.Overlay.rawValue
         fromView.addSubview(overlayView)
         
-        self.addScreenShotView(fromView, screenshotContainer: overlayView)
+        self.addScreenShotView(capturedView: fromView, screenshotContainer: overlayView)
         
-        var toViewFrame = CGRectOffset(fromView.bounds, 0, fromView.bounds.size.height)
+        var toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: fromView.bounds.size.height)
         toViewFrame.size.height = 0
         toView.frame = toViewFrame
         
         toView.tag = InternalStructureViewType.ToView.rawValue
         fromView.addSubview(toView)
         
-        UIView.animateWithDuration(
-            0.2,
+        UIView.animate(
+            withDuration: 0.2,
             animations: { () -> Void in
                 
-                let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
-                var toViewFrame = CGRectOffset(fromView.bounds, 0, statusBarHeight + fromView.bounds.size.height / 2.0)
+                let statusBarHeight = UIApplication.shared.statusBarFrame.height
+                var toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: statusBarHeight + fromView.bounds.size.height / 2.0)
                 toViewFrame.size.height -= toViewFrame.origin.y
                 toView.frame = toViewFrame
                 
@@ -60,20 +60,20 @@ public class ModalAnimator {
     }
     
     
-    public class func dismiss(fromView: UIView, presentingViewController: UIViewController?, completion: () -> Void) {
+    public class func dismiss(fromView: UIView, presentingViewController: UIViewController?, completion: @escaping () -> Void) {
         
         let targetView = fromView
-        let modalView = ModalAnimator.modalView(fromView)
-        let overlayView = ModalAnimator.overlayView(fromView)
+        let modalView = ModalAnimator.modalView(fromView: fromView)
+        let overlayView = ModalAnimator.overlayView(fromView: fromView)
         overlayView?.alpha = 1.0
         
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
             
-            modalView?.frame = CGRectMake(
-                (targetView.bounds.size.width - modalView!.frame.size.width) / 2.0,
-                targetView.bounds.size.height,
-                (modalView?.frame.size.width)!,
-                (modalView?.frame.size.height)!);
+            modalView?.frame = CGRect(
+                x: (targetView.bounds.size.width - modalView!.frame.size.width) / 2.0,
+                y: targetView.bounds.size.height,
+                width: modalView!.frame.width,
+                height: modalView!.frame.height)
             
         }) { (result) -> Void in
             
@@ -86,9 +86,9 @@ public class ModalAnimator {
         if overlayView != nil {
             
             let screenShotView = overlayView?.subviews[0] as! UIImageView
-            screenShotView.layer.addAnimation(self.animationGroupForward(false), forKey: "bringForwardAnimation")
+            screenShotView.layer.add(self.animationGroupForward(forward: false), forKey: "bringForwardAnimation")
             
-            UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
                 
                 screenShotView.alpha = 1.0
                 
@@ -108,8 +108,8 @@ public class ModalAnimator {
             return;
         }
         
-        let screenShotView = ModalAnimator.screenShotView(overlayView)
-        let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.9, outMax: 1.0)
+        let screenShotView = ModalAnimator.screenShotView(overlayView: overlayView)
+        let scale = self.map(value: location.y, inMin: 0, inMax: UIScreen.main.bounds.height, outMin: 0.9, outMax: 1.0)
         let transform = CATransform3DMakeScale(scale, scale, 1)
         screenShotView.layer.removeAllAnimations()
         screenShotView.layer.transform = transform
@@ -122,25 +122,25 @@ public class ModalAnimator {
     
     class func addScreenShotView(capturedView: UIView, screenshotContainer:UIView) {
         
-        screenshotContainer.hidden = true
+        screenshotContainer.isHidden = true
         
-        UIGraphicsBeginImageContextWithOptions(capturedView.bounds.size, false, UIScreen.mainScreen().scale)
+        UIGraphicsBeginImageContextWithOptions(capturedView.bounds.size, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()!
-        CGContextTranslateCTM(context, -capturedView.bounds.origin.x, -capturedView.bounds.origin.y)
-        capturedView.layer.renderInContext(context)
+        context.translateBy(x: -capturedView.bounds.origin.x, y: -capturedView.bounds.origin.y)
+        capturedView.layer.render(in: context)
 
         let image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
 
-        screenshotContainer.hidden = false
+        screenshotContainer.isHidden = false
         
         let screenshot = UIImageView(image: image)
         screenshot.tag = InternalStructureViewType.ScreenShot.rawValue
-        screenshot.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        screenshot.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         screenshotContainer.addSubview(screenshot)
         
-        screenshot.layer.addAnimation(self.animationGroupForward(true), forKey:"pushedBackAnimation")
-        UIView.animateWithDuration(0.2) { () -> Void in
+        screenshot.layer.add(self.animationGroupForward(forward: true), forKey:"pushedBackAnimation")
+        UIView.animate(withDuration: 0.2) { () -> Void in
             screenshot.alpha = 0.5
         }
         
@@ -160,19 +160,19 @@ public class ModalAnimator {
         let animation:CABasicAnimation = CABasicAnimation(keyPath: "transform")
         
         if forward {
-            animation.toValue = NSValue(CATransform3D:transform)
+            animation.toValue = NSValue(caTransform3D:transform)
         } else {
-            animation.toValue = NSValue(CATransform3D:CATransform3DIdentity)
+            animation.toValue = NSValue(caTransform3D:CATransform3DIdentity)
         }
         
         animation.duration = 0.2
         animation.fillMode = kCAFillModeForwards
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseOut)
         
         let group = CAAnimationGroup()
         group.fillMode = kCAFillModeForwards
-        group.removedOnCompletion = false
+        group.isRemovedOnCompletion = false
         group.duration = animation.duration
         
         group.animations = [animation]

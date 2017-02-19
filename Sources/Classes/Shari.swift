@@ -31,12 +31,5 @@ public extension ShariCompatible {
     }
 }
 
-protocol ShariModalizable {
-    var parentTargetView: UIView { get }
-    func present(modalViewControllerToPresent viewController: UIViewController) -> Void
-    func dismiss(modalView completion: (() -> Void)?) -> Void
-    func dismiss(modalViewwithDownSwipe completion: (() -> Void)?) -> Void
-}
-
 extension UINavigationController: ShariCompatible { }
 extension UITabBarController: ShariCompatible { }

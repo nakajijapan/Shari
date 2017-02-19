@@ -12,10 +12,9 @@ import UIKit
     @objc optional func navigationControllerDidSpreadToEntire(navigationController: UINavigationController)
 }
 
-
 public class ShariNavigationController: UINavigationController {
 
-    public var si_delegate: ShariNavigationControllerDelegate?
+    public weak var si_delegate: ShariNavigationControllerDelegate?
     public var parentNavigationController: UINavigationController?
     public var parentTabBarController: UITabBarController?
     

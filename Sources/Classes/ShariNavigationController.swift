@@ -12,7 +12,6 @@ import UIKit
     @objc optional func navigationControllerDidSpreadToEntire(navigationController: UINavigationController)
 }
 
-
 public class ShariNavigationController: UINavigationController {
 
     public var si_delegate: ShariNavigationControllerDelegate?
@@ -88,7 +87,7 @@ public class ShariNavigationController: UINavigationController {
                             withDuration: 0.1,
                             delay: 0.0,
                             options: UIViewAnimationOptions.curveLinear,
-                            animations: { () -> Void in
+                            animations: {
                                 backgroundView.alpha = 0.0
                             },
                             completion: { [weak self] result in
@@ -116,6 +115,7 @@ public class ShariNavigationController: UINavigationController {
                     initialSpringVelocity: 0.1,
                     options: UIViewAnimationOptions.curveLinear,
                     animations: { [weak self] in
+
                         guard let strongslef = self else { return }
                         
                         ModalAnimator.transitionBackgroundView(overlayView: backgroundView, location: strongslef.originalLocation)
@@ -126,10 +126,8 @@ public class ShariNavigationController: UINavigationController {
                         strongslef.view.frame = frame
                     },
 
-                    completion: { (result) -> Void in
-
+                    completion: { result in
                         gestureRecognizer.isEnabled = true
-
                 })
                 
             }

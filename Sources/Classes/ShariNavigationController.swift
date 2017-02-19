@@ -25,9 +25,9 @@ public class ShariNavigationController: UINavigationController {
     public var dismissControllSwipeDown = false
     public var fullScreenSwipeUp = true
     
-    var previousLocation = CGPoint.zero
-    var originalLocation = CGPoint.zero
-    var originalFrame = CGRect.zero
+    private var previousLocation = CGPoint.zero
+    private var originalLocation = CGPoint.zero
+    private var originalFrame = CGRect.zero
         
     override public func viewDidLoad() {
         originalFrame = view.frame

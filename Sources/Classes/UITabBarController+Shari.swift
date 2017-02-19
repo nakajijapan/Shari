@@ -23,7 +23,10 @@ public extension Shari where Base: UITabBarController {
             toViewController.didMove(toParentViewController: strongslef.base)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: base, action: #selector(UITabBarController.overlayViewDidTap(gestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: base,
+            action: #selector(base.overlayViewDidTap(_:))
+        )
         let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
         
@@ -47,7 +50,6 @@ public extension Shari where Base: UITabBarController {
         
     }
     
-   
     func dismissDownSwipeModalView(completion: (() -> Void)?) {
         
         let presentingViewController = base.childViewControllers.last
@@ -68,9 +70,9 @@ public extension Shari where Base: UITabBarController {
  
 }
 
-public extension UITabBarController {
+extension UITabBarController {
     
-    func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
+    @objc fileprivate func overlayViewDidTap(_ gestureRecognizer: UITapGestureRecognizer) {
         
         let presentingViewController = childViewControllers.last
         presentingViewController!.willMove(toParentViewController: nil)

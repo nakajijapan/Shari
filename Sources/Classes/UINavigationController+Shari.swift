@@ -27,7 +27,10 @@ public extension Shari where Base: UINavigationController {
             toViewController.didMove(toParentViewController: strongSelf.base)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: base, action: #selector(UINavigationController.overlayViewDidTap(gestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: base,
+            action: #selector(base.overlayViewDidTap(_:))
+        )
         let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
@@ -64,9 +67,9 @@ public extension Shari where Base: UINavigationController {
     }
 }
 
-public extension UINavigationController {
+extension UINavigationController {
     
-    func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
+    @objc fileprivate func overlayViewDidTap(_ gestureRecognizer: UITapGestureRecognizer) {
         
         si.parentTargetView.isUserInteractionEnabled = false
         willMove(toParentViewController: nil)

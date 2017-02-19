@@ -32,11 +32,14 @@ public class ShariNavigationController: UINavigationController {
     override public func viewDidLoad() {
         originalFrame = view.frame
         
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ShariNavigationController.handlePanGesture(gestureRecognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(
+            target: self,
+            action: #selector(self.handlePanGesture(_:))
+        )
         view.addGestureRecognizer(panGestureRecognizer)
     }
    
-    func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
+    func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         
         let location = gestureRecognizer.location(in: parent!.view)
         let backgroundView = ModalAnimator.overlayView(fromView: parentTargetView)!

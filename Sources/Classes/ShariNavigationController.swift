@@ -106,7 +106,7 @@ public class ShariNavigationController: UINavigationController {
                 )
                 
             } else if dismissControllSwipeDown && view.frame.minY - originalLocation.y > minDeltaDownSwipe {
-                si.dismissDownSwipeModalView(completion: nil)
+                si.dismissUsingDownSwipe()
             } else {
 
                 UIView.animate(

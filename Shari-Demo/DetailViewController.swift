@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
         modalNavigationController.parentNavigationController = navigationController
         
         navigationController?.addChildViewController(modalNavigationController)
-        navigationController?.si.presentViewController(toViewController: modalNavigationController)
+        navigationController?.si.present(modalNavigationController)
 
     }
 }

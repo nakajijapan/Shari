@@ -18,22 +18,25 @@ public extension Shari where Base: UINavigationController {
         return base.view
     }
     
-    func presentViewController(toViewController:UIViewController) {
+    func present(_ viewControllerToPresent: UIViewController) {
 
-        toViewController.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toView: toViewController.view, fromView: parentTargetView) { [weak self] in
+        viewControllerToPresent.beginAppearanceTransition(true, animated: true)
+        ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView) { [weak self] in
             guard let strongSelf = self else { return }
-            toViewController.endAppearanceTransition()
-            toViewController.didMove(toParentViewController: strongSelf.base)
+            viewControllerToPresent.endAppearanceTransition()
+            viewControllerToPresent.didMove(toParentViewController: strongSelf.base)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: base, action: #selector(UINavigationController.overlayViewDidTap(gestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: base,
+            action: #selector(base.overlayViewDidTap(_:))
+        )
         let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
     }
     
-    func dismissModalView(completion: (() -> Void)?) {
+    func dismiss(completion: (() -> Void)? = nil) {
         
         base.willMove(toParentViewController: nil)
 
@@ -47,9 +50,8 @@ public extension Shari where Base: UINavigationController {
         
     }
     
-   
-    func dismissDownSwipeModalView(completion: (() -> Void)?) {
-        
+    func dismissUsingDownSwipe(completion: (() -> Void)? = nil) {
+    
         base.willMove(toParentViewController: nil)
         
         ModalAnimator.dismiss(
@@ -64,9 +66,9 @@ public extension Shari where Base: UINavigationController {
     }
 }
 
-public extension UINavigationController {
+extension UINavigationController {
     
-    func overlayViewDidTap(gestureRecognizer: UITapGestureRecognizer) {
+    @objc fileprivate func overlayViewDidTap(_ gestureRecognizer: UITapGestureRecognizer) {
         
         si.parentTargetView.isUserInteractionEnabled = false
         willMove(toParentViewController: nil)

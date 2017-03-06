@@ -18,24 +18,27 @@ public class ShariNavigationController: UINavigationController {
     public var parentNavigationController: UINavigationController?
     public var parentTabBarController: UITabBarController?
     
-    public var minDeltaUpSwipe: CGFloat = 50
-    public var minDeltaDownSwipe: CGFloat = 50
+    public var minDeltaUpSwipe: CGFloat = 50.0
+    public var minDeltaDownSwipe: CGFloat = 50.0
     
     public var dismissControllSwipeDown = false
     public var fullScreenSwipeUp = true
     
-    var previousLocation = CGPoint.zero
-    var originalLocation = CGPoint.zero
-    var originalFrame = CGRect.zero
+    private var previousLocation = CGPoint.zero
+    private var originalLocation = CGPoint.zero
+    private var originalFrame = CGRect.zero
         
     override public func viewDidLoad() {
         originalFrame = view.frame
         
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ShariNavigationController.handlePanGesture(gestureRecognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(
+            target: self,
+            action: #selector(self.handlePanGesture(_:))
+        )
         view.addGestureRecognizer(panGestureRecognizer)
     }
    
-    func handlePanGesture(gestureRecognizer: UIPanGestureRecognizer) {
+    @objc private func handlePanGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
         
         let location = gestureRecognizer.location(in: parent!.view)
         let backgroundView = ModalAnimator.overlayView(fromView: parentTargetView)!
@@ -84,7 +87,7 @@ public class ShariNavigationController: UINavigationController {
                             withDuration: 0.1,
                             delay: 0.0,
                             options: UIViewAnimationOptions.curveLinear,
-                            animations: { () -> Void in
+                            animations: {
                                 backgroundView.alpha = 0.0
                             },
                             completion: { [weak self] result in
@@ -102,7 +105,7 @@ public class ShariNavigationController: UINavigationController {
                 )
                 
             } else if dismissControllSwipeDown && view.frame.minY - originalLocation.y > minDeltaDownSwipe {
-                si.dismissDownSwipeModalView(completion: nil)
+                si.dismissUsingDownSwipe()
             } else {
 
                 UIView.animate(
@@ -112,6 +115,7 @@ public class ShariNavigationController: UINavigationController {
                     initialSpringVelocity: 0.1,
                     options: UIViewAnimationOptions.curveLinear,
                     animations: { [weak self] in
+
                         guard let strongslef = self else { return }
                         
                         ModalAnimator.transitionBackgroundView(overlayView: backgroundView, location: strongslef.originalLocation)
@@ -122,10 +126,8 @@ public class ShariNavigationController: UINavigationController {
                         strongslef.view.frame = frame
                     },
 
-                    completion: { (result) -> Void in
-
+                    completion: { result in
                         gestureRecognizer.isEnabled = true
-
                 })
                 
             }

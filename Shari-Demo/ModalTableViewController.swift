@@ -47,9 +47,9 @@ class ModalTableViewController: UITableViewController, ShariNavigationController
         }
         
         if let parentController = currentController.parentNavigationController {
-            parentController.si.dismissModalView(completion: completion)
+            parentController.si.dismiss(completion: completion)
         } else if let parentController = currentController.parentTabBarController {
-            parentController.si.dismissModalView(completion: completion)
+            parentController.si.dismiss(completion: completion)
         }
 
     }
@@ -64,9 +64,9 @@ class ModalTableViewController: UITableViewController, ShariNavigationController
         }
 
         if let parentController = currentController.parentNavigationController {
-            parentController.si.dismissModalView(completion: completion)
+            parentController.si.dismiss(completion: completion)
         } else if let parentController = currentController.parentTabBarController {
-            parentController.si.dismissModalView(completion: completion)
+            parentController.si.dismiss(completion: completion)
         }
     }
 

@@ -125,9 +125,7 @@ public class ModalAnimator {
         screenshotContainer.isHidden = true
         
         UIGraphicsBeginImageContextWithOptions(capturedView.bounds.size, false, UIScreen.main.scale)
-        let context = UIGraphicsGetCurrentContext()!
-        context.translateBy(x: -capturedView.bounds.origin.x, y: -capturedView.bounds.origin.y)
-        capturedView.layer.render(in: context)
+        capturedView.drawHierarchy(in: capturedView.bounds, afterScreenUpdates: false)
 
         let image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();

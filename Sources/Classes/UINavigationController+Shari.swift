@@ -20,6 +20,7 @@ public extension Shari where Base: UINavigationController {
     
     func present(_ viewControllerToPresent: UIViewController) {
 
+        base.addChildViewController(viewControllerToPresent)
         viewControllerToPresent.beginAppearanceTransition(true, animated: true)
         ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView) { [weak self] in
             guard let strongSelf = self else { return }
@@ -38,29 +39,44 @@ public extension Shari where Base: UINavigationController {
     
     func dismiss(completion: (() -> Void)? = nil) {
         
+        guard let visibleViewController = base.visibleViewController,
+            let index = base.viewControllers.index(of: visibleViewController) else {
+                return
+        }
+        
+        let distinationViewController = base.viewControllers[index - 1]
+        distinationViewController.beginAppearanceTransition(true, animated: true)
+        
         base.willMove(toParentViewController: nil)
-
+       
         ModalAnimator.dismiss(
             fromView: parentTargetView,
-            presentingViewController: base.visibleViewController) { [weak self] in
-
+            presentingViewController: base.visibleViewController) {
                 completion?()
-                self?.base.visibleViewController?.removeFromParentViewController()
+                visibleViewController.removeFromParentViewController()
+                distinationViewController.endAppearanceTransition()
         }
         
     }
     
     func dismissUsingDownSwipe(completion: (() -> Void)? = nil) {
-    
+
+        guard let visibleViewController = base.visibleViewController,
+            let index = base.viewControllers.index(of: visibleViewController) else {
+                return
+        }
+        
+        let distinationViewController = base.viewControllers[index - 1]
+        distinationViewController.beginAppearanceTransition(true, animated: true)
+        
         base.willMove(toParentViewController: nil)
         
         ModalAnimator.dismiss(
             fromView: base.view.superview ?? parentTargetView,
-            presentingViewController: base.visibleViewController) { [weak self] in
-                
+            presentingViewController: base.visibleViewController) {
                 completion?()
-                self?.base.visibleViewController?.removeFromParentViewController()
-                
+                visibleViewController.removeFromParentViewController()
+                distinationViewController.endAppearanceTransition()
         }
         
     }

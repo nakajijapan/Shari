@@ -86,16 +86,24 @@ extension UINavigationController {
     
     @objc fileprivate func overlayViewDidTap(_ gestureRecognizer: UITapGestureRecognizer) {
         
-        si.parentTargetView.isUserInteractionEnabled = false
-        willMove(toParentViewController: nil)
+        guard let presentingViewController = childViewControllers.last,
+            let index = childViewControllers.index(of: presentingViewController) else {
+                return
+        }
         
+        si.parentTargetView.isUserInteractionEnabled = false
+
+        presentingViewController.willMove(toParentViewController: nil)
+        willMove(toParentViewController: nil)
+        let distinationViewController = childViewControllers[index - 1]
+        distinationViewController.beginAppearanceTransition(true, animated: true)
+
         ModalAnimator.dismiss(
             fromView: si.parentTargetView,
             presentingViewController: visibleViewController) { [weak self] in
-                
-                self?.visibleViewController?.removeFromParentViewController()
+                presentingViewController.removeFromParentViewController()
+                distinationViewController.endAppearanceTransition()
                 self?.si.parentTargetView.isUserInteractionEnabled = true
-                
         }
         
     }

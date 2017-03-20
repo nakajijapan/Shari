@@ -23,8 +23,8 @@ class DetailViewController: UIViewController {
         let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! ShariNavigationController
 
         // Transition Setting
-        //Shari.ShouldTransformScaleDown = false
-        //Shari.BackgroundColorOfOverlayView = UIColor.redColor()
+        //ShouldTransformScaleDown = false
+        //BackgroundColorOfOverlayView = UIColor.redColor()
         modalNavigationController.parentNavigationController = navigationController
 
         navigationController?.si.present(modalNavigationController)

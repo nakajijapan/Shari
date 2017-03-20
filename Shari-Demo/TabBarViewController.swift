@@ -17,7 +17,7 @@ class TabBarViewController: UIViewController {
         
         // Transition Setting
         //ShouldTransformScaleDown = false
-        //Shari.BackgroundColorOfOverlayView = UIColor.redColor()
+        //BackgroundColorOfOverlayView = UIColor.redColor()
         modalNavigationController.parentTabBarController = tabBarController
 
         tabBarController?.addChildViewController(modalNavigationController)

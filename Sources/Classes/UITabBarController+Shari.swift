@@ -16,6 +16,7 @@ public extension Shari where Base: UITabBarController {
     
     func present(_ viewControllerToPresent: UIViewController) {
         
+        base.addChildViewController(viewControllerToPresent)
         viewControllerToPresent.beginAppearanceTransition(true, animated: true)
         ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView) { [weak self] in
             guard let strongslef = self else { return }
@@ -53,28 +54,7 @@ public extension Shari where Base: UITabBarController {
         }
         
     }
-    
-    func dismissUsingDownSwipe(completion: (() -> Void)? = nil) {
-        
-        guard let presentingViewController = base.childViewControllers.last,
-            let index = base.childViewControllers.index(of: presentingViewController) else {
-                return
-        }
 
-        presentingViewController.willMove(toParentViewController: nil)
-        base.willMove(toParentViewController: nil)
-        let distinationViewController = base.childViewControllers[index - 1]
-        distinationViewController.beginAppearanceTransition(true, animated: true)
-
-        ModalAnimator.dismiss(
-            fromView: base.view.superview ?? parentTargetView,
-            presentingViewController: presentingViewController) {
-                completion?()
-                presentingViewController.removeFromParentViewController()
-                distinationViewController.endAppearanceTransition()
-        }
-        
-    }
  
 }
 

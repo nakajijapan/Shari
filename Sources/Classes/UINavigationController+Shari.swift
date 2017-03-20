@@ -43,12 +43,12 @@ public extension Shari where Base: UINavigationController {
             let index = base.childViewControllers.index(of: visibleViewController) else {
                 return
         }
-        
+
+        visibleViewController.willMove(toParentViewController: nil)
+        base.willMove(toParentViewController: nil)
         let distinationViewController = base.childViewControllers[index - 1]
         distinationViewController.beginAppearanceTransition(true, animated: true)
-        
-        base.willMove(toParentViewController: nil)
-       
+
         ModalAnimator.dismiss(
             fromView: parentTargetView,
             presentingViewController: base.visibleViewController) {
@@ -58,28 +58,7 @@ public extension Shari where Base: UINavigationController {
         }
         
     }
-    
-    func dismissUsingDownSwipe(completion: (() -> Void)? = nil) {
 
-        guard let visibleViewController = base.visibleViewController,
-            let index = base.childViewControllers.index(of: visibleViewController) else {
-                return
-        }
-        
-        let distinationViewController = base.childViewControllers[index - 1]
-        distinationViewController.beginAppearanceTransition(true, animated: true)
-        
-        base.willMove(toParentViewController: nil)
-        
-        ModalAnimator.dismiss(
-            fromView: base.view.superview ?? parentTargetView,
-            presentingViewController: base.visibleViewController) {
-                completion?()
-                visibleViewController.removeFromParentViewController()
-                distinationViewController.endAppearanceTransition()
-        }
-        
-    }
 }
 
 extension UINavigationController {

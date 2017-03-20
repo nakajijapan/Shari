@@ -105,7 +105,13 @@ public class ShariNavigationController: UINavigationController {
                 )
                 
             } else if dismissControllSwipeDown && view.frame.minY - originalLocation.y > minDeltaDownSwipe {
-                parentNavigationController?.si.dismissUsingDownSwipe()
+
+                if let controller = parentTabBarController {
+                    controller.si.dismiss()
+                } else if let controller = parentNavigationController {
+                    controller.si.dismiss()
+                }
+
             } else {
 
                 UIView.animate(

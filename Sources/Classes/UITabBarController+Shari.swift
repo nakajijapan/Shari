@@ -33,37 +33,45 @@ public extension Shari where Base: UITabBarController {
     }
     
     func dismiss(completion: (() -> Void)? = nil) {
-        
-        let presentingViewController = base.childViewControllers.last
-        presentingViewController!.willMove(toParentViewController: nil)
-        
+
+        guard let presentingViewController = base.childViewControllers.last,
+            let index = base.childViewControllers.index(of: presentingViewController) else {
+                return
+        }
+
+        presentingViewController.willMove(toParentViewController: nil)
         base.willMove(toParentViewController: nil)
-        
+        let distinationViewController = base.childViewControllers[index - 1]
+        distinationViewController.beginAppearanceTransition(true, animated: true)
+
         ModalAnimator.dismiss(
             fromView: parentTargetView,
-            presentingViewController: presentingViewController) { [weak self] in
-                
+            presentingViewController: presentingViewController) {
                 completion?()
-                self?.base.presentingViewController?.removeFromParentViewController()
-
+                presentingViewController.removeFromParentViewController()
+                distinationViewController.endAppearanceTransition()
         }
         
     }
     
     func dismissUsingDownSwipe(completion: (() -> Void)? = nil) {
         
-        let presentingViewController = base.childViewControllers.last
-        presentingViewController!.willMove(toParentViewController: nil)
-        
+        guard let presentingViewController = base.childViewControllers.last,
+            let index = base.childViewControllers.index(of: presentingViewController) else {
+                return
+        }
+
+        presentingViewController.willMove(toParentViewController: nil)
         base.willMove(toParentViewController: nil)
-        
+        let distinationViewController = base.childViewControllers[index - 1]
+        distinationViewController.beginAppearanceTransition(true, animated: true)
+
         ModalAnimator.dismiss(
             fromView: base.view.superview ?? parentTargetView,
-            presentingViewController: presentingViewController) { [weak self] in
-
+            presentingViewController: presentingViewController) {
                 completion?()
-                self?.base.presentingViewController?.removeFromParentViewController()
-
+                presentingViewController.removeFromParentViewController()
+                distinationViewController.endAppearanceTransition()
         }
         
     }
@@ -73,20 +81,25 @@ public extension Shari where Base: UITabBarController {
 extension UITabBarController {
     
     @objc fileprivate func overlayViewDidTap(_ gestureRecognizer: UITapGestureRecognizer) {
-        
-        let presentingViewController = childViewControllers.last
-        presentingViewController!.willMove(toParentViewController: nil)
-        
+      
+        guard let presentingViewController = childViewControllers.last,
+            let index = childViewControllers.index(of: presentingViewController) else {
+                return
+        }
+
         si.parentTargetView.isUserInteractionEnabled = false
+
+        presentingViewController.willMove(toParentViewController: nil)
         willMove(toParentViewController: nil)
+        let distinationViewController = childViewControllers[index - 1]
+        distinationViewController.beginAppearanceTransition(true, animated: true)
         
         ModalAnimator.dismiss(
             fromView: si.parentTargetView,
             presentingViewController: presentingViewController) { [weak self] in
-                
-                self?.presentingViewController?.removeFromParentViewController()
+                presentingViewController.removeFromParentViewController()
+                distinationViewController.endAppearanceTransition()
                 self?.si.parentTargetView.isUserInteractionEnabled = true
-                
         }
         
     }

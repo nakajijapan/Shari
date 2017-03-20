@@ -15,7 +15,8 @@ class TabBarViewController: UIViewController {
         
         let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! ShariNavigationController
         
-        //Shari.ShouldTransformScaleDown = false
+        // Transition Setting
+        //ShouldTransformScaleDown = false
         //Shari.BackgroundColorOfOverlayView = UIColor.redColor()
         modalNavigationController.parentTabBarController = tabBarController
 

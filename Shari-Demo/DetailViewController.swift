@@ -24,9 +24,9 @@ class DetailViewController: UIViewController {
 
         // Transition Setting
         //ShouldTransformScaleDown = false
-        //BackgroundColorOfOverlayView = UIColor.redColor()
+        //BackgroundColorOfOverlayView = UIColor.red
+        
         modalNavigationController.parentNavigationController = navigationController
-
         navigationController?.si.present(modalNavigationController)
 
     }

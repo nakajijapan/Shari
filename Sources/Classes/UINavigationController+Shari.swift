@@ -39,22 +39,27 @@ public extension Shari where Base: UINavigationController {
     
     func dismiss(completion: (() -> Void)? = nil) {
         
-        guard let visibleViewController = base.visibleViewController,
-            let index = base.childViewControllers.index(of: visibleViewController) else {
+        guard let visibleViewController = base.visibleViewController else {
+            return
+        }
+        
+        weak var sourceViewController = visibleViewController
+        
+        guard let index = base.childViewControllers.index(of: visibleViewController) else {
                 return
         }
 
-        visibleViewController.willMove(toParentViewController: nil)
+        sourceViewController?.willMove(toParentViewController: nil)
         base.willMove(toParentViewController: nil)
-        let distinationViewController = base.childViewControllers[index - 1]
-        distinationViewController.beginAppearanceTransition(true, animated: true)
+        weak var distinationViewController = base.childViewControllers[index - 1]
+        distinationViewController?.beginAppearanceTransition(true, animated: true)
 
         ModalAnimator.dismiss(
             fromView: parentTargetView,
             presentingViewController: base.visibleViewController) {
                 completion?()
-                visibleViewController.removeFromParentViewController()
-                distinationViewController.endAppearanceTransition()
+                sourceViewController?.removeFromParentViewController()
+                distinationViewController?.endAppearanceTransition()
         }
         
     }

@@ -35,22 +35,27 @@ public extension Shari where Base: UITabBarController {
     
     func dismiss(completion: (() -> Void)? = nil) {
 
-        guard let presentingViewController = base.childViewControllers.last,
-            let index = base.childViewControllers.index(of: presentingViewController) else {
-                return
+        guard let visibleViewController = base.childViewControllers.last else {
+            return
+        }
+        
+        weak var sourceViewController = visibleViewController
+        
+        guard let index = base.childViewControllers.index(of: visibleViewController) else {
+            return
         }
 
-        presentingViewController.willMove(toParentViewController: nil)
+        sourceViewController?.willMove(toParentViewController: nil)
         base.willMove(toParentViewController: nil)
-        let distinationViewController = base.childViewControllers[index - 1]
-        distinationViewController.beginAppearanceTransition(true, animated: true)
+        weak var distinationViewController = base.childViewControllers[index - 1]
+        distinationViewController?.beginAppearanceTransition(true, animated: true)
 
         ModalAnimator.dismiss(
             fromView: parentTargetView,
-            presentingViewController: presentingViewController) {
+            presentingViewController: sourceViewController) {
                 completion?()
-                presentingViewController.removeFromParentViewController()
-                distinationViewController.endAppearanceTransition()
+                sourceViewController?.removeFromParentViewController()
+                distinationViewController?.endAppearanceTransition()
         }
         
     }

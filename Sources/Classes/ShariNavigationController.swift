@@ -19,7 +19,7 @@ public class ShariNavigationController: UINavigationController {
     public var parentTabBarController: UITabBarController?
     
     public var minDeltaUpSwipe: CGFloat = 50.0
-    public var minDeltaDownSwipe: CGFloat = 50.0
+    public var minDeltaDownSwipe: CGFloat = 100.0
     
     public var dismissControllSwipeDown = false
     public var fullScreenSwipeUp = true
@@ -105,7 +105,13 @@ public class ShariNavigationController: UINavigationController {
                 )
                 
             } else if dismissControllSwipeDown && view.frame.minY - originalLocation.y > minDeltaDownSwipe {
-                si.dismissUsingDownSwipe()
+
+                if let controller = parentTabBarController {
+                    controller.si.dismiss()
+                } else if let controller = parentNavigationController {
+                    controller.si.dismiss()
+                }
+
             } else {
 
                 UIView.animate(

@@ -11,12 +11,17 @@ import Shari
 
 class TabBarViewController: UIViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     @IBAction func buttonDidTap(button: UIButton) {
         
         let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! ShariNavigationController
         
-        //Shari.ShouldTransformScaleDown = false
-        //Shari.BackgroundColorOfOverlayView = UIColor.redColor()
+        // Transition Setting
+        //ShouldTransformScaleDown = false
+        //BackgroundColorOfOverlayView = UIColor.redColor()
         modalNavigationController.parentTabBarController = tabBarController
 
         tabBarController?.addChildViewController(modalNavigationController)

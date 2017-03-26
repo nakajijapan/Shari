@@ -13,7 +13,6 @@ class DetailViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //tabBarController?.tabBar.hidden = true
     }
     
     // MARK: - Button Actions

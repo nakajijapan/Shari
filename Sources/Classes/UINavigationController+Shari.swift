@@ -39,27 +39,22 @@ public extension Shari where Base: UINavigationController {
     
     func dismiss(completion: (() -> Void)? = nil) {
         
-        guard let visibleViewController = base.visibleViewController else {
-            return
-        }
+        weak var sourceViewController: UIViewController?
+        weak var destinationViewController: UIViewController?
+        (sourceViewController, destinationViewController) = bothEndsViewControllers(
+            viewController: base.visibleViewController,
+            childViewControllers: base.childViewControllers)
         
-        weak var sourceViewController = visibleViewController
-        
-        guard let index = base.childViewControllers.index(of: visibleViewController) else {
-                return
-        }
-
         sourceViewController?.willMove(toParentViewController: nil)
         base.willMove(toParentViewController: nil)
-        weak var distinationViewController = base.childViewControllers[index - 1]
-        distinationViewController?.beginAppearanceTransition(true, animated: true)
+        destinationViewController?.beginAppearanceTransition(true, animated: true)
 
         ModalAnimator.dismiss(
             fromView: parentTargetView,
             presentingViewController: base.visibleViewController) {
                 completion?()
                 sourceViewController?.removeFromParentViewController()
-                distinationViewController?.endAppearanceTransition()
+                destinationViewController?.endAppearanceTransition()
         }
         
     }
@@ -70,26 +65,25 @@ extension UINavigationController {
     
     @objc fileprivate func overlayViewDidTap(_ gestureRecognizer: UITapGestureRecognizer) {
         
-        guard let presentingViewController = childViewControllers.last,
-            let index = childViewControllers.index(of: presentingViewController) else {
-                return
-        }
+        weak var sourceViewController: UIViewController?
+        weak var destinationViewController: UIViewController?
+        (sourceViewController, destinationViewController) = si.bothEndsViewControllers(
+            viewController: childViewControllers.last,
+            childViewControllers: childViewControllers)
         
         si.parentTargetView.isUserInteractionEnabled = false
 
-        presentingViewController.willMove(toParentViewController: nil)
+        sourceViewController?.willMove(toParentViewController: nil)
         willMove(toParentViewController: nil)
-        let distinationViewController = childViewControllers[index - 1]
-        distinationViewController.beginAppearanceTransition(true, animated: true)
+        destinationViewController?.beginAppearanceTransition(true, animated: true)
 
         ModalAnimator.dismiss(
             fromView: si.parentTargetView,
             presentingViewController: visibleViewController) { [weak self] in
-                presentingViewController.removeFromParentViewController()
-                distinationViewController.endAppearanceTransition()
+                sourceViewController?.removeFromParentViewController()
+                destinationViewController?.endAppearanceTransition()
                 self?.si.parentTargetView.isUserInteractionEnabled = true
         }
         
     }
 }
-

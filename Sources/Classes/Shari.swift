@@ -21,6 +21,23 @@ public final class Shari<Base> {
     public init(_ base: Base) {
         self.base = base
     }
+    
+    func bothEndsViewControllers(viewController: UIViewController?, childViewControllers: [UIViewController]) -> (UIViewController?, UIViewController?) {
+        
+        guard let visibleViewController = viewController else {
+            return (nil, nil)
+        }
+        
+        weak var sourceViewController = visibleViewController
+        
+        guard let index = childViewControllers.index(of: visibleViewController) else {
+            return (sourceViewController, nil)
+        }
+        
+        weak var destinationViewController = childViewControllers[index - 1]
+        
+        return (sourceViewController, destinationViewController)
+    }
 }
 
 public extension ShariCompatible {

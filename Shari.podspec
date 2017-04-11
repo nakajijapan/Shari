@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Shari"
-  s.version          = "1.0.2"
+  s.version          = "1.1.0"
   s.summary          = "Shari is the alternative to the library of UIPickerView in Swift. You can select a item using UITableView."
   s.homepage         = "https://github.com/nakajijapan/Shari"
   s.license          = 'MIT'

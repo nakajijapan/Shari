@@ -1,5 +1,6 @@
 disabled_rules:
   - trailing_whitespace
+  - identifier_name
 line_length: 320
 excluded:
   - Carthage

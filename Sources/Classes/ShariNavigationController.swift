@@ -45,7 +45,7 @@ public class ShariNavigationController: UINavigationController {
         let degreeY = location.y - previousLocation.y
 
         switch gestureRecognizer.state {
-        case UIGestureRecognizerState.began:
+        case .began:
             
             originalLocation = view.frame.origin
             break
@@ -61,7 +61,7 @@ public class ShariNavigationController: UINavigationController {
 
             break
 
-        case UIGestureRecognizerState.ended :
+        case .ended :
             
             if fullScreenSwipeUp &&  originalLocation.y - view.frame.minY > minDeltaUpSwipe {
                 
@@ -142,7 +142,7 @@ public class ShariNavigationController: UINavigationController {
 
         default:
             break
-            
+           
         }
         
         previousLocation = location

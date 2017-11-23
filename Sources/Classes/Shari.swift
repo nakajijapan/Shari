@@ -52,15 +52,11 @@ public final class Shari<Base> {
 public extension ShariCompatible {
 
     public static var si: Shari<Self>.Type {
-        get {
-            return Shari<Self>.self
-        }
+        return Shari<Self>.self
     }
 
     public var si: Shari<Self> {
-        get {
-            return Shari(self)
-        }
+        return Shari(self)
     }
 }
 

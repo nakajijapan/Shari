@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B0A0CA5A1FC7010A00D132C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA591FC7010A00D132C9 /* README.md */; };
+		B0A0CA5D1FC708B200D132C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */; };
+		B0A0CA5E1FC708B200D132C9 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5C1FC708B200D132C9 /* .travis.yml */; };
 		DC38C9731DB750C900EFD83E /* TabBarControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */; };
 		DC54326D1C62214300612AE3 /* NavigationControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */; };
 		DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E67FD1C3005070095C3AB /* AppDelegate.swift */; };
@@ -69,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		B0A0CA591FC7010A00D132C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B0A0CA5C1FC708B200D132C9 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerUITests.swift; sourceTree = "<group>"; };
 		DC54326A1C62214300612AE3 /* Shari-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shari-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerUITests.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				B0A0CA591FC7010A00D132C9 /* README.md */,
+				B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */,
+				B0A0CA5C1FC708B200D132C9 /* .travis.yml */,
 			);
 			name = MetaData;
 			sourceTree = "<group>";
@@ -283,6 +289,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A0CA5E1FC708B200D132C9 /* .travis.yml in Resources */,
+				B0A0CA5D1FC708B200D132C9 /* .swiftlint.yml in Resources */,
 				DC9E68591C300C2E0095C3AB /* LaunchScreen.storyboard in Resources */,
 				DC9E68051C3005070095C3AB /* Assets.xcassets in Resources */,
 				B0A0CA5A1FC7010A00D132C9 /* README.md in Resources */,

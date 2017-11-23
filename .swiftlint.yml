@@ -1,6 +1,7 @@
 disabled_rules:
   - trailing_whitespace
   - identifier_name
+  - function_body_length
 line_length: 320
 excluded:
   - Carthage

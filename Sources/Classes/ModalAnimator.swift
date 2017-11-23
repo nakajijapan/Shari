@@ -14,9 +14,10 @@ public class ModalAnimator {
         
         let overlayView = UIView(frame: fromView.bounds)
         
-        overlayView.backgroundColor = BackgroundColorOfOverlayView
+        overlayView.backgroundColor = ShariSettings.backgroundColorOfOverlayView
         overlayView.isUserInteractionEnabled = true
         overlayView.tag = InternalStructureViewType.Overlay.rawValue
+        overlayView.accessibilityLabel = "ShariOverlayView"
         fromView.addSubview(overlayView)
         
         self.addScreenShotView(capturedView: fromView, screenshotContainer: overlayView)
@@ -81,7 +82,7 @@ public class ModalAnimator {
             modalView?.removeFromSuperview()
             
         }
-        
+
         // Begin Overlay Animation
         if overlayView != nil {
             
@@ -95,27 +96,23 @@ public class ModalAnimator {
                 }, completion: { (result) -> Void in
                     
                     completion()
-                    
             })
-            
         }
-        
     }
     
     public class func transitionBackgroundView(overlayView: UIView, location:CGPoint) {
         
-        if !ShouldTransformScaleDown {
+        if !ShariSettings.shouldTransformScaleDown {
             return;
         }
         
         let screenShotView = ModalAnimator.screenShotView(overlayView: overlayView)
-        let scale = self.map(value: location.y, inMin: 0, inMax: UIScreen.main.bounds.height, outMin: 0.9, outMax: 1.0)
+        let scale = self.map(value: location.y, inMin: 0, inMax: UIScreen.main.bounds.height, outMin: 0.7757, outMax: 1.0)
         let transform = CATransform3DMakeScale(scale, scale, 1)
         screenShotView.layer.removeAllAnimations()
         screenShotView.layer.transform = transform
         screenShotView.setNeedsLayout()
         screenShotView.layoutIfNeeded()
-        
     }
     
     // MARK - Private
@@ -141,32 +138,30 @@ public class ModalAnimator {
         UIView.animate(withDuration: 0.2) { () -> Void in
             screenshot.alpha = 0.5
         }
-        
-        
     }
     
     class func animationGroupForward(forward:Bool) -> CAAnimationGroup {
         
         var transform = CATransform3DIdentity
         
-        if ShouldTransformScaleDown {
-            transform = CATransform3DScale(transform, 0.95, 0.95, 1.0);
+        if ShariSettings.shouldTransformScaleDown {
+            transform = CATransform3DScale(transform, 0.90, 0.90, 1.0)
         } else {
-            transform = CATransform3DScale(transform, 1.0, 1.0, 1.0);
+            transform = CATransform3DScale(transform, 1.0, 1.0, 1.0)
         }
         
         let animation:CABasicAnimation = CABasicAnimation(keyPath: "transform")
         
         if forward {
-            animation.toValue = NSValue(caTransform3D:transform)
+            animation.toValue = NSValue(caTransform3D: transform)
         } else {
-            animation.toValue = NSValue(caTransform3D:CATransform3DIdentity)
+            animation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
         }
         
         animation.duration = 0.2
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
-        animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         
         let group = CAAnimationGroup()
         group.fillMode = kCAFillModeForwards
@@ -177,7 +172,6 @@ public class ModalAnimator {
         return group
     }
     
-    
     class func map(value:CGFloat, inMin:CGFloat, inMax:CGFloat, outMin:CGFloat, outMax:CGFloat) -> CGFloat {
         
         let inRatio = value / (inMax - inMin)
@@ -185,6 +179,4 @@ public class ModalAnimator {
         
         return outRatio
     }
-    
-    
 }

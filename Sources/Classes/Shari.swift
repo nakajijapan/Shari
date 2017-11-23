@@ -8,12 +8,22 @@
 
 import Foundation
 
-public var BackgroundColorOfOverlayView = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-public var ShouldTransformScaleDown = true
+@available(*, unavailable, renamed: "ShariSettings.backgroundColorOfOverlayView")
+public var BackgroundColorOfOverlayView: UIColor = { fatalError() }()
+
+@available(*, unavailable, renamed: "ShariSettings.shouldTransformScaleDown")
+public var ShouldTransformScaleDown: Bool = { fatalError() }()
+
+public struct ShariSettings {
+    public static var shouldTransformScaleDown = true
+    public static var backgroundColorOfOverlayView = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+}
 
 public protocol ShariCompatible {
     associatedtype CompatibleType
-    var si: CompatibleType { get }
+
+    static var si: Shari<CompatibleType>.Type { get }
+    var si: Shari<CompatibleType> { get }
 }
 
 public final class Shari<Base> {
@@ -21,30 +31,32 @@ public final class Shari<Base> {
     public init(_ base: Base) {
         self.base = base
     }
-    
+
     func bothEndsViewControllers(viewController: UIViewController?, childViewControllers: [UIViewController]) -> (UIViewController?, UIViewController?) {
-        
         guard let visibleViewController = viewController else {
             return (nil, nil)
         }
-        
+
         weak var sourceViewController = visibleViewController
-        
+
         guard let index = childViewControllers.index(of: visibleViewController) else {
             return (sourceViewController, nil)
         }
-        
+
         weak var destinationViewController = childViewControllers[index - 1]
-        
+
         return (sourceViewController, destinationViewController)
     }
 }
 
 public extension ShariCompatible {
+
+    public static var si: Shari<Self>.Type {
+        return Shari<Self>.self
+    }
+
     public var si: Shari<Self> {
-        get {
-            return Shari(self)
-        }
+        return Shari(self)
     }
 }
 

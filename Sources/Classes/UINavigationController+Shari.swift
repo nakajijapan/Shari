@@ -43,7 +43,8 @@ public extension Shari where Base: UINavigationController {
         weak var destinationViewController: UIViewController?
         (sourceViewController, destinationViewController) = bothEndsViewControllers(
             viewController: base.visibleViewController,
-            childViewControllers: base.childViewControllers)
+            childViewControllers: base.childViewControllers
+        )
 
         sourceViewController?.willMove(toParentViewController: nil)
         base.willMove(toParentViewController: nil)
@@ -61,9 +62,7 @@ public extension Shari where Base: UINavigationController {
 
                 sourceViewController?.removeFromParentViewController()
         }
-
     }
-
 }
 
 extension UINavigationController {
@@ -74,13 +73,13 @@ extension UINavigationController {
         weak var destinationViewController: UIViewController?
         (sourceViewController, destinationViewController) = si.bothEndsViewControllers(
             viewController: childViewControllers.last,
-            childViewControllers: childViewControllers)
+            childViewControllers: childViewControllers
+        )
 
         si.parentTargetView.isUserInteractionEnabled = false
 
         sourceViewController?.willMove(toParentViewController: nil)
         willMove(toParentViewController: nil)
-
         sourceViewController?.beginAppearanceTransition(false, animated: true)
         destinationViewController?.beginAppearanceTransition(true, animated: true)
 
@@ -94,6 +93,5 @@ extension UINavigationController {
                 sourceViewController?.removeFromParentViewController()
                 self?.si.parentTargetView.isUserInteractionEnabled = true
         }
-
     }
 }

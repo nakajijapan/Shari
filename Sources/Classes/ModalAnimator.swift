@@ -40,11 +40,9 @@ public class ModalAnimator {
                 
                 toView.alpha = 1.0
                 
-        }) { (result) -> Void in
-            
+        }, completion: { _ -> Void in
             completion()
-            
-        }
+        })
         
     }
     
@@ -57,9 +55,12 @@ public class ModalAnimator {
     }
     
     public class func screenShotView(overlayView: UIView) -> UIImageView {
-        return overlayView.viewWithTag(InternalStructureViewType.ScreenShot.rawValue) as! UIImageView
+        let tag = InternalStructureViewType.ScreenShot.rawValue
+        guard let view = overlayView.viewWithTag(tag) as? UIImageView else {
+            fatalError("Invalid ScreenShotView")
+        }
+        return view
     }
-    
     
     public class func dismiss(fromView: UIView, presentingViewController: UIViewController?, completion: @escaping () -> Void) {
         
@@ -67,7 +68,7 @@ public class ModalAnimator {
         let modalView = ModalAnimator.modalView(fromView: fromView)
         let overlayView = ModalAnimator.overlayView(fromView: fromView)
         overlayView?.alpha = 1.0
-        
+
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             
             modalView?.frame = CGRect(
@@ -76,34 +77,34 @@ public class ModalAnimator {
                 width: modalView!.frame.width,
                 height: modalView!.frame.height)
             
-        }) { (result) -> Void in
-            
+        }, completion: { _ -> Void in
             overlayView?.removeFromSuperview()
             modalView?.removeFromSuperview()
-            
-        }
+        })
 
         // Begin Overlay Animation
         if overlayView != nil {
             
-            let screenShotView = overlayView?.subviews[0] as! UIImageView
+            guard let screenShotView = overlayView?.subviews[0] as? UIImageView else {
+                fatalError("Invalid ScreenShotView")
+            }
             screenShotView.layer.add(self.animationGroupForward(forward: false), forKey: "bringForwardAnimation")
             
             UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
                 
                 screenShotView.alpha = 1.0
                 
-                }, completion: { (result) -> Void in
+                }, completion: { _ -> Void in
                     
                     completion()
             })
         }
     }
     
-    public class func transitionBackgroundView(overlayView: UIView, location:CGPoint) {
+    public class func transitionBackgroundView(overlayView: UIView, location: CGPoint) {
         
         if !ShariSettings.shouldTransformScaleDown {
-            return;
+            return
         }
         
         let screenShotView = ModalAnimator.screenShotView(overlayView: overlayView)
@@ -115,17 +116,17 @@ public class ModalAnimator {
         screenShotView.layoutIfNeeded()
     }
     
-    // MARK - Private
+    // MARK: - Private
     
-    class func addScreenShotView(capturedView: UIView, screenshotContainer:UIView) {
+    class func addScreenShotView(capturedView: UIView, screenshotContainer: UIView) {
         
         screenshotContainer.isHidden = true
         
         UIGraphicsBeginImageContextWithOptions(capturedView.bounds.size, false, UIScreen.main.scale)
         capturedView.drawHierarchy(in: capturedView.bounds, afterScreenUpdates: false)
 
-        let image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
 
         screenshotContainer.isHidden = false
         
@@ -134,13 +135,13 @@ public class ModalAnimator {
         screenshot.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         screenshotContainer.addSubview(screenshot)
         
-        screenshot.layer.add(self.animationGroupForward(forward: true), forKey:"pushedBackAnimation")
+        screenshot.layer.add(self.animationGroupForward(forward: true), forKey: "pushedBackAnimation")
         UIView.animate(withDuration: 0.2) { () -> Void in
             screenshot.alpha = 0.5
         }
     }
     
-    class func animationGroupForward(forward:Bool) -> CAAnimationGroup {
+    class func animationGroupForward(forward: Bool) -> CAAnimationGroup {
         
         var transform = CATransform3DIdentity
         
@@ -150,7 +151,7 @@ public class ModalAnimator {
             transform = CATransform3DScale(transform, 1.0, 1.0, 1.0)
         }
         
-        let animation:CABasicAnimation = CABasicAnimation(keyPath: "transform")
+        let animation: CABasicAnimation = CABasicAnimation(keyPath: "transform")
         
         if forward {
             animation.toValue = NSValue(caTransform3D: transform)
@@ -172,7 +173,7 @@ public class ModalAnimator {
         return group
     }
     
-    class func map(value:CGFloat, inMin:CGFloat, inMax:CGFloat, outMin:CGFloat, outMax:CGFloat) -> CGFloat {
+    class func map(value: CGFloat, inMin: CGFloat, inMax: CGFloat, outMin: CGFloat, outMax: CGFloat) -> CGFloat {
         
         let inRatio = value / (inMax - inMin)
         let outRatio = (outMax - outMin) * inRatio + outMin

@@ -41,7 +41,9 @@ class ModalTableViewController: UITableViewController, ShariNavigationController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let currentController = navigationController as! ShariNavigationController
+        guard let currentController = navigationController as? ShariNavigationController else {
+            fatalError("Need the ShariNavigationController")
+        }
         let completion = {
             print("close via cell")
         }
@@ -58,7 +60,9 @@ class ModalTableViewController: UITableViewController, ShariNavigationController
     
     @IBAction func closeButtonDidTap(button: UIBarButtonItem) {
         
-        let currentController = navigationController as! ShariNavigationController
+        guard let currentController = navigationController as? ShariNavigationController else {
+            fatalError("Need the ShariNavigationController")
+        }
         let completion = {
             print("close via button")
         }
@@ -80,5 +84,4 @@ class ModalTableViewController: UITableViewController, ShariNavigationController
 
     }
 
-    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum InternalStructureViewType:Int {
+enum InternalStructureViewType: Int {
     case ToView = 900, ScreenShot = 910, Overlay = 920
 }
 

@@ -19,7 +19,9 @@ class DetailViewController: UIViewController {
 
     @IBAction func buttonDidTap(button: AnyObject) {
 
-        let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! ShariNavigationController
+        guard let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as? ShariNavigationController else {
+            fatalError("Need the ShariNavigationController")
+        }
 
         // Transition Setting
         //ShariSettings.shouldTransformScaleDown = false

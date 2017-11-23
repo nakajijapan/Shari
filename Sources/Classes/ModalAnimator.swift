@@ -14,7 +14,7 @@ public class ModalAnimator {
         
         let overlayView = UIView(frame: fromView.bounds)
         
-        overlayView.backgroundColor = BackgroundColorOfOverlayView
+        overlayView.backgroundColor = ShariSettings.backgroundColorOfOverlayView
         overlayView.isUserInteractionEnabled = true
         overlayView.tag = InternalStructureViewType.Overlay.rawValue
         fromView.addSubview(overlayView)
@@ -104,7 +104,7 @@ public class ModalAnimator {
     
     public class func transitionBackgroundView(overlayView: UIView, location:CGPoint) {
         
-        if !ShouldTransformScaleDown {
+        if !ShariSettings.shouldTransformScaleDown {
             return;
         }
         
@@ -149,7 +149,7 @@ public class ModalAnimator {
         
         var transform = CATransform3DIdentity
         
-        if ShouldTransformScaleDown {
+        if ShariSettings.shouldTransformScaleDown {
             transform = CATransform3DScale(transform, 0.95, 0.95, 1.0);
         } else {
             transform = CATransform3DScale(transform, 1.0, 1.0, 1.0);

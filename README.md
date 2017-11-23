@@ -13,9 +13,9 @@ Shari is the alternative to the library of `UIPickerView` (drum roll) in Swift. 
 
 ## Requirements
 
-- iOS 9.0+
-- Xcode 8+
-- Swift 3+
+- iOS 10.0+
+- Xcode 9+
+- Swift 4+
 
 ## CocoaPods
 
@@ -64,33 +64,33 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 - UINavigationController
 
 ```swift
-let modalNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
+let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! ShariNavigationController
+
 modalNavigationController.parentNavigationController = navigationController
-navigationController?.addChildViewController(modalNavigationController)
-navigationController?.si_presentViewController(modalNavigationController)
+navigationController?.si.present(modalNavigationController)
 ```
 
 - UITabBarController
 
 ```swift
-let modalNavigationController = storyboard!.instantiateViewControllerWithIdentifier("ModalNavigationController") as! Shari.NavigationController
+let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as! ShariNavigationController
+
 modalNavigationController.parentTabBarController = tabBarController
-tabBarController?.addChildViewController(modalNavigationController)
-tabBarController?.si_presentViewController(modalNavigationController)
+tabBarController?.si.present(modalNavigationController)
 ```
 
 
 You can change background color using following code:
 
 ```swift
-Shari.BackgroundColorOfOverlayView = UIColor.redColor()
+ShariSettings.backgroundColorOfOverlayView = UIColor.redColor()
 ```
 
 
 You can change with following code whether view should transform scale down:
 
 ```swift
-Shari.ShouldTransformScaleDown = true
+ShariSettings.shouldTransformScaleDown = true
 ```
 
 
@@ -108,10 +108,10 @@ Shari.ShouldTransformScaleDown = true
 You can close using the following code in viewController:
 
 ```swift
-let currentNavigationController = navigationController as! Shari.NavigationController
-currentNavigationController.parentNavigationController!.si_dismissModalView({ () -> Void in
-// something
-})
+let currentNavigationController = navigationController
+currentNavigationController?.si.dismiss {
+    // something
+}
 ```
 
 

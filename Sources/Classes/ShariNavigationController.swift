@@ -142,7 +142,7 @@ public class ShariNavigationController: UINavigationController {
 
         default:
             break
-           
+
         }
         
         previousLocation = location

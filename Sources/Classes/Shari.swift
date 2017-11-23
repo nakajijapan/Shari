@@ -22,8 +22,8 @@ public struct ShariSettings {
 public protocol ShariCompatible {
     associatedtype CompatibleType
 
-    static var si: Shari<CompatibleType>.Type { get set }
-    var si: Shari<CompatibleType> { get set }
+    static var si: Shari<CompatibleType>.Type { get }
+    var si: Shari<CompatibleType> { get }
 }
 
 public final class Shari<Base> {
@@ -55,14 +55,12 @@ public extension ShariCompatible {
         get {
             return Shari<Self>.self
         }
-        set {}
     }
 
     public var si: Shari<Self> {
         get {
             return Shari(self)
         }
-        set {}
     }
 }
 

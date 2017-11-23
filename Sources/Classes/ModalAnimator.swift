@@ -95,11 +95,8 @@ public class ModalAnimator {
                 }, completion: { (result) -> Void in
                     
                     completion()
-                    
             })
-            
         }
-        
     }
     
     public class func transitionBackgroundView(overlayView: UIView, location:CGPoint) {
@@ -115,7 +112,6 @@ public class ModalAnimator {
         screenShotView.layer.transform = transform
         screenShotView.setNeedsLayout()
         screenShotView.layoutIfNeeded()
-        
     }
     
     // MARK - Private
@@ -141,8 +137,6 @@ public class ModalAnimator {
         UIView.animate(withDuration: 0.2) { () -> Void in
             screenshot.alpha = 0.5
         }
-        
-        
     }
     
     class func animationGroupForward(forward:Bool) -> CAAnimationGroup {
@@ -158,15 +152,15 @@ public class ModalAnimator {
         let animation:CABasicAnimation = CABasicAnimation(keyPath: "transform")
         
         if forward {
-            animation.toValue = NSValue(caTransform3D:transform)
+            animation.toValue = NSValue(caTransform3D: transform)
         } else {
-            animation.toValue = NSValue(caTransform3D:CATransform3DIdentity)
+            animation.toValue = NSValue(caTransform3D: CATransform3DIdentity)
         }
         
         animation.duration = 0.2
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
-        animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         
         let group = CAAnimationGroup()
         group.fillMode = kCAFillModeForwards
@@ -177,7 +171,6 @@ public class ModalAnimator {
         return group
     }
     
-    
     class func map(value:CGFloat, inMin:CGFloat, inMax:CGFloat, outMin:CGFloat, outMax:CGFloat) -> CGFloat {
         
         let inRatio = value / (inMax - inMin)
@@ -185,6 +178,4 @@ public class ModalAnimator {
         
         return outRatio
     }
-    
-    
 }

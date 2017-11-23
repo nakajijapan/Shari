@@ -39,7 +39,8 @@ public extension Shari where Base: UITabBarController {
         weak var destinationViewController: UIViewController?
         (sourceViewController, destinationViewController) = bothEndsViewControllers(
             viewController: base.childViewControllers.last,
-            childViewControllers: base.childViewControllers)
+            childViewControllers: base.childViewControllers
+        )
 
         sourceViewController?.willMove(toParentViewController: nil)
         base.willMove(toParentViewController: nil)
@@ -57,9 +58,7 @@ public extension Shari where Base: UITabBarController {
 
                 sourceViewController?.removeFromParentViewController()
         }
-
     }
-
 }
 
 extension UITabBarController {
@@ -70,7 +69,8 @@ extension UITabBarController {
         weak var destinationViewController: UIViewController?
         (sourceViewController, destinationViewController) = si.bothEndsViewControllers(
             viewController: childViewControllers.last,
-            childViewControllers: childViewControllers)
+            childViewControllers: childViewControllers
+        )
 
         si.parentTargetView.isUserInteractionEnabled = false
 
@@ -89,7 +89,5 @@ extension UITabBarController {
                 sourceViewController?.removeFromParentViewController()
                 self?.si.parentTargetView.isUserInteractionEnabled = true
         }
-        
     }
-    
 }

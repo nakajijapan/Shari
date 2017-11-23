@@ -17,6 +17,7 @@ public class ModalAnimator {
         overlayView.backgroundColor = ShariSettings.backgroundColorOfOverlayView
         overlayView.isUserInteractionEnabled = true
         overlayView.tag = InternalStructureViewType.Overlay.rawValue
+        overlayView.accessibilityLabel = "ShariOverlayView"
         fromView.addSubview(overlayView)
         
         self.addScreenShotView(capturedView: fromView, screenshotContainer: overlayView)
@@ -81,7 +82,7 @@ public class ModalAnimator {
             modalView?.removeFromSuperview()
             
         }
-        
+
         // Begin Overlay Animation
         if overlayView != nil {
             
@@ -106,7 +107,7 @@ public class ModalAnimator {
         }
         
         let screenShotView = ModalAnimator.screenShotView(overlayView: overlayView)
-        let scale = self.map(value: location.y, inMin: 0, inMax: UIScreen.main.bounds.height, outMin: 0.9, outMax: 1.0)
+        let scale = self.map(value: location.y, inMin: 0, inMax: UIScreen.main.bounds.height, outMin: 0.7757, outMax: 1.0)
         let transform = CATransform3DMakeScale(scale, scale, 1)
         screenShotView.layer.removeAllAnimations()
         screenShotView.layer.transform = transform
@@ -144,7 +145,7 @@ public class ModalAnimator {
         var transform = CATransform3DIdentity
         
         if ShariSettings.shouldTransformScaleDown {
-            transform = CATransform3DScale(transform, 0.95, 0.95, 1.0);
+            transform = CATransform3DScale(transform, 0.90, 0.90, 1.0);
         } else {
             transform = CATransform3DScale(transform, 1.0, 1.0, 1.0);
         }

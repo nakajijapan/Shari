@@ -145,9 +145,9 @@ public class ModalAnimator {
         var transform = CATransform3DIdentity
         
         if ShariSettings.shouldTransformScaleDown {
-            transform = CATransform3DScale(transform, 0.90, 0.90, 1.0);
+            transform = CATransform3DScale(transform, 0.90, 0.90, 1.0)
         } else {
-            transform = CATransform3DScale(transform, 1.0, 1.0, 1.0);
+            transform = CATransform3DScale(transform, 1.0, 1.0, 1.0)
         }
         
         let animation:CABasicAnimation = CABasicAnimation(keyPath: "transform")

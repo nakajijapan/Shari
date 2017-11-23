@@ -17,7 +17,6 @@ class ShariTests: XCTestCase {
         XCTAssertEqual(ShariSettings.shouldTransformScaleDown, true)
     }
 
-
     func testMap() {
 
         var value = ModalAnimator.map(value: 400, inMin: 0, inMax: 800, outMin: 0.0, outMax: 1.0)

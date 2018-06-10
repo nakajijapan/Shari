@@ -22,9 +22,9 @@ public class ModalAnimator {
 
         self.addScreenShotView(capturedView: fromView, screenshotContainer: overlayView)
 
-        var toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: fromView.bounds.size.height)
-        toViewFrame.size.height = 0
-        toView.frame = toViewFrame
+        var toViewStartFrame = fromView.bounds.offsetBy(dx: 0, dy: fromView.bounds.size.height)
+        toViewStartFrame.size.height = 0
+        toView.frame = toViewStartFrame
         toView.tag = InternalStructureViewType.ToView.rawValue
         fromView.addSubview(toView)
 

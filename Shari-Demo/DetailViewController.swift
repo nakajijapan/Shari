@@ -29,5 +29,6 @@ class DetailViewController: UIViewController {
         
         modalNavigationController.parentNavigationController = navigationController
         navigationController?.si.present(modalNavigationController)
+        //navigationController?.si.present(modalNavigationController, height: 100)
     }
 }

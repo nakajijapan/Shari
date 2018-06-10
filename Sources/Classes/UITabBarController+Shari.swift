@@ -14,15 +14,16 @@ public extension Shari where Base: UITabBarController {
         return base.view
     }
 
-    func present(_ viewControllerToPresent: UIViewController) {
+    func present(_ viewControllerToPresent: UIViewController, height: CGFloat?) {
 
         base.addChildViewController(viewControllerToPresent)
         viewControllerToPresent.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView) { [weak self] in
+
+        ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView, toHeight: height, completion: { [weak self] in
             guard let strongslef = self else { return }
             viewControllerToPresent.endAppearanceTransition()
             viewControllerToPresent.didMove(toParentViewController: strongslef.base)
-        }
+        })
 
         let tapGestureRecognizer = UITapGestureRecognizer(
             target: base,
@@ -31,6 +32,10 @@ public extension Shari where Base: UITabBarController {
         let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
 
+    }
+
+    func present(_ viewControllerToPresent: UIViewController) {
+        self.present(viewControllerToPresent, height: nil)
     }
     
     func dismiss(completion: (() -> Void)? = nil) {

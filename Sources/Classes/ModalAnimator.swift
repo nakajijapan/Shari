@@ -9,43 +9,47 @@
 import UIKit
 
 public class ModalAnimator {
-    
-    public class func present(toView: UIView, fromView: UIView, completion: @escaping () -> Void) {
-        
+
+    public class func present(toView: UIView, fromView: UIView, toHeight: CGFloat?, completion: @escaping () -> Void) {
+
         let overlayView = UIView(frame: fromView.bounds)
-        
+
         overlayView.backgroundColor = ShariSettings.backgroundColorOfOverlayView
         overlayView.isUserInteractionEnabled = true
         overlayView.tag = InternalStructureViewType.Overlay.rawValue
         overlayView.accessibilityLabel = "ShariOverlayView"
         fromView.addSubview(overlayView)
-        
+
         self.addScreenShotView(capturedView: fromView, screenshotContainer: overlayView)
-        
-        var toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: fromView.bounds.size.height)
-        toViewFrame.size.height = 0
-        toView.frame = toViewFrame
-        
+
+        var toViewStartFrame = fromView.bounds.offsetBy(dx: 0, dy: fromView.bounds.size.height)
+        toViewStartFrame.size.height = 0
+        toView.frame = toViewStartFrame
         toView.tag = InternalStructureViewType.ToView.rawValue
         fromView.addSubview(toView)
-        
+
         UIView.animate(
             withDuration: 0.2,
             animations: { () -> Void in
-                
+
                 let statusBarHeight = UIApplication.shared.statusBarFrame.height
-                var toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: statusBarHeight + fromView.bounds.size.height / 2.0)
-                toViewFrame.size.height -= toViewFrame.origin.y
+                var toViewFrame: CGRect = .zero
+                if let toHeight = toHeight {
+                    toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: fromView.bounds.size.height - toHeight)
+                    toViewFrame.size.height = toHeight
+                } else {
+                    toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: statusBarHeight + fromView.bounds.size.height / 2.0)
+                    toViewFrame.size.height -= toViewFrame.origin.y
+                }
                 toView.frame = toViewFrame
-                
+
                 toView.alpha = 1.0
-                
+
         }, completion: { _ -> Void in
             completion()
         })
-        
     }
-    
+
     public class func overlayView(fromView: UIView) -> UIView? {
         return fromView.viewWithTag(InternalStructureViewType.Overlay.rawValue)
     }

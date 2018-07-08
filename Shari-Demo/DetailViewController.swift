@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
         //ShariSettings.backgroundColorOfOverlayView = UIColor.red
         
         modalNavigationController.parentNavigationController = navigationController
+        modalNavigationController.cornerRadius = 8
         navigationController?.si.present(modalNavigationController)
         //navigationController?.si.present(modalNavigationController, height: 100)
     }

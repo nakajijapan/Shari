@@ -9,6 +9,7 @@
 import UIKit
 
 public class ModalAnimator {
+    static var cornerRadius: CGFloat = 0
 
     public class func present(toView: UIView, fromView: UIView, toHeight: CGFloat?, completion: @escaping () -> Void) {
 
@@ -138,7 +139,12 @@ public class ModalAnimator {
         screenshot.tag = InternalStructureViewType.ScreenShot.rawValue
         screenshot.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         screenshotContainer.addSubview(screenshot)
-        
+
+        if cornerRadius > 0 {
+            screenshot.layer.cornerRadius = cornerRadius
+            screenshot.clipsToBounds = true
+        }
+
         screenshot.layer.add(self.animationGroupForward(forward: true), forKey: "pushedBackAnimation")
         UIView.animate(withDuration: 0.2) { () -> Void in
             screenshot.alpha = 0.5

@@ -23,7 +23,8 @@ public class ShariNavigationController: UINavigationController {
     
     public var dismissControllSwipeDown = false
     public var fullScreenSwipeUp = true
-    
+    public var cornerRadius: CGFloat = 0
+
     private var previousLocation = CGPoint.zero
     private var originalLocation = CGPoint.zero
     private var originalFrame = CGRect.zero
@@ -36,6 +37,12 @@ public class ShariNavigationController: UINavigationController {
             action: #selector(self.handlePanGesture(_:))
         )
         view.addGestureRecognizer(panGestureRecognizer)
+
+        if cornerRadius > 0 {
+            view.layer.cornerRadius = cornerRadius
+            view.clipsToBounds = true
+            ModalAnimator.cornerRadius = cornerRadius
+        }
     }
 
     private func animateMoveToTopPosition(gestureRecognizer: UIPanGestureRecognizer, backgroundView: UIView) {

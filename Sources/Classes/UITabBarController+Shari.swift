@@ -16,13 +16,13 @@ public extension Shari where Base: UITabBarController {
 
     func present(_ viewControllerToPresent: UIViewController, height: CGFloat?) {
 
-        base.addChildViewController(viewControllerToPresent)
+        base.addChild(viewControllerToPresent)
         viewControllerToPresent.beginAppearanceTransition(true, animated: true)
 
         ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView, toHeight: height, completion: { [weak self] in
             guard let strongslef = self else { return }
             viewControllerToPresent.endAppearanceTransition()
-            viewControllerToPresent.didMove(toParentViewController: strongslef.base)
+            viewControllerToPresent.didMove(toParent: strongslef.base)
         })
 
         let tapGestureRecognizer = UITapGestureRecognizer(
@@ -43,12 +43,12 @@ public extension Shari where Base: UITabBarController {
         weak var sourceViewController: UIViewController?
         weak var destinationViewController: UIViewController?
         (sourceViewController, destinationViewController) = bothEndsViewControllers(
-            viewController: base.childViewControllers.last,
-            childViewControllers: base.childViewControllers
+            viewController: base.children.last,
+            childViewControllers: base.children
         )
 
-        sourceViewController?.willMove(toParentViewController: nil)
-        base.willMove(toParentViewController: nil)
+        sourceViewController?.willMove(toParent: nil)
+        base.willMove(toParent: nil)
 
         sourceViewController?.beginAppearanceTransition(false, animated: true)
         destinationViewController?.beginAppearanceTransition(true, animated: true)
@@ -61,7 +61,7 @@ public extension Shari where Base: UITabBarController {
                 sourceViewController?.endAppearanceTransition()
                 destinationViewController?.endAppearanceTransition()
 
-                sourceViewController?.removeFromParentViewController()
+                sourceViewController?.removeFromParent()
         }
     }
 }
@@ -73,14 +73,14 @@ extension UITabBarController {
         weak var sourceViewController: UIViewController?
         weak var destinationViewController: UIViewController?
         (sourceViewController, destinationViewController) = si.bothEndsViewControllers(
-            viewController: childViewControllers.last,
-            childViewControllers: childViewControllers
+            viewController: children.last,
+            childViewControllers: children
         )
 
         si.parentTargetView.isUserInteractionEnabled = false
 
-        sourceViewController?.willMove(toParentViewController: nil)
-        willMove(toParentViewController: nil)
+        sourceViewController?.willMove(toParent: nil)
+        willMove(toParent: nil)
         sourceViewController?.beginAppearanceTransition(false, animated: true)
         destinationViewController?.beginAppearanceTransition(true, animated: true)
         
@@ -91,7 +91,7 @@ extension UITabBarController {
                 sourceViewController?.endAppearanceTransition()
                 destinationViewController?.endAppearanceTransition()
 
-                sourceViewController?.removeFromParentViewController()
+                sourceViewController?.removeFromParent()
                 self?.si.parentTargetView.isUserInteractionEnabled = true
         }
     }

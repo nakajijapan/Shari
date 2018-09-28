@@ -95,13 +95,10 @@ public class ModalAnimator {
             }
             screenShotView.layer.add(self.animationGroupForward(forward: false), forKey: "bringForwardAnimation")
             
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
-                
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
                 screenShotView.alpha = 1.0
-                
-                }, completion: { _ -> Void in
-                    
-                    completion()
+            }, completion: { _ -> Void in
+                completion()
             })
         }
     }
@@ -170,12 +167,12 @@ public class ModalAnimator {
         }
         
         animation.duration = 0.2
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         
         let group = CAAnimationGroup()
-        group.fillMode = kCAFillModeForwards
+        group.fillMode = CAMediaTimingFillMode.forwards
         group.isRemovedOnCompletion = false
         group.duration = animation.duration
         

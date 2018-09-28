@@ -65,7 +65,7 @@ public class ShariNavigationController: UINavigationController {
                 UIView.animate(
                     withDuration: 0.1,
                     delay: 0.0,
-                    options: UIViewAnimationOptions.curveLinear,
+                    options: .curveLinear,
                     animations: {
                         backgroundView.alpha = 0.0
                     },
@@ -84,7 +84,7 @@ public class ShariNavigationController: UINavigationController {
             delay: 0.0,
             usingSpringWithDamping: 0.5,
             initialSpringVelocity: 0.1,
-            options: UIViewAnimationOptions.curveLinear,
+            options: .curveLinear,
             animations: { [weak self] in
                 guard let strongslef = self else { return }
                 ModalAnimator.transitionBackgroundView(overlayView: backgroundView, location: strongslef.originalLocation)

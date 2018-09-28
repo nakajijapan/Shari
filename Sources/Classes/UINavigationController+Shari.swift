@@ -20,13 +20,13 @@ public extension Shari where Base: UINavigationController {
 
     func present(_ viewControllerToPresent: UIViewController, height: CGFloat?) {
 
-        base.addChildViewController(viewControllerToPresent)
+        base.addChild(viewControllerToPresent)
         viewControllerToPresent.beginAppearanceTransition(true, animated: true)
         ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView, toHeight: height, completion: { [weak self] in
 
             guard let strongSelf = self else { return }
             viewControllerToPresent.endAppearanceTransition()
-            viewControllerToPresent.didMove(toParentViewController: strongSelf.base)
+            viewControllerToPresent.didMove(toParent: strongSelf.base)
         })
 
         let tapGestureRecognizer = UITapGestureRecognizer(
@@ -48,11 +48,11 @@ public extension Shari where Base: UINavigationController {
         weak var destinationViewController: UIViewController?
         (sourceViewController, destinationViewController) = bothEndsViewControllers(
             viewController: base.visibleViewController,
-            childViewControllers: base.childViewControllers
+            childViewControllers: base.children
         )
 
-        sourceViewController?.willMove(toParentViewController: nil)
-        base.willMove(toParentViewController: nil)
+        sourceViewController?.willMove(toParent: nil)
+        base.willMove(toParent: nil)
 
         sourceViewController?.beginAppearanceTransition(false, animated: true)
         destinationViewController?.beginAppearanceTransition(true, animated: true)
@@ -65,7 +65,7 @@ public extension Shari where Base: UINavigationController {
                 sourceViewController?.endAppearanceTransition()
                 destinationViewController?.endAppearanceTransition()
 
-                sourceViewController?.removeFromParentViewController()
+                sourceViewController?.removeFromParent()
         }
     }
 }
@@ -77,14 +77,14 @@ extension UINavigationController {
         weak var sourceViewController: UIViewController?
         weak var destinationViewController: UIViewController?
         (sourceViewController, destinationViewController) = si.bothEndsViewControllers(
-            viewController: childViewControllers.last,
-            childViewControllers: childViewControllers
+            viewController: children.last,
+            childViewControllers: children
         )
 
         si.parentTargetView.isUserInteractionEnabled = false
 
-        sourceViewController?.willMove(toParentViewController: nil)
-        willMove(toParentViewController: nil)
+        sourceViewController?.willMove(toParent: nil)
+        willMove(toParent: nil)
         sourceViewController?.beginAppearanceTransition(false, animated: true)
         destinationViewController?.beginAppearanceTransition(true, animated: true)
 
@@ -95,7 +95,7 @@ extension UINavigationController {
                 sourceViewController?.endAppearanceTransition()
                 destinationViewController?.endAppearanceTransition()
 
-                sourceViewController?.removeFromParentViewController()
+                sourceViewController?.removeFromParent()
                 self?.si.parentTargetView.isUserInteractionEnabled = true
         }
     }

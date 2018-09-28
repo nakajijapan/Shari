@@ -26,6 +26,7 @@ class TabBarViewController: UIViewController {
         //ShariSettings.backgroundColorOfOverlayView = UIColor.red
 
         modalNavigationController.parentTabBarController = tabBarController
+        modalNavigationController.cornerRadius = 8
         tabBarController?.si.present(modalNavigationController)
     }
 }

@@ -95,13 +95,10 @@ public class ModalAnimator {
             }
             screenShotView.layer.add(self.animationGroupForward(forward: false), forKey: "bringForwardAnimation")
             
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: { () -> Void in
-                
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
                 screenShotView.alpha = 1.0
-                
-                }, completion: { _ -> Void in
-                    
-                    completion()
+            }, completion: { _ -> Void in
+                completion()
             })
         }
     }

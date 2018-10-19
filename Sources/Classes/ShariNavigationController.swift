@@ -45,6 +45,12 @@ public class ShariNavigationController: UINavigationController {
         }
     }
 
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
+        overlayView?.frame = parentTargetView.bounds
+    }
+
     private func animateMoveToTopPosition(gestureRecognizer: UIPanGestureRecognizer, backgroundView: UIView) {
         UIView.animate(
             withDuration: 0.2,

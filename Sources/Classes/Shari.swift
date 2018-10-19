@@ -17,6 +17,7 @@ public var ShouldTransformScaleDown: Bool = { fatalError() }()
 public struct ShariSettings {
     public static var shouldTransformScaleDown = true
     public static var backgroundColorOfOverlayView = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+    public static var isUsingScreenShotImage = true
 }
 
 public protocol ShariCompatible {

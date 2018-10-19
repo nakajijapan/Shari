@@ -21,7 +21,9 @@ public class ModalAnimator {
         overlayView.accessibilityLabel = "ShariOverlayView"
         fromView.addSubview(overlayView)
 
-        self.addScreenShotView(capturedView: fromView, screenshotContainer: overlayView)
+        if ShariSettings.isUsingScreenShotImage {
+            self.addScreenShotView(capturedView: fromView, screenshotContainer: overlayView)
+        }
 
         var toViewStartFrame = fromView.bounds.offsetBy(dx: 0, dy: fromView.bounds.size.height)
         toViewStartFrame.size.height = 0
@@ -59,10 +61,10 @@ public class ModalAnimator {
         return fromView.viewWithTag(InternalStructureViewType.ToView.rawValue)
     }
     
-    public class func screenShotView(overlayView: UIView) -> UIImageView {
+    public class func screenShotView(overlayView: UIView) -> UIImageView? {
         let tag = InternalStructureViewType.ScreenShot.rawValue
         guard let view = overlayView.viewWithTag(tag) as? UIImageView else {
-            fatalError("Invalid ScreenShotView")
+            return nil
         }
         return view
     }
@@ -81,7 +83,7 @@ public class ModalAnimator {
                 y: targetView.bounds.size.height,
                 width: modalView!.frame.width,
                 height: modalView!.frame.height)
-            
+            overlayView?.alpha = 0
         }, completion: { _ -> Void in
             overlayView?.removeFromSuperview()
             modalView?.removeFromSuperview()
@@ -89,10 +91,9 @@ public class ModalAnimator {
 
         // Begin Overlay Animation
         if overlayView != nil {
-            
-            guard let screenShotView = overlayView?.subviews[0] as? UIImageView else {
-                fatalError("Invalid ScreenShotView")
-            }
+            let isEmpty = overlayView?.subviews.isEmpty ?? false
+            if isEmpty { return completion() }
+            guard let screenShotView = overlayView?.subviews[0] as? UIImageView else { return completion() }
             screenShotView.layer.add(self.animationGroupForward(forward: false), forKey: "bringForwardAnimation")
             
             UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
@@ -108,14 +109,14 @@ public class ModalAnimator {
         if !ShariSettings.shouldTransformScaleDown {
             return
         }
-        
-        let screenShotView = ModalAnimator.screenShotView(overlayView: overlayView)
-        let scale = self.map(value: location.y, inMin: 0, inMax: UIScreen.main.bounds.height, outMin: 0.7757, outMax: 1.0)
-        let transform = CATransform3DMakeScale(scale, scale, 1)
-        screenShotView.layer.removeAllAnimations()
-        screenShotView.layer.transform = transform
-        screenShotView.setNeedsLayout()
-        screenShotView.layoutIfNeeded()
+        if let screenShotView = ModalAnimator.screenShotView(overlayView: overlayView) {
+            let scale = self.map(value: location.y, inMin: 0, inMax: UIScreen.main.bounds.height, outMin: 0.7757, outMax: 1.0)
+            let transform = CATransform3DMakeScale(scale, scale, 1)
+            screenShotView.layer.removeAllAnimations()
+            screenShotView.layer.transform = transform
+            screenShotView.setNeedsLayout()
+            screenShotView.layoutIfNeeded()
+        }
     }
     
     // MARK: - Private

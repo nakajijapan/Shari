@@ -15,6 +15,7 @@ class ShariTests: XCTestCase {
     func testSetting() {
         XCTAssertEqual(ShariSettings.backgroundColorOfOverlayView, UIColor(red: 0, green: 0, blue: 0, alpha: 1.0))
         XCTAssertEqual(ShariSettings.shouldTransformScaleDown, true)
+        XCTAssertEqual(ShariSettings.isUsingScreenShotImage, true)
     }
 
     func testMap() {

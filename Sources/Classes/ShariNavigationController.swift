@@ -28,6 +28,7 @@ public class ShariNavigationController: UINavigationController {
 
     private var previousLocation = CGPoint.zero
     private var originalLocation = CGPoint.zero
+    private var isRotating = false
 
     override public func viewDidLoad() {
 
@@ -56,15 +57,22 @@ public class ShariNavigationController: UINavigationController {
     }
 
     @objc func orientationDidChanged(_ notification: NSNotification) {
-        let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)!
-        view.frame = ModalAnimator.visibleFrameForContainerView(fromView: overlayView, visibleHeight: visibleHeight)
+        isRotating = false
+
+    }
+
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        isRotating = true
     }
 
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-
         guard let overlayView = ModalAnimator.overlayView(fromView: parentTargetView) else { return }
         overlayView.frame = parentTargetView.bounds
+
+        if isRotating {
+            view.frame = ModalAnimator.visibleFrameForContainerView(fromView: overlayView, visibleHeight: visibleHeight)
+        }
     }
 
     private func animateMoveToTopPosition(gestureRecognizer: UIPanGestureRecognizer, backgroundView: UIView) {

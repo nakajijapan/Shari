@@ -11,7 +11,7 @@ import UIKit
 public class ModalAnimator {
     static var cornerRadius: CGFloat = 0
 
-    public class func present(toView: UIView, fromView: UIView, toHeight: CGFloat?, completion: @escaping () -> Void) {
+    public class func present(toView: UIView, fromView: UIView, visibleHeight: CGFloat?, completion: @escaping () -> Void) {
 
         let overlayView = UIView(frame: fromView.bounds)
 
@@ -34,23 +34,24 @@ public class ModalAnimator {
         UIView.animate(
             withDuration: 0.2,
             animations: { () -> Void in
-
-                let statusBarHeight = UIApplication.shared.statusBarFrame.height
-                var toViewFrame: CGRect = .zero
-                if let toHeight = toHeight {
-                    toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: fromView.bounds.size.height - toHeight)
-                    toViewFrame.size.height = toHeight
-                } else {
-                    toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: statusBarHeight + fromView.bounds.size.height / 2.0)
-                    toViewFrame.size.height -= toViewFrame.origin.y
-                }
-                toView.frame = toViewFrame
-
+                toView.frame = self.visibleFrameForContainerView(fromView: fromView, visibleHeight: visibleHeight)
                 toView.alpha = 1.0
-
         }, completion: { _ -> Void in
             completion()
         })
+    }
+
+    public class func visibleFrameForContainerView(fromView: UIView, visibleHeight: CGFloat?) -> CGRect {
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        var toViewFrame: CGRect = .zero
+        if let visibleHeight = visibleHeight {
+            toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: fromView.bounds.size.height - visibleHeight)
+            toViewFrame.size.height = visibleHeight
+        } else {
+            toViewFrame = fromView.bounds.offsetBy(dx: 0, dy: statusBarHeight + fromView.bounds.size.height / 2.0)
+            toViewFrame.size.height -= toViewFrame.origin.y
+        }
+        return toViewFrame
     }
 
     public class func overlayView(fromView: UIView) -> UIView? {

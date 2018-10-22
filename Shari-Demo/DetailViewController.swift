@@ -25,12 +25,12 @@ class DetailViewController: UIViewController {
 
         // Transition Setting
         //ShariSettings.shouldTransformScaleDown = false
-        //ShariSettings.backgroundColorOfOverlayView = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
-        //ShariSettings.isUsingScreenShotImage = false
+        ShariSettings.backgroundColorOfOverlayView = UIColor(red: 1, green: 0, blue: 0, alpha: 0.6)
+        ShariSettings.isUsingScreenShotImage = false
         
         modalNavigationController.parentNavigationController = navigationController
         modalNavigationController.cornerRadius = 8
+        modalNavigationController.visibleHeight = 200
         navigationController?.si.present(modalNavigationController)
-        //navigationController?.si.present(modalNavigationController, height: 100)
     }
 }

@@ -14,12 +14,17 @@ public extension Shari where Base: UITabBarController {
         return base.view
     }
 
-    func present(_ viewControllerToPresent: UIViewController, height: CGFloat?) {
+    func present(_ viewControllerToPresent: UIViewController) {
+
+        var visibleHeight: CGFloat?
+        if let shariNavigationController = viewControllerToPresent as? ShariNavigationController {
+            visibleHeight = shariNavigationController.visibleHeight
+        }
 
         base.addChild(viewControllerToPresent)
         viewControllerToPresent.beginAppearanceTransition(true, animated: true)
 
-        ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView, toHeight: height, completion: { [weak self] in
+        ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView, visibleHeight: visibleHeight, completion: { [weak self] in
             guard let strongslef = self else { return }
             viewControllerToPresent.endAppearanceTransition()
             viewControllerToPresent.didMove(toParent: strongslef.base)
@@ -34,10 +39,6 @@ public extension Shari where Base: UITabBarController {
 
     }
 
-    func present(_ viewControllerToPresent: UIViewController) {
-        self.present(viewControllerToPresent, height: nil)
-    }
-    
     func dismiss(completion: (() -> Void)? = nil) {
 
         weak var sourceViewController: UIViewController?

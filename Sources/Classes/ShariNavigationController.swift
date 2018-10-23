@@ -71,7 +71,10 @@ public class ShariNavigationController: UINavigationController {
         overlayView.frame = parentTargetView.bounds
 
         if isRotating {
-            view.frame = ModalAnimator.visibleFrameForContainerView(fromView: overlayView, visibleHeight: visibleHeight)
+            view.frame = ModalAnimator.visibleFrameForContainerView(
+                fromView: overlayView,
+                visibleHeight: visibleHeight
+            )
         }
     }
 

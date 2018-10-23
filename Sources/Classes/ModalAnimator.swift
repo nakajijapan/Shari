@@ -11,10 +11,13 @@ import UIKit
 public class ModalAnimator {
     static var cornerRadius: CGFloat = 0
 
-    public class func present(toView: UIView, fromView: UIView, visibleHeight: CGFloat?, completion: @escaping () -> Void) {
+    public class func present(
+        toView: UIView,
+        fromView: UIView,
+        visibleHeight: CGFloat?,
+        completion: @escaping () -> Void) {
 
         let overlayView = UIView(frame: fromView.bounds)
-
         overlayView.backgroundColor = ShariSettings.backgroundColorOfOverlayView
         overlayView.isUserInteractionEnabled = true
         overlayView.tag = InternalStructureViewType.Overlay.rawValue

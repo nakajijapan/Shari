@@ -27,11 +27,14 @@ public extension Shari where Base: UINavigationController {
 
         base.addChild(viewControllerToPresent)
         viewControllerToPresent.beginAppearanceTransition(true, animated: true)
-        ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView, visibleHeight: visibleHeight, completion: { [weak self] in
-
-            guard let strongSelf = self else { return }
-            viewControllerToPresent.endAppearanceTransition()
-            viewControllerToPresent.didMove(toParent: strongSelf.base)
+        ModalAnimator.present(
+            toView: viewControllerToPresent.view,
+            fromView: parentTargetView,
+            visibleHeight: visibleHeight,
+            completion: { [weak self] in
+                guard let strongSelf = self else { return }
+                viewControllerToPresent.endAppearanceTransition()
+                viewControllerToPresent.didMove(toParent: strongSelf.base)
         })
 
         let tapGestureRecognizer = UITapGestureRecognizer(

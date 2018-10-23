@@ -24,14 +24,14 @@ public class ShariNavigationController: UINavigationController {
     public var dismissControllSwipeDown = false
     public var fullScreenSwipeUp = true
     public var cornerRadius: CGFloat = 0
+    public var visibleHeight: CGFloat?
 
     private var previousLocation = CGPoint.zero
     private var originalLocation = CGPoint.zero
-    private var originalFrame = CGRect.zero
-        
+    private var isRotating = false
+
     override public func viewDidLoad() {
-        originalFrame = view.frame
-        
+
         let panGestureRecognizer = UIPanGestureRecognizer(
             target: self,
             action: #selector(self.handlePanGesture(_:))
@@ -43,12 +43,39 @@ public class ShariNavigationController: UINavigationController {
             view.clipsToBounds = true
             ModalAnimator.cornerRadius = cornerRadius
         }
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.orientationDidChanged(_:)),
+            name: UIDevice.orientationDidChangeNotification,
+            object: nil
+        )
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func orientationDidChanged(_ notification: NSNotification) {
+        isRotating = false
+
+    }
+
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        isRotating = true
     }
 
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
-        overlayView?.frame = parentTargetView.bounds
+        guard let overlayView = ModalAnimator.overlayView(fromView: parentTargetView) else { return }
+        overlayView.frame = parentTargetView.bounds
+
+        if isRotating {
+            view.frame = ModalAnimator.visibleFrameForContainerView(
+                fromView: overlayView,
+                visibleHeight: visibleHeight
+            )
+        }
     }
 
     private func animateMoveToTopPosition(gestureRecognizer: UIPanGestureRecognizer, backgroundView: UIView) {
@@ -59,7 +86,7 @@ public class ShariNavigationController: UINavigationController {
                     return
                 }
 
-                var frame = strongslef.originalFrame
+                var frame = backgroundView.frame
                 let statusBarHeight = UIApplication.shared.statusBarFrame.height
                 frame.origin.y = statusBarHeight
                 frame.size.height -= statusBarHeight
@@ -95,7 +122,7 @@ public class ShariNavigationController: UINavigationController {
                 guard let strongslef = self else { return }
                 ModalAnimator.transitionBackgroundView(overlayView: backgroundView, location: strongslef.originalLocation)
 
-                var frame = strongslef.originalFrame
+                var frame = backgroundView.frame
                 frame.origin.y = strongslef.originalLocation.y
                 frame.size.height -= strongslef.originalLocation.y
                 strongslef.view.frame = frame

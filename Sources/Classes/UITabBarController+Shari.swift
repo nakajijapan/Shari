@@ -24,10 +24,14 @@ public extension Shari where Base: UITabBarController {
         base.addChild(viewControllerToPresent)
         viewControllerToPresent.beginAppearanceTransition(true, animated: true)
 
-        ModalAnimator.present(toView: viewControllerToPresent.view, fromView: parentTargetView, visibleHeight: visibleHeight, completion: { [weak self] in
-            guard let strongslef = self else { return }
-            viewControllerToPresent.endAppearanceTransition()
-            viewControllerToPresent.didMove(toParent: strongslef.base)
+        ModalAnimator.present(
+            toView: viewControllerToPresent.view,
+            fromView: parentTargetView,
+            visibleHeight: visibleHeight,
+            completion: { [weak self] in
+                guard let strongslef = self else { return }
+                viewControllerToPresent.endAppearanceTransition()
+                viewControllerToPresent.didMove(toParent: strongslef.base)
         })
 
         let tapGestureRecognizer = UITapGestureRecognizer(

@@ -72,7 +72,7 @@ public class ShariNavigationController: UINavigationController {
 
         if isRotating {
             view.frame = ModalAnimator.visibleFrameForContainerView(
-                fromView: overlayView,
+                fromViewFrame: overlayView.bounds,
                 visibleHeight: visibleHeight
             )
         }

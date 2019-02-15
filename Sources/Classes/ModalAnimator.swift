@@ -37,7 +37,8 @@ public class ModalAnimator {
         UIView.animate(
             withDuration: 0.2,
             animations: { () -> Void in
-                toView.frame = self.visibleFrameForContainerView(fromViewFrame: fromView.bounds, visibleHeight: visibleHeight)
+                toView.frame = self.visibleFrameForContainerView(fromViewFrame: fromView.bounds,
+                                                                 visibleHeight: visibleHeight)
                 toView.alpha = 1.0
         }, completion: { _ -> Void in
             completion()
@@ -59,7 +60,8 @@ public class ModalAnimator {
         }, completion: nil)
     }
 
-    public class func visibleFrameForContainerView(fromViewFrame: CGRect, visibleHeight: CGFloat?) -> CGRect {
+    public class func visibleFrameForContainerView(fromViewFrame: CGRect,
+                                                   visibleHeight: CGFloat?) -> CGRect {
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         var toViewFrame: CGRect = .zero
         if let visibleHeight = visibleHeight {

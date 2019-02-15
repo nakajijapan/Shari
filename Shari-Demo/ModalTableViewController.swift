@@ -55,7 +55,6 @@ class ModalTableViewController: UITableViewController, ShariNavigationController
 
         if indexPath.row == 0 {
             let viewController = NextViewController.loadFromStoryboard()
-            currentController.transition(height: 250)
             navigationController?.pushViewController(viewController, animated: true)
         } else {
             let completion = {

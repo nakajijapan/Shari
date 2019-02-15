@@ -40,20 +40,25 @@ class ModalTableViewController: UITableViewController, ShariNavigationController
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard let currentController = navigationController as? ShariNavigationController else {
-            fatalError("Need the ShariNavigationController")
-        }
-        let completion = {
-            print("close via cell")
-        }
-        
-        if let parentController = currentController.parentNavigationController {
-            parentController.si.dismiss(completion: completion)
-        } else if let parentController = currentController.parentTabBarController {
-            parentController.si.dismiss(completion: completion)
-        }
 
+        if indexPath.row == 0 {
+            let viewController = NextViewController.loadFromStoryboard()
+            navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            guard let currentController = navigationController as? ShariNavigationController else {
+                fatalError("Need the ShariNavigationController")
+            }
+
+            let completion = {
+                print("close via cell")
+            }
+
+            if let parentController = currentController.parentNavigationController {
+                parentController.si.dismiss(completion: completion)
+            } else if let parentController = currentController.parentTabBarController {
+                parentController.si.dismiss(completion: completion)
+            }
+        }
     }
     
     // MARK: - Button Actions

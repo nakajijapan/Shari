@@ -43,7 +43,6 @@ public extension Shari where Base: UINavigationController {
         )
         let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
-
     }
 
     func dismiss(completion: (() -> Void)? = nil) {

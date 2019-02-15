@@ -184,5 +184,15 @@ public class ShariNavigationController: UINavigationController {
         
         return navigationController!
     }
+
+    public func transition(height: CGFloat?) {
+        let backgroundView = ModalAnimator.overlayView(fromView: parentTargetView)!
+
+        ModalAnimator.animateVisibleView(
+            toView: view,
+            containerFrame: backgroundView.bounds,
+            visibleHeight: height
+        )
+    }
     
 }

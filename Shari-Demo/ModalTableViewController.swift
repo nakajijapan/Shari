@@ -20,6 +20,15 @@ class ModalTableViewController: UITableViewController, ShariNavigationController
         }
         tableView.isScrollEnabled = false
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        guard let currentController = navigationController as? ShariNavigationController else {
+            fatalError("Need the ShariNavigationController")
+        }
+        currentController.transition(height: nil)
+    }
     
     // MARK: - UITableViewDataSource
 
@@ -40,15 +49,15 @@ class ModalTableViewController: UITableViewController, ShariNavigationController
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let currentController = navigationController as? ShariNavigationController else {
+            fatalError("Need the ShariNavigationController")
+        }
 
         if indexPath.row == 0 {
             let viewController = NextViewController.loadFromStoryboard()
+            currentController.transition(height: 250)
             navigationController?.pushViewController(viewController, animated: true)
         } else {
-            guard let currentController = navigationController as? ShariNavigationController else {
-                fatalError("Need the ShariNavigationController")
-            }
-
             let completion = {
                 print("close via cell")
             }

@@ -72,7 +72,7 @@ public class ShariNavigationController: UINavigationController {
 
         if isRotating {
             view.frame = ModalAnimator.visibleFrameForContainerView(
-                fromView: overlayView,
+                fromViewFrame: overlayView.bounds,
                 visibleHeight: visibleHeight
             )
         }
@@ -183,6 +183,16 @@ public class ShariNavigationController: UINavigationController {
         }
         
         return navigationController!
+    }
+
+    public func transition(height: CGFloat?) {
+        let backgroundView = ModalAnimator.overlayView(fromView: parentTargetView)!
+
+        ModalAnimator.animateVisibleView(
+            toView: view,
+            containerFrame: backgroundView.bounds,
+            visibleHeight: height
+        )
     }
     
 }

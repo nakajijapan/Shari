@@ -31,10 +31,9 @@ public extension Shari where Base: UINavigationController {
             toView: viewControllerToPresent.view,
             fromView: parentTargetView,
             visibleHeight: visibleHeight,
-            completion: { [weak self] in
-                guard let strongSelf = self else { return }
+            completion: {
                 viewControllerToPresent.endAppearanceTransition()
-                viewControllerToPresent.didMove(toParent: strongSelf.base)
+                viewControllerToPresent.didMove(toParent: self.base)
         })
 
         let tapGestureRecognizer = UITapGestureRecognizer(
@@ -43,7 +42,6 @@ public extension Shari where Base: UINavigationController {
         )
         let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)
         overlayView!.addGestureRecognizer(tapGestureRecognizer)
-
     }
 
     func dismiss(completion: (() -> Void)? = nil) {

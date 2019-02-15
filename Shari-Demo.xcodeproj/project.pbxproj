@@ -10,6 +10,9 @@
 		B0A0CA5A1FC7010A00D132C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA591FC7010A00D132C9 /* README.md */; };
 		B0A0CA5D1FC708B200D132C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */; };
 		B0A0CA5E1FC708B200D132C9 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5C1FC708B200D132C9 /* .travis.yml */; };
+		DC32CAE822166E560048B1AB /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32CAE722166E560048B1AB /* NextViewController.swift */; };
+		DC32CAEB2216714D0048B1AB /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32CAEA2216714D0048B1AB /* UIViewControllerExtension.swift */; };
+		DC32CAED221672AB0048B1AB /* NextViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */; };
 		DC38C9731DB750C900EFD83E /* TabBarControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */; };
 		DC54326D1C62214300612AE3 /* NavigationControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */; };
 		DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E67FD1C3005070095C3AB /* AppDelegate.swift */; };
@@ -73,6 +76,9 @@
 		B0A0CA591FC7010A00D132C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B0A0CA5C1FC708B200D132C9 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		DC32CAE722166E560048B1AB /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
+		DC32CAEA2216714D0048B1AB /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NextViewController.storyboard; sourceTree = "<group>"; };
 		DC38C9721DB750C900EFD83E /* TabBarControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerUITests.swift; sourceTree = "<group>"; };
 		DC54326A1C62214300612AE3 /* Shari-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shari-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC54326C1C62214300612AE3 /* NavigationControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerUITests.swift; sourceTree = "<group>"; };
@@ -157,10 +163,13 @@
 				DC9E683A1C30088F0095C3AB /* DetailViewController.swift */,
 				DCBED0601DB727AC00D3453A /* TabBarViewController.swift */,
 				DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */,
+				DC32CAE722166E560048B1AB /* NextViewController.swift */,
 				DC9E68011C3005070095C3AB /* Main.storyboard */,
+				DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */,
 				DC9E68041C3005070095C3AB /* Assets.xcassets */,
 				DC9E68091C3005070095C3AB /* Info.plist */,
 				DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */,
+				DC32CAEA2216714D0048B1AB /* UIViewControllerExtension.swift */,
 			);
 			path = "Shari-Demo";
 			sourceTree = "<group>";
@@ -293,6 +302,7 @@
 				B0A0CA5E1FC708B200D132C9 /* .travis.yml in Resources */,
 				B0A0CA5D1FC708B200D132C9 /* .swiftlint.yml in Resources */,
 				DC9E68591C300C2E0095C3AB /* LaunchScreen.storyboard in Resources */,
+				DC32CAED221672AB0048B1AB /* NextViewController.storyboard in Resources */,
 				DC9E68051C3005070095C3AB /* Assets.xcassets in Resources */,
 				B0A0CA5A1FC7010A00D132C9 /* README.md in Resources */,
 				DC9E68031C3005070095C3AB /* Main.storyboard in Resources */,
@@ -332,9 +342,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC9E683C1C30088F0095C3AB /* DetailViewController.swift in Sources */,
+				DC32CAE822166E560048B1AB /* NextViewController.swift in Sources */,
 				DC9E683D1C30088F0095C3AB /* ModalTableViewController.swift in Sources */,
 				DC9E68001C3005070095C3AB /* ViewController.swift in Sources */,
 				DCBED0611DB727AC00D3453A /* TabBarViewController.swift in Sources */,
+				DC32CAEB2216714D0048B1AB /* UIViewControllerExtension.swift in Sources */,
 				DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

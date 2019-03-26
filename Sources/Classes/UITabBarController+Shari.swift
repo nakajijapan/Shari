@@ -28,10 +28,9 @@ public extension Shari where Base: UITabBarController {
             toView: viewControllerToPresent.view,
             fromView: parentTargetView,
             visibleHeight: visibleHeight,
-            completion: { [weak self] in
-                guard let strongslef = self else { return }
+            completion: {
                 viewControllerToPresent.endAppearanceTransition()
-                viewControllerToPresent.didMove(toParent: strongslef.base)
+                viewControllerToPresent.didMove(toParent: self.base)
         })
 
         let tapGestureRecognizer = UITapGestureRecognizer(

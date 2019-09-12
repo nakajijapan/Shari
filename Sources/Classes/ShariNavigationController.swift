@@ -117,7 +117,7 @@ public class ShariNavigationController: UINavigationController {
                     },
                     completion: { [weak self] _ in
                         guard let strongslef = self else { return }
-                        
+
                         if !strongslef.isScrollableOnOverlayView {
                             gestureRecognizer.isEnabled = false
                         }

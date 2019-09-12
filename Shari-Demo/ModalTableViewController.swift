@@ -37,7 +37,7 @@ class ModalTableViewController: UIViewController, ShariNavigationControllerDeleg
         }
         currentController.transition(height: nil)
     }
-    
+
     // MARK: - UITableViewDataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {

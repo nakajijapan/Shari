@@ -54,7 +54,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jTX-Du-mBV">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="e1F-bG-gFl">
+                        <barButtonItem key="leftBarButtonItem" title="Close" largeContentSizeImage="Close" id="e1F-bG-gFl">
                             <connections>
                                 <action selector="closeButtonDidTapWithButton:" destination="cBG-3I-UA0" id="ZUa-iR-zZc"/>
                             </connections>
@@ -146,7 +146,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJc-4S-9KJ">
                                 <rect key="frame" x="16" y="0.0" width="343" height="41"/>
-                                <accessibility key="accessibilityConfiguration" label="Button"/>
+                                <accessibility key="accessibilityConfiguration" label="Button1"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show with the navigationBar"/>
                                 <connections>
@@ -155,7 +155,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTd-MH-W1X">
                                 <rect key="frame" x="16" y="49" width="343" height="41"/>
-                                <accessibility key="accessibilityConfiguration" label="Button"/>
+                                <accessibility key="accessibilityConfiguration" label="Button2"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show without the navigationBar"/>
                                 <connections>
@@ -192,7 +192,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fz-Oy-NST">
                                 <rect key="frame" x="16" y="64" width="343" height="41"/>
-                                <accessibility key="accessibilityConfiguration" label="Button"/>
+                                <accessibility key="accessibilityConfiguration" label="Button1"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show with the navigationBar"/>
                                 <connections>
@@ -201,7 +201,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-ya-xwW">
                                 <rect key="frame" x="16" y="113" width="343" height="41"/>
-                                <accessibility key="accessibilityConfiguration" label="Button"/>
+                                <accessibility key="accessibilityConfiguration" label="Button2"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show without the navigationBar"/>
                                 <connections>
@@ -349,4 +349,7 @@
             <point key="canvasLocation" x="556" y="1896"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Close" width="16" height="16"/>
+    </resources>
 </document>

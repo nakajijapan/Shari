@@ -24,6 +24,7 @@ public class ShariNavigationController: UINavigationController {
     public var dismissControllSwipeDown = false
     public var fullScreenSwipeUp = true
     public var isScrollableOnOverlayView = false
+    public var isHiddenBackgroundView = true
     public var cornerRadius: CGFloat = 0
     public var visibleHeight: CGFloat?
 
@@ -95,7 +96,7 @@ public class ShariNavigationController: UINavigationController {
         UIView.animate(
             withDuration: 0.2,
             animations: { [weak self] in
-                guard let strongslef = self else {
+                guard let strongSelf = self else {
                     return
                 }
 
@@ -103,26 +104,30 @@ public class ShariNavigationController: UINavigationController {
                 let statusBarHeight = UIApplication.shared.statusBarFrame.height
                 frame.origin.y = statusBarHeight
                 frame.size.height -= statusBarHeight
-                strongslef.view.frame = frame
+                strongSelf.view.frame = frame
 
-                ModalAnimator.transitionBackgroundView(overlayView: backgroundView, location: strongslef.view.frame.origin)
+                ModalAnimator.transitionBackgroundView(overlayView: backgroundView, location: strongSelf.view.frame.origin)
             },
             completion: { _ -> Void in
                 UIView.animate(
                     withDuration: 0.1,
                     delay: 0.0,
                     options: .curveLinear,
-                    animations: {
-                        backgroundView.alpha = 0.0
+                    animations: { [weak self] in
+                        guard let strongSelf = self else { return }
+
+                        if strongSelf.isHiddenBackgroundView {
+                            backgroundView.alpha = 0.0
+                        }
                     },
                     completion: { [weak self] _ in
-                        guard let strongslef = self else { return }
+                        guard let strongSelf = self else { return }
 
-                        if !strongslef.isScrollableOnOverlayView {
+                        if !strongSelf.isScrollableOnOverlayView {
                             gestureRecognizer.isEnabled = false
                         }
 
-                        strongslef.si_delegate?.navigationControllerDidSpreadToEntire?(navigationController: strongslef)
+                        strongSelf.si_delegate?.navigationControllerDidSpreadToEntire?(navigationController: strongSelf)
                     }
                 )
         })

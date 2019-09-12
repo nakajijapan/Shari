@@ -144,8 +144,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJc-4S-9KJ">
-                                <rect key="frame" x="16" y="0.0" width="294" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJc-4S-9KJ">
+                                <rect key="frame" x="16" y="0.0" width="343" height="41"/>
                                 <accessibility key="accessibilityConfiguration" label="Button"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show with the navigationBar"/>
@@ -153,8 +153,8 @@
                                     <action selector="buttonDidTapWithButton:" destination="JDH-sg-6eo" eventType="touchUpInside" id="LPS-lx-y9o"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTd-MH-W1X">
-                                <rect key="frame" x="16" y="49" width="328" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTd-MH-W1X">
+                                <rect key="frame" x="16" y="49" width="343" height="41"/>
                                 <accessibility key="accessibilityConfiguration" label="Button"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show without the navigationBar"/>
@@ -165,10 +165,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NTd-MH-W1X" secondAttribute="trailing" id="KHP-H9-z1n"/>
                             <constraint firstItem="zJc-4S-9KJ" firstAttribute="leading" secondItem="dgA-0E-p6n" secondAttribute="leadingMargin" id="TwB-TX-FnY"/>
                             <constraint firstItem="NTd-MH-W1X" firstAttribute="leading" secondItem="zJc-4S-9KJ" secondAttribute="leading" id="Uu3-Ab-Xme"/>
                             <constraint firstItem="NTd-MH-W1X" firstAttribute="top" secondItem="zJc-4S-9KJ" secondAttribute="bottom" constant="8" id="g4n-j0-fXx"/>
                             <constraint firstItem="zJc-4S-9KJ" firstAttribute="top" secondItem="P0L-EJ-Syn" secondAttribute="bottom" id="jdQ-6G-yvS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zJc-4S-9KJ" secondAttribute="trailing" id="xOY-IW-N3D"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -188,8 +190,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fz-Oy-NST">
-                                <rect key="frame" x="16" y="64" width="294" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fz-Oy-NST">
+                                <rect key="frame" x="16" y="64" width="343" height="41"/>
                                 <accessibility key="accessibilityConfiguration" label="Button"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show with the navigationBar"/>
@@ -197,8 +199,8 @@
                                     <action selector="buttonDidTapWithButton:" destination="jtG-Bz-UGW" eventType="touchUpInside" id="rdu-R5-27S"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-ya-xwW">
-                                <rect key="frame" x="16" y="113" width="328" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-ya-xwW">
+                                <rect key="frame" x="16" y="113" width="343" height="41"/>
                                 <accessibility key="accessibilityConfiguration" label="Button"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Show without the navigationBar"/>
@@ -211,6 +213,8 @@
                         <constraints>
                             <constraint firstItem="lw0-ya-xwW" firstAttribute="leading" secondItem="7fz-Oy-NST" secondAttribute="leading" id="OxJ-43-Z3e"/>
                             <constraint firstItem="7fz-Oy-NST" firstAttribute="leading" secondItem="Rcx-nE-fIX" secondAttribute="leadingMargin" id="Qkh-b3-VYZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lw0-ya-xwW" secondAttribute="trailing" id="ihw-Bx-LP7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7fz-Oy-NST" secondAttribute="trailing" id="lXz-mR-yGD"/>
                             <constraint firstItem="7fz-Oy-NST" firstAttribute="top" secondItem="HeW-rr-2lW" secondAttribute="bottom" id="nPh-tc-xsW"/>
                             <constraint firstItem="lw0-ya-xwW" firstAttribute="top" secondItem="7fz-Oy-NST" secondAttribute="bottom" constant="8" id="tyS-Rl-ipO"/>
                         </constraints>

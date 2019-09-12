@@ -29,4 +29,14 @@ class TabBarViewController: UIViewController {
         modalNavigationController.cornerRadius = 8
         tabBarController?.si.present(modalNavigationController)
     }
+
+    @IBAction func button2DidTap(button: UIButton) {
+        guard let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalV2NavigationController") as? ShariNavigationController else {
+            fatalError("Need the ShariNavigationController")
+        }
+        
+        modalNavigationController.parentTabBarController = tabBarController
+        modalNavigationController.cornerRadius = 8
+        tabBarController?.si.present(modalNavigationController)
+    }
 }

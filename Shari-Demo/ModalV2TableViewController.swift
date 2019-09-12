@@ -1,15 +1,15 @@
 //
-//  ModalTableViewController.swift
-//  Shari
+//  ModalV2TableViewController.swift
+//  Shari-Demo
 //
-//  Created by nakajijapan on 2015/12/07.
-//  Copyright © 2015 nakajijapan. All rights reserved.
+//  Created by Daichi Nakajima on 2019/09/11.
+//  Copyright © 2019 nakajijapan. All rights reserved.
 //
 
 import UIKit
 import Shari
 
-class ModalTableViewController: UIViewController, ShariNavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class ModalV2TableViewController: UIViewController, ShariNavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -17,37 +17,48 @@ class ModalTableViewController: UIViewController, ShariNavigationControllerDeleg
             tableView.dataSource = self
         }
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         if let nc = navigationController as? ShariNavigationController {
             nc.si_delegate = self
             nc.fullScreenSwipeUp = true
             nc.dismissControllSwipeDown = true
-            nc.isScrollableOnOverlayView = false
+            nc.isScrollableOnOverlayView = true
         }
         tableView.isScrollEnabled = false
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         guard let currentController = navigationController as? ShariNavigationController else {
             fatalError("Need the ShariNavigationController")
         }
         currentController.transition(height: nil)
+        
+        let lineView = LineView(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(lineView)
+        
+        NSLayoutConstraint.activate([
+            lineView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            lineView.widthAnchor.constraint(equalToConstant: 50),
+            lineView.heightAnchor.constraint(equalToConstant: 20),
+            lineView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
     }
     
     // MARK: - UITableViewDataSource
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
         cell.textLabel!.text = "Title #\(indexPath.row)"
@@ -60,7 +71,7 @@ class ModalTableViewController: UIViewController, ShariNavigationControllerDeleg
         guard let currentController = navigationController as? ShariNavigationController else {
             fatalError("Need the ShariNavigationController")
         }
-
+        
         if indexPath.row == 0 {
             let viewController = NextViewController.loadFromStoryboard()
             navigationController?.pushViewController(viewController, animated: true)
@@ -68,7 +79,7 @@ class ModalTableViewController: UIViewController, ShariNavigationControllerDeleg
             let completion = {
                 print("close via cell")
             }
-
+            
             if let parentController = currentController.parentNavigationController {
                 parentController.si.dismiss(completion: completion)
             } else if let parentController = currentController.parentTabBarController {
@@ -77,32 +88,14 @@ class ModalTableViewController: UIViewController, ShariNavigationControllerDeleg
         }
     }
     
-    // MARK: - Button Actions
-    
-    @IBAction func closeButtonDidTap(button: UIBarButtonItem) {
-        
-        guard let currentController = navigationController as? ShariNavigationController else {
-            fatalError("Need the ShariNavigationController")
-        }
-        let completion = {
-            print("close via button")
-        }
-
-        if let parentController = currentController.parentNavigationController {
-            parentController.si.dismiss(completion: completion)
-        } else if let parentController = currentController.parentTabBarController {
-            parentController.si.dismiss(completion: completion)
-        }
-    }
-
     // MARK: - Shari.NavigationControllerDelegate
-
+    
     func navigationControllerDidSpreadToEntire(navigationController: UINavigationController) {
-
+        
         tableView.isScrollEnabled = true
-
+        
         print("spread to the entire")
-
+        
     }
-
+    
 }

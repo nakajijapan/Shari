@@ -23,6 +23,7 @@ public class ShariNavigationController: UINavigationController {
     
     public var dismissControllSwipeDown = false
     public var fullScreenSwipeUp = true
+    public var isScrollableOnOverlayView = false
     public var cornerRadius: CGFloat = 0
     public var visibleHeight: CGFloat?
 
@@ -58,7 +59,19 @@ public class ShariNavigationController: UINavigationController {
 
     @objc func orientationDidChanged(_ notification: NSNotification) {
         isRotating = false
-
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if isScrollableOnOverlayView {
+            let panGestureRecognizer = UIPanGestureRecognizer(
+                target: self,
+                action: #selector(self.handlePanGesture(_:))
+            )
+            let overlayView = ModalAnimator.overlayView(fromView: parentTargetView)!
+            overlayView.addGestureRecognizer(panGestureRecognizer)
+        }
     }
 
     public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -104,7 +117,11 @@ public class ShariNavigationController: UINavigationController {
                     },
                     completion: { [weak self] _ in
                         guard let strongslef = self else { return }
-                        gestureRecognizer.isEnabled = false
+                        
+                        if !strongslef.isScrollableOnOverlayView {
+                            gestureRecognizer.isEnabled = false
+                        }
+
                         strongslef.si_delegate?.navigationControllerDidSpreadToEntire?(navigationController: strongslef)
                     }
                 )

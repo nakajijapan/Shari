@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0132F292329008100413D0A /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F282329008100413D0A /* LineView.swift */; };
+		B0132F2C2329029300413D0A /* ModalV2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */; };
 		B0A0CA5A1FC7010A00D132C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA591FC7010A00D132C9 /* README.md */; };
 		B0A0CA5D1FC708B200D132C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */; };
 		B0A0CA5E1FC708B200D132C9 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5C1FC708B200D132C9 /* .travis.yml */; };
@@ -22,39 +24,16 @@
 		DC9E683C1C30088F0095C3AB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E683A1C30088F0095C3AB /* DetailViewController.swift */; };
 		DC9E683D1C30088F0095C3AB /* ModalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */; };
 		DC9E68591C300C2E0095C3AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */; };
-		DC9E686B1C300DAF0095C3AB /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; };
-		DC9E686C1C300DAF0095C3AB /* Shari.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E68221C3006C50095C3AB /* Shari.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCBED0611DB727AC00D3453A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBED0601DB727AC00D3453A /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DC4D0AC31DD7329000366D6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC9E68171C3006C50095C3AB /* Shari.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DC4D0AB71DD726C900366D6C;
-			remoteInfo = ShariTests;
-		};
 		DC54326F1C62214300612AE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC9E67F21C3005070095C3AB /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DC9E67F91C3005070095C3AB;
 			remoteInfo = "Shari-Demo";
-		};
-		DC9E68211C3006C50095C3AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC9E68171C3006C50095C3AB /* Shari.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DC9E67C11C2FDC020095C3AB;
-			remoteInfo = Shari;
-		};
-		DC9E686D1C300DAF0095C3AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC9E68171C3006C50095C3AB /* Shari.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = DC9E67C01C2FDC020095C3AB;
-			remoteInfo = Shari;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -65,7 +44,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC9E686C1C300DAF0095C3AB /* Shari.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B0132F282329008100413D0A /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalV2TableViewController.swift; sourceTree = "<group>"; };
 		B0A0CA591FC7010A00D132C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B0A0CA5C1FC708B200D132C9 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -89,7 +69,6 @@
 		DC9E68021C3005070095C3AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC9E68041C3005070095C3AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC9E68091C3005070095C3AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC9E68171C3006C50095C3AB /* Shari.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Shari.xcodeproj; sourceTree = "<group>"; };
 		DC9E683A1C30088F0095C3AB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC9E686B1C300DAF0095C3AB /* Shari.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +120,6 @@
 				DC9E67FC1C3005070095C3AB /* Shari-Demo */,
 				DC54326B1C62214300612AE3 /* Shari-DemoUITests */,
 				DC9E67FB1C3005070095C3AB /* Products */,
-				DC9E68171C3006C50095C3AB /* Shari.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,6 +140,8 @@
 				DC9E683A1C30088F0095C3AB /* DetailViewController.swift */,
 				DCBED0601DB727AC00D3453A /* TabBarViewController.swift */,
 				DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */,
+				B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */,
+				B0132F282329008100413D0A /* LineView.swift */,
 				DC32CAE722166E560048B1AB /* NextViewController.swift */,
 				DC9E68011C3005070095C3AB /* Main.storyboard */,
 				DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */,
@@ -172,15 +151,6 @@
 				DC32CAEA2216714D0048B1AB /* UIViewControllerExtension.swift */,
 			);
 			path = "Shari-Demo";
-			sourceTree = "<group>";
-		};
-		DC9E68181C3006C50095C3AB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DC9E68221C3006C50095C3AB /* Shari.framework */,
-				DC4D0AC41DD7329000366D6C /* ShariTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +187,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DC9E686E1C300DAF0095C3AB /* PBXTargetDependency */,
 			);
 			name = "Shari-Demo";
 			productName = "Shari-Demo";
@@ -250,18 +219,13 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = DC9E67F11C3005070095C3AB;
 			productRefGroup = DC9E67FB1C3005070095C3AB /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = DC9E68181C3006C50095C3AB /* Products */;
-					ProjectRef = DC9E68171C3006C50095C3AB /* Shari.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				DC9E67F91C3005070095C3AB /* Shari-Demo */,
@@ -269,23 +233,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		DC4D0AC41DD7329000366D6C /* ShariTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ShariTests.xctest;
-			remoteRef = DC4D0AC31DD7329000366D6C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DC9E68221C3006C50095C3AB /* Shari.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Shari.framework;
-			remoteRef = DC9E68211C3006C50095C3AB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DC5432681C62214300612AE3 /* Resources */ = {
@@ -345,8 +292,10 @@
 				DC32CAE822166E560048B1AB /* NextViewController.swift in Sources */,
 				DC9E683D1C30088F0095C3AB /* ModalTableViewController.swift in Sources */,
 				DC9E68001C3005070095C3AB /* ViewController.swift in Sources */,
+				B0132F292329008100413D0A /* LineView.swift in Sources */,
 				DCBED0611DB727AC00D3453A /* TabBarViewController.swift in Sources */,
 				DC32CAEB2216714D0048B1AB /* UIViewControllerExtension.swift in Sources */,
+				B0132F2C2329029300413D0A /* ModalV2TableViewController.swift in Sources */,
 				DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,11 +307,6 @@
 			isa = PBXTargetDependency;
 			target = DC9E67F91C3005070095C3AB /* Shari-Demo */;
 			targetProxy = DC54326F1C62214300612AE3 /* PBXContainerItemProxy */;
-		};
-		DC9E686E1C300DAF0095C3AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Shari;
-			targetProxy = DC9E686D1C300DAF0095C3AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

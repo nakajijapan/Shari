@@ -10,8 +10,8 @@
 		B0132F292329008100413D0A /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F282329008100413D0A /* LineView.swift */; };
 		B0132F2C2329029300413D0A /* ModalV2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */; };
 		B0132F2E232A0ACF00413D0A /* LineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F2D232A0ACF00413D0A /* LineButton.swift */; };
-		B0132F30232A0DEC00413D0A /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0132F2F232A0DEC00413D0A /* Shari.framework */; };
-		B0132F31232A0DEC00413D0A /* Shari.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0132F2F232A0DEC00413D0A /* Shari.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0132F33232A17CF00413D0A /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0132F32232A17CF00413D0A /* Shari.framework */; };
+		B0132F34232A17CF00413D0A /* Shari.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0132F32232A17CF00413D0A /* Shari.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0A0CA5A1FC7010A00D132C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA591FC7010A00D132C9 /* README.md */; };
 		B0A0CA5D1FC708B200D132C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */; };
 		B0A0CA5E1FC708B200D132C9 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5C1FC708B200D132C9 /* .travis.yml */; };
@@ -41,13 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DC9E686F1C300DAF0095C3AB /* Embed Frameworks */ = {
+		B0132F35232A17D000413D0A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B0132F31232A0DEC00413D0A /* Shari.framework in Embed Frameworks */,
+				B0132F34232A17CF00413D0A /* Shari.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +59,7 @@
 		B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalV2TableViewController.swift; sourceTree = "<group>"; };
 		B0132F2D232A0ACF00413D0A /* LineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineButton.swift; sourceTree = "<group>"; };
 		B0132F2F232A0DEC00413D0A /* Shari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Shari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0132F32232A17CF00413D0A /* Shari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Shari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A0CA591FC7010A00D132C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B0A0CA5C1FC708B200D132C9 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -93,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0132F30232A0DEC00413D0A /* Shari.framework in Frameworks */,
+				B0132F33232A17CF00413D0A /* Shari.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +124,7 @@
 		DC9E67F11C3005070095C3AB = {
 			isa = PBXGroup;
 			children = (
+				B0132F32232A17CF00413D0A /* Shari.framework */,
 				B0132F2F232A0DEC00413D0A /* Shari.framework */,
 				B0A0CA581FC700F800D132C9 /* MetaData */,
 				DC9E67FC1C3005070095C3AB /* Shari-Demo */,
@@ -190,8 +192,8 @@
 				DC9E67F61C3005070095C3AB /* Sources */,
 				DC9E67F71C3005070095C3AB /* Frameworks */,
 				DC9E67F81C3005070095C3AB /* Resources */,
-				DC9E686F1C300DAF0095C3AB /* Embed Frameworks */,
 				B0A0CA611FC7114300D132C9 /* ShellScript */,
+				B0132F35232A17D000413D0A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

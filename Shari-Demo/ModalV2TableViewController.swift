@@ -25,6 +25,7 @@ class ModalV2TableViewController: UIViewController, ShariNavigationControllerDel
             nc.fullScreenSwipeUp = true
             nc.dismissControllSwipeDown = true
             nc.isScrollableOnOverlayView = true
+            nc.isHiddenBackgroundView = false
         }
         tableView.isScrollEnabled = false
         navigationController?.setNavigationBarHidden(true, animated: false)

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B0132F292329008100413D0A /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F282329008100413D0A /* LineView.swift */; };
 		B0132F2C2329029300413D0A /* ModalV2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */; };
+		B0132F2E232A0ACF00413D0A /* LineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F2D232A0ACF00413D0A /* LineButton.swift */; };
 		B0A0CA5A1FC7010A00D132C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA591FC7010A00D132C9 /* README.md */; };
 		B0A0CA5D1FC708B200D132C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */; };
 		B0A0CA5E1FC708B200D132C9 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5C1FC708B200D132C9 /* .travis.yml */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		B0132F282329008100413D0A /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalV2TableViewController.swift; sourceTree = "<group>"; };
+		B0132F2D232A0ACF00413D0A /* LineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineButton.swift; sourceTree = "<group>"; };
 		B0A0CA591FC7010A00D132C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B0A0CA5C1FC708B200D132C9 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */,
 				B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */,
 				B0132F282329008100413D0A /* LineView.swift */,
+				B0132F2D232A0ACF00413D0A /* LineButton.swift */,
 				DC32CAE722166E560048B1AB /* NextViewController.swift */,
 				DC9E68011C3005070095C3AB /* Main.storyboard */,
 				DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */,
@@ -200,7 +203,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = nakajijapan;
 				TargetAttributes = {
 					DC5432691C62214300612AE3 = {
@@ -216,10 +219,9 @@
 			};
 			buildConfigurationList = DC9E67F51C3005070095C3AB /* Build configuration list for PBXProject "Shari-Demo" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -295,6 +297,7 @@
 				B0132F292329008100413D0A /* LineView.swift in Sources */,
 				DCBED0611DB727AC00D3453A /* TabBarViewController.swift in Sources */,
 				DC32CAEB2216714D0048B1AB /* UIViewControllerExtension.swift in Sources */,
+				B0132F2E232A0ACF00413D0A /* LineButton.swift in Sources */,
 				B0132F2C2329029300413D0A /* ModalV2TableViewController.swift in Sources */,
 				DC9E67FE1C3005070095C3AB /* AppDelegate.swift in Sources */,
 			);
@@ -354,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -409,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

@@ -37,14 +37,15 @@ class ModalV2TableViewController: UIViewController, ShariNavigationControllerDel
         }
         currentController.transition(height: nil)
         
-        let lineView = LineView(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
+        let lineView = LineView()
+        lineView.frame = .zero
         lineView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(lineView)
         
         NSLayoutConstraint.activate([
-            lineView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
-            lineView.widthAnchor.constraint(equalToConstant: 50),
-            lineView.heightAnchor.constraint(equalToConstant: 20),
+            lineView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            lineView.widthAnchor.constraint(equalToConstant: view.bounds.width),
+            lineView.heightAnchor.constraint(equalToConstant: 28),
             lineView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ])
     }

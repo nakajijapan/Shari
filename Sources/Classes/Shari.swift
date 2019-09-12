@@ -40,7 +40,7 @@ public final class Shari<Base> {
 
         weak var sourceViewController = visibleViewController
 
-        guard let index = childViewControllers.index(of: visibleViewController) else {
+        guard let index = childViewControllers.firstIndex(of: visibleViewController) else {
             return (sourceViewController, nil)
         }
 
@@ -52,11 +52,11 @@ public final class Shari<Base> {
 
 public extension ShariCompatible {
 
-    public static var si: Shari<Self>.Type {
+    static var si: Shari<Self>.Type {
         return Shari<Self>.self
     }
 
-    public var si: Shari<Self> {
+    var si: Shari<Self> {
         return Shari(self)
     }
 }

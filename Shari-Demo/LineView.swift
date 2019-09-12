@@ -5,7 +5,6 @@
 //  Created by Daichi Nakajima on 2019/09/11.
 //  Copyright © 2019 nakajijapan. All rights reserved.
 //
-
 import UIKit
 
 public class LineView: UIView {
@@ -20,7 +19,8 @@ public class LineView: UIView {
     override public func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        drawLine(onLayer: layer, fromPoint: CGPoint(x: 0, y: 0), toPoint: CGPoint(x: 50, y: 0))
+        let x = (rect.width / 2) - 25
+        drawLine(onLayer: layer, fromPoint: CGPoint(x: x, y: 8), toPoint: CGPoint(x: x + 50, y: 8))
     }
     
     func drawLine(onLayer layer: CALayer, fromPoint start: CGPoint, toPoint end: CGPoint) {

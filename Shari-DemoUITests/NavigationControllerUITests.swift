@@ -24,23 +24,26 @@ class NavigationControllerUITests: XCTestCase {
     func testShowAndClose() {
         let app = XCUIApplication()
         app.tables.staticTexts["Detail View Controller"].tap()
-        app.buttons["Button"].tap()
-        app.navigationBars["modal"].buttons["Close"].tap()
+        app.buttons["Button1"].tap()
+        app.navigationBars["Shari_Demo.ModalTableView"].buttons["Close"].tap()
     }
     
     func testShowAndSelect() {
         let app = XCUIApplication()
         let tablesQuery = app.tables
         tablesQuery.staticTexts["Detail View Controller"].tap()
-        app.buttons["Button"].tap()
+        app.buttons["Button1"].tap()
         tablesQuery.staticTexts["Title #0"].tap()
     }
     
     func testCloseWhenTappingBackgroundView() {
         let app = XCUIApplication()
         app.tables.staticTexts["Detail View Controller"].tap()
-        app.buttons["Button"].tap()
+        app.buttons["Button1"].tap()
         app.otherElements["ShariOverlayView"].tap()
+
+
+
     }
 
 }

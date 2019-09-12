@@ -26,16 +26,16 @@ class TabBarControllerUITests: XCTestCase {
         
         let app = XCUIApplication()
         app.tabBars.buttons["TabBar"].tap()
-        app.buttons["Button"].tap()
-        app.navigationBars["modal"].buttons["Close"].tap()
-        
+        app.buttons["Button1"].tap()
+        app.navigationBars["Shari_Demo.ModalTableView"].buttons["Close"].tap()
+
     }
     
     func testShowAndSelect() {
         
         let app = XCUIApplication()
         app.tabBars.buttons["TabBar"].tap()
-        app.buttons["Button"].tap()
+        app.buttons["Button1"].tap()
         
         let tablesQuery = app.tables
         tablesQuery.staticTexts["Title #0"].tap()

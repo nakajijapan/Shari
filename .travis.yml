@@ -7,7 +7,7 @@ env:
       - DESTINATION="platform=iOS Simulator,name=iPhone X"
 
 install:
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - gem install xcpretty 
 
 script:
   - rake test:framework DESTINATION="$DESTINATION"

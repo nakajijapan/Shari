@@ -40,18 +40,14 @@ public class ShariNavigationController: UINavigationController {
         )
         view.addGestureRecognizer(panGestureRecognizer)
 
-        if cornerRadius > 0 {
-            view.layer.cornerRadius = cornerRadius
-            view.clipsToBounds = true
-            ModalAnimator.cornerRadius = cornerRadius
-        }
-
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.orientationDidChanged(_:)),
             name: UIDevice.orientationDidChangeNotification,
             object: nil
         )
+
+        updateLayoutIfNeeded()
     }
 
     deinit {
@@ -215,6 +211,14 @@ public class ShariNavigationController: UINavigationController {
             containerFrame: backgroundView.bounds,
             visibleHeight: height
         )
+    }
+
+    public func updateLayoutIfNeeded() {
+        if cornerRadius > 0 {
+            view.layer.cornerRadius = cornerRadius
+            view.clipsToBounds = true
+            ModalAnimator.cornerRadius = cornerRadius
+        }
     }
     
 }

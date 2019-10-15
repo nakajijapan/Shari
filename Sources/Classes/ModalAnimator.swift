@@ -22,6 +22,7 @@ public class ModalAnimator {
         overlayView.isUserInteractionEnabled = true
         overlayView.tag = InternalStructureViewType.Overlay.rawValue
         overlayView.accessibilityLabel = "ShariOverlayView"
+        overlayView.alpha = 0
         fromView.addSubview(overlayView)
 
         if ShariSettings.isUsingScreenShotImage {
@@ -33,6 +34,12 @@ public class ModalAnimator {
         toView.frame = toViewStartFrame
         toView.tag = InternalStructureViewType.ToView.rawValue
         fromView.addSubview(toView)
+
+        UIView.animate(
+            withDuration: 0.15,
+            animations: { () -> Void in
+                overlayView.alpha = 1.0
+        }, completion: nil)
 
         UIView.animate(
             withDuration: 0.2,

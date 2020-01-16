@@ -63,3 +63,4 @@ public extension ShariCompatible {
 
 extension UINavigationController: ShariCompatible { }
 extension UITabBarController: ShariCompatible { }
+extension ShariBaseViewController: ShariCompatible { }

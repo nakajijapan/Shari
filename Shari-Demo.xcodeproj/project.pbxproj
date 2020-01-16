@@ -15,6 +15,7 @@
 		B0A0CA5A1FC7010A00D132C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA591FC7010A00D132C9 /* README.md */; };
 		B0A0CA5D1FC708B200D132C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */; };
 		B0A0CA5E1FC708B200D132C9 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5C1FC708B200D132C9 /* .travis.yml */; };
+		B0DE42B723CFFE1B00E2DD0C /* NextModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE42B623CFFE1B00E2DD0C /* NextModalViewController.swift */; };
 		DC32CAE822166E560048B1AB /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32CAE722166E560048B1AB /* NextViewController.swift */; };
 		DC32CAEB2216714D0048B1AB /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32CAEA2216714D0048B1AB /* UIViewControllerExtension.swift */; };
 		DC32CAED221672AB0048B1AB /* NextViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */; };
@@ -63,6 +64,7 @@
 		B0A0CA591FC7010A00D132C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B0A0CA5C1FC708B200D132C9 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		B0DE42B623CFFE1B00E2DD0C /* NextModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextModalViewController.swift; sourceTree = "<group>"; };
 		DC32CAE722166E560048B1AB /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		DC32CAEA2216714D0048B1AB /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NextViewController.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,50 @@
 			name = MetaData;
 			sourceTree = "<group>";
 		};
+		B0DE42B123CFF82900E2DD0C /* ModalOnModal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModalOnModal;
+			sourceTree = "<group>";
+		};
+		B0DE42B223CFF85000E2DD0C /* NoNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				B0132F2D232A0ACF00413D0A /* LineButton.swift */,
+				B0132F282329008100413D0A /* LineView.swift */,
+			);
+			path = NoNavigation;
+			sourceTree = "<group>";
+		};
+		B0DE42B323CFF89500E2DD0C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DC9E68011C3005070095C3AB /* Main.storyboard */,
+				DC9E67FD1C3005070095C3AB /* AppDelegate.swift */,
+				DC9E67FF1C3005070095C3AB /* ViewController.swift */,
+				DC9E683A1C30088F0095C3AB /* DetailViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B0DE42B423CFF8E000E2DD0C /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				DC32CAE722166E560048B1AB /* NextViewController.swift */,
+				DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		B0DE42B523CFFE0300E2DD0C /* NextModal */ = {
+			isa = PBXGroup;
+			children = (
+				B0DE42B623CFFE1B00E2DD0C /* NextModalViewController.swift */,
+			);
+			path = NextModal;
+			sourceTree = "<group>";
+		};
 		DC54326B1C62214300612AE3 /* Shari-DemoUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,17 +191,14 @@
 		DC9E67FC1C3005070095C3AB /* Shari-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				DC9E67FD1C3005070095C3AB /* AppDelegate.swift */,
-				DC9E67FF1C3005070095C3AB /* ViewController.swift */,
-				DC9E683A1C30088F0095C3AB /* DetailViewController.swift */,
+				B0DE42B523CFFE0300E2DD0C /* NextModal */,
+				B0DE42B323CFF89500E2DD0C /* Base */,
+				B0DE42B423CFF8E000E2DD0C /* Navigation */,
+				B0DE42B223CFF85000E2DD0C /* NoNavigation */,
+				B0DE42B123CFF82900E2DD0C /* ModalOnModal */,
 				DCBED0601DB727AC00D3453A /* TabBarViewController.swift */,
 				DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */,
 				B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */,
-				B0132F282329008100413D0A /* LineView.swift */,
-				B0132F2D232A0ACF00413D0A /* LineButton.swift */,
-				DC32CAE722166E560048B1AB /* NextViewController.swift */,
-				DC9E68011C3005070095C3AB /* Main.storyboard */,
-				DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */,
 				DC9E68041C3005070095C3AB /* Assets.xcassets */,
 				DC9E68091C3005070095C3AB /* Info.plist */,
 				DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */,
@@ -299,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC9E683C1C30088F0095C3AB /* DetailViewController.swift in Sources */,
+				B0DE42B723CFFE1B00E2DD0C /* NextModalViewController.swift in Sources */,
 				DC32CAE822166E560048B1AB /* NextViewController.swift in Sources */,
 				DC9E683D1C30088F0095C3AB /* ModalTableViewController.swift in Sources */,
 				DC9E68001C3005070095C3AB /* ViewController.swift in Sources */,

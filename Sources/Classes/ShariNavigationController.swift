@@ -17,7 +17,8 @@ public class ShariNavigationController: UINavigationController {
     public weak var si_delegate: ShariNavigationControllerDelegate?
     public var parentNavigationController: UINavigationController?
     public var parentTabBarController: UITabBarController?
-    
+    public var parentBaseViewController: ShariBaseViewController?
+
     public var minDeltaUpSwipe: CGFloat = 50.0
     public var minDeltaDownSwipe: CGFloat = 100.0
     
@@ -175,6 +176,8 @@ public class ShariNavigationController: UINavigationController {
                     controller.si.dismiss()
                 } else if let controller = parentNavigationController {
                     controller.si.dismiss()
+                } else if let controller = parentBaseViewController {
+                    controller.si.dismiss()
                 }
             } else {
                 animateBackToBeginPosition(gestureRecognizer: gestureRecognizer, backgroundView: backgroundView)
@@ -190,9 +193,12 @@ public class ShariNavigationController: UINavigationController {
     public var parentTargetView: UIView {
         if tabBarController != nil {
             return tabBarController!.si.parentTargetView
+        } else if navigationController != nil {
+            return navigationController!.si.parentTargetView
+        } else if parentBaseViewController != nil {
+            return parentBaseViewController!.si.parentTargetView
         }
-        
-        return navigationController!.si.parentTargetView
+        fatalError("Not exists parent controller")
     }
     
     public var parentController: UIViewController {

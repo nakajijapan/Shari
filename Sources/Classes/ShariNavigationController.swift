@@ -177,7 +177,6 @@ public class ShariNavigationController: UINavigationController {
                     controller.si.dismiss()
                 } else if let controller = parentNavigationController {
                     controller.si.dismiss()
-
                 } else if let controller = parentBaseViewController {
                     controller.si.dismiss()
                 }
@@ -195,9 +194,12 @@ public class ShariNavigationController: UINavigationController {
     public var parentTargetView: UIView {
         if tabBarController != nil {
             return tabBarController!.si.parentTargetView
+        } else if navigationController != nil {
+            return navigationController!.si.parentTargetView
+        } else if parentBaseViewController != nil {
+            return parentBaseViewController!.si.parentTargetView
         }
-        
-        return navigationController!.si.parentTargetView
+        fatalError("Not exists parent controller")
     }
     
     public var parentController: UIViewController {

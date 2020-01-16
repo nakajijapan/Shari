@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0DE42BB23D0190F00E2DD0C /* ShariBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DE42BA23D0190F00E2DD0C /* ShariBaseViewController.swift */; };
 		DC4D0ABA1DD726C900366D6C /* ShariTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D0AB91DD726C900366D6C /* ShariTests.swift */; };
 		DC4D0ABC1DD726C900366D6C /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9E67C11C2FDC020095C3AB /* Shari.framework */; };
 		DC9E68391C30084C0095C3AB /* Shari.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9E68381C30084C0095C3AB /* Shari.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,6 +23,8 @@
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.xcode.tools.swift.compiler;
 			fileType = sourcecode.swift;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 			);
@@ -41,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0DE42BA23D0190F00E2DD0C /* ShariBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShariBaseViewController.swift; sourceTree = "<group>"; };
 		DC4D0AB71DD726C900366D6C /* ShariTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShariTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC4D0AB91DD726C900366D6C /* ShariTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShariTests.swift; sourceTree = "<group>"; };
 		DC4D0ABB1DD726C900366D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 				DC9E68611C300D260095C3AB /* ShariNavigationController.swift */,
 				DC9E68631C300D260095C3AB /* UINavigationController+Shari.swift */,
 				DCBED0631DB7343E00D3453A /* UITabBarController+Shari.swift */,
+				B0DE42BA23D0190F00E2DD0C /* ShariBaseViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				DC9E68721C300DE50095C3AB /* Shari.swift in Sources */,
 				DCBED0651DB73EB700D3453A /* UITabBarController+Shari.swift in Sources */,
 				DC9E68701C300DE50095C3AB /* ModalAnimator.swift in Sources */,
+				B0DE42BB23D0190F00E2DD0C /* ShariBaseViewController.swift in Sources */,
 				DC9E68711C300DE50095C3AB /* ShariNavigationController.swift in Sources */,
 				DC9E68731C300DE50095C3AB /* UINavigationController+Shari.swift in Sources */,
 			);

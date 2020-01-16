@@ -28,7 +28,7 @@ public class NextModalViewController: ShariBaseViewController {
         ShariSettings.backgroundColorOfOverlayView = UIColor(red: 1, green: 0, blue: 0, alpha: 0.6)
         ShariSettings.isUsingScreenShotImage = false
 
-//        modalNavigationController.parentNavigationController = self
+        modalNavigationController.parentBaseViewController = self
         modalNavigationController.cornerRadius = 8
         //modalNavigationController.visibleHeight = 200 // Default: UIScreen.main.bounds.height * 0.5
         si.present(modalNavigationController)

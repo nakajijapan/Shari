@@ -133,7 +133,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <connections>
-                                            <segue destination="oVW-u4-FTW" kind="presentation" id="yRP-oO-XZw"/>
+                                            <segue destination="oVW-u4-FTW" kind="presentation" modalPresentationStyle="fullScreen" id="yRP-oO-XZw"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -208,7 +208,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8JI-Nf-sGj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eJL-SS-n8J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPJ-uA-C9U">
@@ -232,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfD-Me-rCG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="1176"/>
+            <point key="canvasLocation" x="2850" y="1300"/>
         </scene>
         <!--TabBar-->
         <scene sceneID="yHM-GY-M9P">

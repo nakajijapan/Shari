@@ -111,6 +111,42 @@
 			name = MetaData;
 			sourceTree = "<group>";
 		};
+		B0DE42B123CFF82900E2DD0C /* ModalOnModal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModalOnModal;
+			sourceTree = "<group>";
+		};
+		B0DE42B223CFF85000E2DD0C /* NoNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				B0132F2D232A0ACF00413D0A /* LineButton.swift */,
+				B0132F282329008100413D0A /* LineView.swift */,
+			);
+			path = NoNavigation;
+			sourceTree = "<group>";
+		};
+		B0DE42B323CFF89500E2DD0C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DC9E68011C3005070095C3AB /* Main.storyboard */,
+				DC9E67FD1C3005070095C3AB /* AppDelegate.swift */,
+				DC9E67FF1C3005070095C3AB /* ViewController.swift */,
+				DC9E683A1C30088F0095C3AB /* DetailViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B0DE42B423CFF8E000E2DD0C /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				DC32CAE722166E560048B1AB /* NextViewController.swift */,
+				DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		DC54326B1C62214300612AE3 /* Shari-DemoUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,17 +181,13 @@
 		DC9E67FC1C3005070095C3AB /* Shari-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				DC9E67FD1C3005070095C3AB /* AppDelegate.swift */,
-				DC9E67FF1C3005070095C3AB /* ViewController.swift */,
-				DC9E683A1C30088F0095C3AB /* DetailViewController.swift */,
+				B0DE42B323CFF89500E2DD0C /* Base */,
+				B0DE42B423CFF8E000E2DD0C /* Navigation */,
+				B0DE42B223CFF85000E2DD0C /* NoNavigation */,
+				B0DE42B123CFF82900E2DD0C /* ModalOnModal */,
 				DCBED0601DB727AC00D3453A /* TabBarViewController.swift */,
 				DC9E683B1C30088F0095C3AB /* ModalTableViewController.swift */,
 				B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */,
-				B0132F282329008100413D0A /* LineView.swift */,
-				B0132F2D232A0ACF00413D0A /* LineButton.swift */,
-				DC32CAE722166E560048B1AB /* NextViewController.swift */,
-				DC9E68011C3005070095C3AB /* Main.storyboard */,
-				DC32CAEC221672AB0048B1AB /* NextViewController.storyboard */,
 				DC9E68041C3005070095C3AB /* Assets.xcassets */,
 				DC9E68091C3005070095C3AB /* Info.plist */,
 				DC9E68581C300C2E0095C3AB /* LaunchScreen.storyboard */,

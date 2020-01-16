@@ -11,12 +11,6 @@ import Shari
 
 public class NextModalViewController: ShariBaseViewController {
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
     @IBAction func buttonDidTap(button: UIButton) {
 
         guard let modalNavigationController = storyboard!.instantiateViewController(withIdentifier: "ModalNavigationController") as? ShariNavigationController else {
@@ -35,4 +29,3 @@ public class NextModalViewController: ShariBaseViewController {
     }
 
 }
-

@@ -19,7 +19,6 @@ public class ShariNavigationController: UINavigationController {
     public var parentTabBarController: UITabBarController?
     public var parentBaseViewController: ShariBaseViewController?
 
-
     public var minDeltaUpSwipe: CGFloat = 50.0
     public var minDeltaDownSwipe: CGFloat = 100.0
     

@@ -17,7 +17,9 @@ public class ShariNavigationController: UINavigationController {
     public weak var si_delegate: ShariNavigationControllerDelegate?
     public var parentNavigationController: UINavigationController?
     public var parentTabBarController: UITabBarController?
-    
+    public var parentBaseViewController: ShariBaseViewController?
+
+
     public var minDeltaUpSwipe: CGFloat = 50.0
     public var minDeltaDownSwipe: CGFloat = 100.0
     
@@ -174,6 +176,9 @@ public class ShariNavigationController: UINavigationController {
                 if let controller = parentTabBarController {
                     controller.si.dismiss()
                 } else if let controller = parentNavigationController {
+                    controller.si.dismiss()
+
+                } else if let controller = parentBaseViewController {
                     controller.si.dismiss()
                 }
             } else {

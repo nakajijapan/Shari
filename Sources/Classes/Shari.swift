@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 @available(*, unavailable, renamed: "ShariSettings.backgroundColorOfOverlayView")
 public var BackgroundColorOfOverlayView: UIColor = { fatalError() }()

@@ -5,8 +5,8 @@
         "package": "Shari",
         "repositoryURL": "git@github.com:nakajijapan/Shari.git",
         "state": {
-          "branch": "use-swift-package",
-          "revision": "e188f8fe1c2cc416bcc295e2215327ab33b4b3ae",
+          "branch": "master",
+          "revision": "52c124ef70250c292a59199a2e755ee00981fb15",
           "version": null
         }
       }

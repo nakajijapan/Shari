@@ -595,7 +595,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:nakajijapan/Shari.git";
 			requirement = {
-				branch = "use-swift-package";
+				branch = master;
 				kind = branch;
 			};
 		};

@@ -10,8 +10,6 @@
 		B0132F292329008100413D0A /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F282329008100413D0A /* LineView.swift */; };
 		B0132F2C2329029300413D0A /* ModalV2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */; };
 		B0132F2E232A0ACF00413D0A /* LineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0132F2D232A0ACF00413D0A /* LineButton.swift */; };
-		B0132F33232A17CF00413D0A /* Shari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0132F32232A17CF00413D0A /* Shari.framework */; };
-		B0132F34232A17CF00413D0A /* Shari.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0132F32232A17CF00413D0A /* Shari.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0A0CA5A1FC7010A00D132C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA591FC7010A00D132C9 /* README.md */; };
 		B0A0CA5D1FC708B200D132C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */; };
 		B0A0CA5E1FC708B200D132C9 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B0A0CA5C1FC708B200D132C9 /* .travis.yml */; };
@@ -48,7 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B0132F34232A17CF00413D0A /* Shari.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,8 +56,6 @@
 		B0132F282329008100413D0A /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		B0132F2B2329029300413D0A /* ModalV2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalV2TableViewController.swift; sourceTree = "<group>"; };
 		B0132F2D232A0ACF00413D0A /* LineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineButton.swift; sourceTree = "<group>"; };
-		B0132F2F232A0DEC00413D0A /* Shari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Shari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0132F32232A17CF00413D0A /* Shari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Shari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A0CA591FC7010A00D132C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0A0CA5B1FC708B200D132C9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B0A0CA5C1FC708B200D132C9 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -96,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0132F33232A17CF00413D0A /* Shari.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,8 +164,6 @@
 		DC9E67F11C3005070095C3AB = {
 			isa = PBXGroup;
 			children = (
-				B0132F32232A17CF00413D0A /* Shari.framework */,
-				B0132F2F232A0DEC00413D0A /* Shari.framework */,
 				B0A0CA581FC700F800D132C9 /* MetaData */,
 				DC9E67FC1C3005070095C3AB /* Shari-Demo */,
 				DC54326B1C62214300612AE3 /* Shari-DemoUITests */,
@@ -323,7 +315,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -452,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -502,7 +494,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

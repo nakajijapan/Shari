@@ -16,7 +16,12 @@ Shari is the alternative to the library of `UIPickerView` (drum roll) in Swift. 
 
 - iOS 10.0+
 - Xcode 9+
-- Swift 4+
+- Swift 5+
+
+#### Swift Package Manager
+
+Add via Xcode in the [usual way](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
+
 
 ## CocoaPods
 

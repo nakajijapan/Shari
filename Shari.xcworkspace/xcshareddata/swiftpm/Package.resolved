@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Shari",
+        "repositoryURL": "git@github.com:nakajijapan/Shari.git",
+        "state": {
+          "branch": "master",
+          "revision": "52c124ef70250c292a59199a2e755ee00981fb15",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -41,9 +41,5 @@ class NavigationControllerUITests: XCTestCase {
         app.tables.staticTexts["Detail View Controller"].tap()
         app.buttons["Button1"].tap()
         app.otherElements["ShariOverlayView"].tap()
-
-
-
     }
-
 }

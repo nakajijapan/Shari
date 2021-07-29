@@ -6,7 +6,6 @@
 //
 //
 
-import Foundation
 import UIKit
 
 @available(*, unavailable, renamed: "ShariSettings.backgroundColorOfOverlayView")
